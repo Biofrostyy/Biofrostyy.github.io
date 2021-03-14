@@ -1,0 +1,197 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>书单 | Gridea</title>
+<link rel="shortcut icon" href="https://Biofrostyy.github.io/favicon.ico?v=1615729339065">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://Biofrostyy.github.io/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="书单 | Gridea - Atom Feed" href="https://Biofrostyy.github.io/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="上帝掷色子吗 2021.3.5---&gt;
+大数据之路：阿里巴巴大数据实践
+美团机器学习实践
+阿里云天池大赛赛题解析机器学习
+霍金三部曲
+算法与数据中台
+智能搜索和推荐系统
+果壳中的宇宙
+万物解释者
+给忙碌者的天体物理
+给好奇者的暗黑物理..." />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://Biofrostyy.github.io">
+  <img class="avatar" src="https://Biofrostyy.github.io/images/avatar.png?v=1615729339065" alt="">
+  </a>
+  <h1 class="site-title">
+    Gridea
+  </h1>
+  <p class="site-description">
+    温故而知新
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              书单
+            </h2>
+            <div class="post-info">
+              <span>
+                2021-03-14
+              </span>
+              <span>
+                1 min read
+              </span>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://Biofrostyy.github.io/post-images/shu-dan.jpg" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>上帝掷色子吗 2021.3.5---&gt;<br>
+大数据之路：阿里巴巴大数据实践<br>
+美团机器学习实践<br>
+阿里云天池大赛赛题解析机器学习<br>
+霍金三部曲<br>
+算法与数据中台<br>
+智能搜索和推荐系统<br>
+果壳中的宇宙<br>
+万物解释者<br>
+给忙碌者的天体物理<br>
+给好奇者的暗黑物理学<br>
+一想到还有95%的问题留给人类我就放心了<br>
+给仰望者的天文朝圣之旅<br>
+给未来人类的终极12问<br>
+数据仓库<br>
+谷歌分析宝典/谷歌数据分析方法<br>
+计算广告-互联网商业变现的市场与技术<br>
+数据结构<br>
+Vehicle Routing Problems, Methods and Applications second edition<br>
+Metahuristics for Vehicle Routing Problems<br>
+运筹需论坛-EURO2018论坛</p>
+
+              </div>
+              <div class="toc-container">
+                
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://Biofrostyy.github.io/post/hello-gridea/">
+              <h3 class="post-title">
+                Hello Gridea
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://Biofrostyy.github.io/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
