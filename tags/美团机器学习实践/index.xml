@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Pure theme for Hugo</title>
-    <link>https://biofrostyy.github.io/categories/</link>
-    <description>Recent content in Categories on Pure theme for Hugo</description>
+    <title>“美团机器学习实践” on Pure theme for Hugo</title>
+    <link>https://biofrostyy.github.io/tags/%E7%BE%8E%E5%9B%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/</link>
+    <description>Recent content in “美团机器学习实践” on Pure theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
     <lastBuildDate>Tue, 04 May 2021 14:57:57 +0800</lastBuildDate>
     
-        <atom:link href="https://biofrostyy.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://biofrostyy.github.io/tags/%E7%BE%8E%E5%9B%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
