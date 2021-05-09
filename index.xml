@@ -6,10 +6,19 @@
     <description>Recent content on Pure theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Mon, 22 Mar 2021 14:57:57 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 27 Mar 2021 14:57:57 +0800</lastBuildDate>
     
         <atom:link href="https://biofrostyy.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>美团机器学习实践 - 读书笔记 - Chapter 3 常用模型</title>
+      <link>https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A23/</link>
+      <pubDate>Sat, 27 Mar 2021 14:57:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A23/</guid>
+      <description>机器学习的算法有很多种，在工业界最常用的算法有以下几种：逻辑回归、场感知因子分解、梯度提升树、随机森林、神经网络。在Kaggle 的众多机器学</description>
+    </item>
     
     <item>
       <title>美团机器学习实践 - 读书笔记 - Chapter 1 问题建模</title>
