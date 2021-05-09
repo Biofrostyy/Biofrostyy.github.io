@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
-    <link>http://example.org/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <title>Pure theme for Hugo</title>
+    <link>https://biofrostyy.github.io/</link>
+    <description>Recent content on Pure theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <copyright>CC BY 4.0 CN</copyright>
     <lastBuildDate>Sun, 09 May 2021 14:57:57 +0800</lastBuildDate>
     
-        <atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://biofrostyy.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>My First Post</title>
-      <link>http://example.org/posts/my-first-post/</link>
+      <link>https://biofrostyy.github.io/2021/05/my-first-post/</link>
       <pubDate>Sun, 09 May 2021 14:57:57 +0800</pubDate>
       
-      <guid>http://example.org/posts/my-first-post/</guid>
+      <guid>https://biofrostyy.github.io/2021/05/my-first-post/</guid>
       <description>sefw wegaf sda</description>
     </item>
     
