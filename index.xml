@@ -30,15 +30,6 @@
     </item>
     
     <item>
-      <title>美团机器学习实践 - 读书笔记 - Chapter 16 大规模机器学习 cody</title>
-      <link>https://biofrostyy.github.io/2021/05/%E7%BE%8E%E5%9B%A216-%E5%89%AF%E6%9C%AC/</link>
-      <pubDate>Tue, 04 May 2021 14:57:57 +0800</pubDate>
-      
-      <guid>https://biofrostyy.github.io/2021/05/%E7%BE%8E%E5%9B%A216-%E5%89%AF%E6%9C%AC/</guid>
-      <description>并行计算编程技术 CPU并行计算，从体系层次上来讲，①CPU单核通过向量化技术提升单核的处理能力，②多核CPU通过多线程技术来充分利用多核处理</description>
-    </item>
-    
-    <item>
       <title>美团机器学习实践 - 读书笔记 - Chapter 7 评论挖掘</title>
       <link>https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A27/</link>
       <pubDate>Sun, 11 Apr 2021 14:57:57 +0800</pubDate>
