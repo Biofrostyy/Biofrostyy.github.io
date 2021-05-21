@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>
-        美团机器学习实践 - 读书笔记 - Chapter 1 问题建模 - Pure theme for Hugo
+        十分钟读完数学之美 - Pure theme for Hugo
       </title>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -20,29 +20,29 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content="#1. 通用流程 问题建模 （评估指标-&amp;gt;样本选择-&amp;gt;交叉验证 ）&amp;mdash;&amp;gt; 特征工程 &amp;mdash;&amp;gt; 模型选择 &amp;mdash;&amp;gt; 模型融合 &amp;mdash;&amp;gt; 模型应用 ①评估指标 线下" />
+    <meta name="description" content="本书基本上算是我自然语言处理方向的启蒙读物，虽然之后研究生读了机器学习，没有选择自然语言处理，但是无论是在学习中还是工作中，都还是会接触一些" />
     <meta name="generator" content="Hugo 0.83.1 with theme pure" />
-    <title>美团机器学习实践 - 读书笔记 - Chapter 1 问题建模 - Pure theme for Hugo</title>
+    <title>十分钟读完数学之美 - Pure theme for Hugo</title>
     
     
     <link rel="stylesheet" href="https://biofrostyy.github.io/css/style.min.fb13fd5ddc97d41b9d66abe87eb0b84d7b9599ae7cc8912e1d56a09fa1f3b386.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="美团机器学习实践 - 读书笔记 - Chapter 1 问题建模" />
-<meta property="og:description" content="#1. 通用流程 问题建模 （评估指标-&gt;样本选择-&gt;交叉验证 ）&mdash;&gt; 特征工程 &mdash;&gt; 模型选择 &mdash;&gt; 模型融合 &mdash;&gt; 模型应用 ①评估指标 线下" />
+    <meta property="og:title" content="十分钟读完数学之美" />
+<meta property="og:description" content="本书基本上算是我自然语言处理方向的启蒙读物，虽然之后研究生读了机器学习，没有选择自然语言处理，但是无论是在学习中还是工作中，都还是会接触一些" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A21/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-03-22T14:57:57&#43;08:00" />
-<meta property="article:modified_time" content="2021-03-22T14:57:57&#43;08:00" />
+<meta property="og:url" content="https://biofrostyy.github.io/2021/05/10%E5%88%86%E9%92%9F%E8%AF%BB%E5%AE%8C%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-17T16:21:34&#43;08:00" />
+<meta property="article:modified_time" content="2021-05-17T16:21:34&#43;08:00" />
 
-<meta itemprop="name" content="美团机器学习实践 - 读书笔记 - Chapter 1 问题建模">
-<meta itemprop="description" content="#1. 通用流程 问题建模 （评估指标-&gt;样本选择-&gt;交叉验证 ）&mdash;&gt; 特征工程 &mdash;&gt; 模型选择 &mdash;&gt; 模型融合 &mdash;&gt; 模型应用 ①评估指标 线下"><meta itemprop="datePublished" content="2021-03-22T14:57:57&#43;08:00" />
-<meta itemprop="dateModified" content="2021-03-22T14:57:57&#43;08:00" />
-<meta itemprop="wordCount" content="1623">
-<meta itemprop="keywords" content="“美团机器学习实践”,“读书笔记”," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="美团机器学习实践 - 读书笔记 - Chapter 1 问题建模"/>
-<meta name="twitter:description" content="#1. 通用流程 问题建模 （评估指标-&gt;样本选择-&gt;交叉验证 ）&mdash;&gt; 特征工程 &mdash;&gt; 模型选择 &mdash;&gt; 模型融合 &mdash;&gt; 模型应用 ①评估指标 线下"/>
+<meta itemprop="name" content="十分钟读完数学之美">
+<meta itemprop="description" content="本书基本上算是我自然语言处理方向的启蒙读物，虽然之后研究生读了机器学习，没有选择自然语言处理，但是无论是在学习中还是工作中，都还是会接触一些"><meta itemprop="datePublished" content="2021-05-17T16:21:34&#43;08:00" />
+<meta itemprop="dateModified" content="2021-05-17T16:21:34&#43;08:00" />
+<meta itemprop="wordCount" content="3330">
+<meta itemprop="keywords" content="“数学之美”,“读书笔记”," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="十分钟读完数学之美"/>
+<meta name="twitter:description" content="本书基本上算是我自然语言处理方向的启蒙读物，虽然之后研究生读了机器学习，没有选择自然语言处理，但是无论是在学习中还是工作中，都还是会接触一些"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -317,8 +317,8 @@ function tagCloud(where, min, max) {
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/2021/03/%E7%BE%8E%E5%9B%A21/"
-    >美团机器学习实践 - 读书笔记 - Chapter 1 问题建模</a
+    href="/2021/05/10%E5%88%86%E9%92%9F%E8%AF%BB%E5%AE%8C%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/"
+    >十分钟读完数学之美</a
   >
 </h1>
 
@@ -326,51 +326,47 @@ function tagCloud(where, min, max) {
         
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A21/" class="article-date">
-  <time datetime="2021-03-22 14:57:57 &#43;0800 CST" itemprop="datePublished">2021-03-22</time>
+<a href="https://biofrostyy.github.io/2021/05/10%E5%88%86%E9%92%9F%E8%AF%BB%E5%AE%8C%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/" class="article-date">
+  <time datetime="2021-05-17 16:21:34 &#43;0800 CST" itemprop="datePublished">2021-05-17</time>
 </a>
 </span>
 <span class="article-category">
   <i class="icon icon-folder"></i>&nbsp;
-  <a class="article-category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"> “机器学习” </a>
+  <a class="article-category-link" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> “读书笔记” </a>
 </span>  
   <span class="article-tag">
     <i class="icon icon-tags"></i>&nbsp;
-    <a class="article-tag-link" href="/tags/%E7%BE%8E%E5%9B%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/"> “美团机器学习实践” </a>
+    <a class="article-tag-link" href="/tags/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/"> “数学之美” </a>
     <a class="article-tag-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> “读书笔记” </a>
   </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1623 words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 4 minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 3330 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 7 minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <h1 id="1-通用流程">#1. 通用流程</h1>
-<p>问题建模 （评估指标-&gt;样本选择-&gt;交叉验证 ）&mdash;&gt; 特征工程 &mdash;&gt; 模型选择 &mdash;&gt; 模型融合 &mdash;&gt; 模型应用</p>
-<h2 id="评估指标">①评估指标</h2>
-<p>线下使用的机器学习评估指标需要尽可能的与线上使用的业务指标变化趋势一致。
-<strong>并且在实际问题中，我们需要考虑我们对不同误差的容忍程度。</strong>
-<strong>比如在癌症检验、贷款风险的评估中，我们对FN不敏感，但是对FP敏感，即宁可错杀也不放过。又如RMSE与MAE相比，对大误差有更大的惩罚，而MAPE对负值误差的惩罚大于正值误差，而RMSLE对预测值偏小的惩罚会比偏大大（例如，一个人20岁，预测成15岁的惩罚会比25岁大）</strong>
-分类指标：
-1.在阈值两端坐跷跷板的<code>精确率和召回率</code>
-2.综合考虑精确率与召回率的<code>F1</code>及带加权的<code>Fα</code>
-3.<code>ROC&amp;AUC</code>
-4.<code>KS</code>衡量正负样本的区分程度（多用于风控）
-5.<code>IV</code></p>
-<p>回归指标：
-1.<code>MAE</code>与加权平均绝对误差（对不同样本赋予不同权重）<code>WMAE</code>
-2.与量纲无关，不同问题可比平均绝对百分误差MAPE，缺点：对yi取值敏感，对负值误差惩罚大于正值误差，改进：<code>MASE</code>、<code>sMAPE</code>、<code>MDA</code>.</p>
-<h2 id="样本选择">②样本选择</h2>
-<p>从全部样本中选择子集使模型获得的有效信息不会减少，训练效果不变。样本选择不仅可以筛选冗余数据提取出重要的信息，精准打击使模型训练时长减少，以适应计算量大的复杂模型，更可以通过去除噪声数据提高训练集质量，改善模型效果。</p>
-<p>1.去除噪声，最重要的我们可以通过一些<code>业务本身的特性</code>做一些数据过滤工作，例如缺失值是否有含义、清洗爬虫数据或用户最后一次点击（用户跳转或离开）后的曝光。当然处理噪声数据时，需要权衡模型的健壮性和模型的效果。处理误标注实例，常见的有<code>集成过滤法EF</code>、<code>交叉验证委员会过滤法CVCF</code>和<code>迭代分割过滤法IPF</code>，这些方法都是基于融合或者投票的思想进行数据过滤的。</p>
-<p>2.样本选择-采样，采样不仅可以降低训练成本，还可以在不平衡样本中平衡比例。一个好的样本子集应该具有无偏性和很小的样本方差。</p>
-<p>3.样本选择-<code>原型选择PS</code>，根据选择的样本，原型选择相关算法可以分为如下三类：Condensation(保留决策边界处样本)、Edition（删除边界的异常点，使得边界更平滑）和Hybrid(尝试找到最小的样本集S，能够保持甚至提升测试集上的泛化精度)。也可以类似特征选择，根据选择样本的策略进行分类：包装器（根据模型的目标函数）和过滤器（样本的选择标准不基于模型）。</p>
-<p>4.样本选择-<code>训练集选择</code>，构建预测模型来进行样本选择，如决策树、ANN和SVM等</p>
-<h2 id="交叉验证">③交叉验证</h2>
-<p>测试集可以帮助防止过拟合，也可以帮助调参。我们将划分训练集和测试集的方法统称为交叉验证。一般数据量足够时，一般采用留出法和交叉验证法，而在数据量较小，并且难以有效区分训练集和测试集时，自助法很有用。</p>
-<p>1.<code>留出法</code>，简单划分成两部分，不能充分利用数据并且训练集和测试集的划分严重影响最终结果，但实际工作中有一种普遍的应用场景广泛使用留出法：具有明显时间序列因素的数据，即线上数据的时间都在离线数据之后，这种情况下，应该使测试集时间分布在训练集时间之后。</p>
-<p>2.<code>K折交叉验证</code>，K的选取是一个Bias和Variance的trade-off。K越大，每次投入的训练集的数据越多，模型的Bias越小。但是K越大，又意味着每一次选取的训练集之前的相关性越大（考虑最极端的例子，当k=N，也就是在LOOCV里，每次的训练数据几乎是一样的）。而这种大相关性会导致最终的test error具有更大的Variance。一般来说，根据经验我们一般选择k=5或10。书中有提到，数据稀疏时，<!-- raw HTML omitted -->留一法也就是K=N很适用，个人没有很理解原理（这里面的稀疏指样本数小还是稀疏矩阵中的稀疏？），如果有缘人看到可以Email我探讨。<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<p>3.<code>Bootstrapping</code>，有放回的重复采样，由于n次没被采到的概率取n极限得0.368，即测试集约有0.368n条样本。自助法解决了训练集测试集大小所导致的偏差，但是由于改变了初始数据集的分布引入了估计偏差。</p>
+      <p>本书基本上算是我自然语言处理方向的启蒙读物，虽然之后研究生读了机器学习，没有选择自然语言处理，但是无论是在学习中还是工作中，都还是会接触一些相关应用。例如最近工作中有做的拖寄物三级分类，就是处理较短的短句的一种自然语言处理问题，包括分词与分类学习。还有基于拖寄物分类结果的用户兴趣挖掘，TF-IDF初版，兴趣标签多分类，读过的书《美团机器学习实践》中也讨论过评论挖掘的问题。</p>
+<p>在此记录读书中的收获和积累，也希望给无暇读书的同行一个十分钟读完本书的可能。</p>
+<h2 id="统计语言模型">①统计语言模型</h2>
+<p>当前词的概率只取决于前面N-1个词，这种假设被称为N-1阶马尔可夫假设，对应的语言模型称为N元模型(N-Gram Model)。N = 2的二元模型就只取决于前一个词，而N = 1的一元模型实际上是一个上下文无关的模型，也就是假定当前词出现的概率与前面的词无关。而在实际中，应用最多的是N=3的三元模型，更高阶的模型就很少使用。</p>
+<p>为什么N取值一般都这么小呢？这里主要有两个原因。首先，N元模型的大小（或者说空间复杂度）几乎是N的指数函数，即O(|V|^N )，这里|V|是一种语言词典的词汇量，一般在几万到几十万个。而使用N元模型的速度（或者说时间复杂度）也几乎是一个指数函数，即O(|V|^(N−1) )。因此，N不能很大。而且当模型从3到4时，效果的提升就不是很显著了，但资源的耗费却增加的非常快，所以，除非是为了做到极致不惜资源，很少有人使用四元以上的模型。Google的罗塞塔翻译系统和语音搜索系统，使用的就是四元模型，该模型存储于500台以上的Google服务器中。</p>
+<p>另外，因为上下文之间的相关性可能跨度非常大，甚至可以从一个段落到另一个段落，所以N无论多大都不能覆盖所有的语言现象。这就需要一些长程的依赖性(Long Distance Dependency)来解决问题了。</p>
+<p>而重新估算概率的估计使用古德-图灵估计(Good-Turing Estimate)，模型的零概率及较小统计值的平滑问题卡茨退避法(Katz Backoff)，一般参数T在8-10之间，频数在T以上的词不用进行古德-图灵估计，同时为了保证总概率为1，所有下调频率总和平均分给未出现的词，内伊(Herman Ney)等人对卡茨退避法进行了一次优化，原理大同小异，参考。PS.二元组的相对频率比三元组更接近概率分布，低阶模型比高阶模型零概率问题轻微，因此用低阶语言模型和高阶语言模型进行线性插值来达到平滑目的，这种方法称为删除差值(Deleted Interpolation)，此方法比卡茨退避法略差，现在已经很少用了。</p>
+<p>需要训练数据和应用数据一致且训练量足够大，所以在语料少的情况下，片面追求高阶的大模型没什么意义。另外，训练语料的噪音高低也会产生影响，因此，一般情况下，对于能找到模式(Pattern)的、量比较大的噪音还是有必要过滤的，比如网页文本中存在的大量制表符。</p>
+<h2 id="谈谈分词">②谈谈分词</h2>
+<p>分词问题属于已经解决的问题，在工业界，只要采用基本的统计语言模型，加上一些业界熟知的技巧就能得到很好的分词结果，提高的空间微乎其微（人工分词也有不同的差异）。另外，在手写体识别中，罗马体系的拼音语言也需要分词方法。</p>
+<p>梁南元教授提出的“查字典”这种最简单的方法可以解决七八成以上的分词问题，1990年前后，郭进博士用统计语言模型成功解决了分词二义性问题，即各种不同的分词方式中，出现概率最高的分词方法。但是，如果穷举所有可能的分词方法并计算出每种可能性下句子的概率，那么计算量是相当大的。因此，可以把它看成是一个（Dynamic Programming）的问题，并利用维特比(Viterbi)算法快速地找到最佳分词。接下来，孙茂松教授解决了没有字典时的分词问题，吴德凯教授最早将中文分词方法用于英文词组的分割，并且将英文词组和中文词组在机器翻译时对应起来。</p>
+<p>词的颗粒度问题，在机器翻译中，颗粒度大效果好，而在搜索中，颗粒度小效果好，因为当用户查询清华时，我们时希望能找到清华大学的。对于上述大小粒度的需求，我们可以构造一个分词器同时支持不同层次的分词&mdash;基于基本词表与复合词表，根据基本词表和复合词表分别建立语言模型&ndash;L1和L2。这就是分词的层次概念。</p>
+<p>分词的不一致性可以分为错误和颗粒度不一致两种，错误又分成两类，一类是越界错误，比如把“北京大学生”分成“北京大学-生”。另一类是覆盖型错误，比如把“贾里克尼”拆成四个字。这些是明显的错误，是改进分词器时要尽可能消除的。接下来是颗粒度的不一致性，人工分词的不一致性大多属于此类。这一类不一致性在衡量分词器的好坏时，可以不作为错误。对于某些应用，需要尽可能地找到各种复合词，而不是将其切分。总之，要继续做数据挖掘，不断完善复合词的词典（它的增长速度较快），这也是近年来中文分词工作的重点。</p>
+<h2 id="信息的度量和作用">③信息的度量和作用</h2>
+<p>变量的不确定性越大，熵也就越大，所需信息量就越大。一本50万字的中文书平均有多少信息量，常用的前10%的汉字占常用文本的95%以上，那么每个汉字的信息熵约8-9bit，如果考虑上下文，每个汉字的信息熵就只有5bit左右。所以一本50万字的中文书，信息量大约是250万比特，采用较好的算法进行压缩，整本书可以存成一个320kb的文件，而如果直接用两字节的国标编码存储这本书，大约需要1MB大小，是压缩文件的3倍，这两个数量的差距，在信息论中被称作“冗余度”(Redundancy)，需要指出的是，这里的250万比特是个平均数，同样长度的书，所含的信息量可以差很多。如果一本书重复内容很多，它的信息量就小，冗余度就大。而在不同语言中，汉语是冗余度相对小的。
+一个事物的不确定性U，需要引入信息I来消除，而需要引入的信息量取决于这个不确定性的大小，即I&gt;U才行。在某些时候，不引入新的信息，而在已有的信息上玩数字和公式的游戏，本质上和蒙没有区别。</p>
+<p>说回自然语言的统计模型，其中一元模型就是通过某个词本身的概率分布来消除不确定性，而二元及更高阶的语言模型则还使用了上下文的信息，这些“相关的”信息可以消除不确定性，就像ID3树模型中使用的节点选择依据&ndash;条件熵，也是根据条件熵体现某个特征对目标变量取值的判断是否有消除不确定性的作用。所以说，自然语言处理的大量问题就是寻找相关信息。</p>
+<p>还是使用决策树节点选择作为例子，为了度量一个特征（信息）对目标特征（目标信息）的相关性，或者说消除目标信息不确定性的能力，我们使用互信息，而互信息就是目标特征的不确定性(熵)-条件熵（在已知某特征时目标特征的不确定性），当X和Y完全相关时，它的取值时H（X），同时H（X）=H（Y），当两者完全无关时，它的取值是0。</p>
+<p>信息论中的另一个重要概念，相对熵，又叫交叉熵，是机器学习分类模型中经常使用的损失函数。相对熵也用来度量相关性，但和变量的互信息不同，它用来衡量两个取值为正数的函数的相似性。交叉熵是不对称的，詹森和向明提出了一种新的相对熵的计算方法，将其左右取平均，在Google的自动问答系统中，我们采用了上面的詹森-香农度量来衡量两个答案的相似性。相对熵还可以用来衡量两个常用词（在语义和语法上）在不同文本中的概率分布，看它们是否同义。另外，利用相对熵，还可以得到信息检索中最重要的一个概念：词频率-逆向文档频率(TF-IDF)。</p>
+<p>总的来说，熵、条件熵和相对熵这三个概念与语言模型的关系非常密切。贾里尼克从条件熵和相对熵出发，定义了一个称为语言模型复杂度(Perplexity)的概念来直接衡量语言模型的好坏。复杂度有很清晰的物理含义，它是在给定上下文的条件下，句子中每个位置平均可以选择的单词数量。一个模型的复杂度越小，每个位置的词就越确定，模型越好。</p>
+<p>李开复博士介绍他发明的Sphinx语音识别系统的论文里谈到，如果不用任何语言模型（即零元语言模型），（模型的）复杂度为997，也就是说句子中每个位置有997个可能的单词可以填入。如果（二元）语言模型只考虑前后词的搭配，不考虑搭配的概率，复杂度为60。虽然它比不用语言模型好很多，但与考虑搭配概率的二元语言模型相比要差很多，因为后者的复杂度只有20。</p>
+<p>未完待续&hellip;</p>
 
     </div>
     <div class="article-footer">
@@ -378,7 +374,7 @@ function tagCloud(where, min, max) {
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>Permalink: </strong>
-      <a href="https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A21/" title="美团机器学习实践 - 读书笔记 - Chapter 1 问题建模" target="_blank" rel="external">https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A21/</a>
+      <a href="https://biofrostyy.github.io/2021/05/10%E5%88%86%E9%92%9F%E8%AF%BB%E5%AE%8C%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/" title="十分钟读完数学之美" target="_blank" rel="external">https://biofrostyy.github.io/2021/05/10%E5%88%86%E9%92%9F%E8%AF%BB%E5%AE%8C%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License: </strong>
@@ -409,13 +405,13 @@ function tagCloud(where, min, max) {
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A22/" title="美团机器学习实践 - 读书笔记 - Chapter 2 特征工程"><i
+                <a href="https://biofrostyy.github.io/2021/05/%E7%BE%8E%E5%9B%A216/" title="美团机器学习实践 - 读书笔记 - Chapter 16 大规模机器学习"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
             </li>
             <li class="next">
-                <a href="https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A23/"
-                    title="美团机器学习实践 - 读书笔记 - Chapter 3 常用模型"><span>Newer&nbsp;&nbsp;</span><i
+                <a href="https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/"
+                    title="python 实现规则集分类并融合压缩"><span>Newer&nbsp;&nbsp;</span><i
                         class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
