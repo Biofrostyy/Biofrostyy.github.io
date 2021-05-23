@@ -6,7 +6,7 @@
     <description>Recent content in “读书笔记” on Pure theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Mon, 17 May 2021 16:21:34 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 09 May 2021 16:21:34 +0800</lastBuildDate>
     
         <atom:link href="https://biofrostyy.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" />
     
@@ -32,7 +32,7 @@
     <item>
       <title>python 实现规则集分类并融合压缩</title>
       <link>https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/</link>
-      <pubDate>Thu, 20 May 2021 22:01:57 +0800</pubDate>
+      <pubDate>Sun, 16 May 2021 22:01:57 +0800</pubDate>
       
       <guid>https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/</guid>
       <description>一.问题介绍 工作中遇到一个问题，一个列表中，存在多个以&amp;quot;-&amp;ldquo;连接的范围string，希望可以把规则集压缩，即融合的范围</description>
@@ -41,7 +41,7 @@
     <item>
       <title>十分钟读完数学之美</title>
       <link>https://biofrostyy.github.io/2021/05/10%E5%88%86%E9%92%9F%E8%AF%BB%E5%AE%8C%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/</link>
-      <pubDate>Mon, 17 May 2021 16:21:34 +0800</pubDate>
+      <pubDate>Sun, 09 May 2021 16:21:34 +0800</pubDate>
       
       <guid>https://biofrostyy.github.io/2021/05/10%E5%88%86%E9%92%9F%E8%AF%BB%E5%AE%8C%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/</guid>
       <description>本书基本上算是我自然语言处理方向的启蒙读物，虽然之后研究生读了机器学习，没有选择自然语言处理，但是无论是在学习中还是工作中，都还是会接触一些</description>
@@ -49,10 +49,10 @@
     
     <item>
       <title>美团机器学习实践 - 读书笔记 - Chapter 16 大规模机器学习</title>
-      <link>https://biofrostyy.github.io/2021/05/%E7%BE%8E%E5%9B%A216/</link>
-      <pubDate>Tue, 04 May 2021 14:57:57 +0800</pubDate>
+      <link>https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A216/</link>
+      <pubDate>Thu, 29 Apr 2021 12:57:37 +0800</pubDate>
       
-      <guid>https://biofrostyy.github.io/2021/05/%E7%BE%8E%E5%9B%A216/</guid>
+      <guid>https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A216/</guid>
       <description>并行计算编程技术 CPU并行计算，从体系层次上来讲，①CPU单核通过向量化技术提升单核的处理能力，②多核CPU通过多线程技术来充分利用多核处理</description>
     </item>
     
