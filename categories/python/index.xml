@@ -2,111 +2,111 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>“python&#34; on Biofrostyy&#39;s Everyday</title>
-    <link>/categories/python/</link>
+    <link>https://biofrostyy.github.io/categories/python/</link>
     <description>Recent content in “python&#34; on Biofrostyy&#39;s Everyday</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
     <lastBuildDate>Sun, 16 May 2021 22:01:57 +0800</lastBuildDate>
     
-        <atom:link href="/categories/python/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://biofrostyy.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>⭐♥Book List♥⭐</title>
-      <link>/2021/06/%E4%B9%A6%E5%8D%95/</link>
+      <link>https://biofrostyy.github.io/2021/06/%E4%B9%A6%E5%8D%95/</link>
       <pubDate>Sun, 13 Jun 2021 10:35:00 +0800</pubDate>
       
-      <guid>/2021/06/%E4%B9%A6%E5%8D%95/</guid>
+      <guid>https://biofrostyy.github.io/2021/06/%E4%B9%A6%E5%8D%95/</guid>
       <description>书名 读书日期 心得&amp;amp;读书笔记标签 上帝掷色子吗 2021.3.5&amp;mdash;&amp;gt;2021.4.11 高中的时候读到了一本量子计算机相关的书，现在已忘记书名，但是给我的震撼还是非常大的，所以</description>
     </item>
     
     <item>
       <title>十分钟读完数学之美</title>
-      <link>/2021/06/10%E5%88%86%E9%92%9F%E8%AF%BB%E5%AE%8C%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/</link>
+      <link>https://biofrostyy.github.io/2021/06/10%E5%88%86%E9%92%9F%E8%AF%BB%E5%AE%8C%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/</link>
       <pubDate>Thu, 10 Jun 2021 21:21:34 +0800</pubDate>
       
-      <guid>/2021/06/10%E5%88%86%E9%92%9F%E8%AF%BB%E5%AE%8C%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/</guid>
+      <guid>https://biofrostyy.github.io/2021/06/10%E5%88%86%E9%92%9F%E8%AF%BB%E5%AE%8C%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/</guid>
       <description>本书基本上算是我自然语言处理方向的启蒙读物，虽然之后研究生读了机器学习，没有选择自然语言处理，但是无论是在学习中还是工作中，都还是会接触一些</description>
     </item>
     
     <item>
       <title>消失的第13级台阶</title>
-      <link>/2021/05/%E8%AF%BB%E5%90%8E%E6%84%9F-%E6%B6%88%E5%A4%B1%E7%9A%84%E7%AC%AC13%E7%BA%A7%E5%8F%B0%E9%98%B6/</link>
+      <link>https://biofrostyy.github.io/2021/05/%E8%AF%BB%E5%90%8E%E6%84%9F-%E6%B6%88%E5%A4%B1%E7%9A%84%E7%AC%AC13%E7%BA%A7%E5%8F%B0%E9%98%B6/</link>
       <pubDate>Sun, 23 May 2021 16:25:32 +0800</pubDate>
       
-      <guid>/2021/05/%E8%AF%BB%E5%90%8E%E6%84%9F-%E6%B6%88%E5%A4%B1%E7%9A%84%E7%AC%AC13%E7%BA%A7%E5%8F%B0%E9%98%B6/</guid>
+      <guid>https://biofrostyy.github.io/2021/05/%E8%AF%BB%E5%90%8E%E6%84%9F-%E6%B6%88%E5%A4%B1%E7%9A%84%E7%AC%AC13%E7%BA%A7%E5%8F%B0%E9%98%B6/</guid>
       <description>评前碎碎念 翻译的好坏总是能左右我对一本书的兴趣，仿佛我试图入坑克苏鲁神话被译本晦涩仿佛机翻的语言劝退的那天，一直以来我对译本总是抱着怀疑的态</description>
     </item>
     
     <item>
       <title>python 实现规则集分类并融合压缩</title>
-      <link>/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/</link>
+      <link>https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/</link>
       <pubDate>Sun, 16 May 2021 22:01:57 +0800</pubDate>
       
-      <guid>/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/</guid>
+      <guid>https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/</guid>
       <description>一.问题介绍 工作中遇到一个问题，一个列表中，存在多个以&amp;quot;-&amp;ldquo;连接的范围string，希望可以把规则集压缩，即融合的范围</description>
     </item>
     
     <item>
       <title>美团机器学习实践 - 读书笔记 - Chapter 16 大规模机器学习</title>
-      <link>/2021/04/%E7%BE%8E%E5%9B%A216/</link>
+      <link>https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A216/</link>
       <pubDate>Thu, 29 Apr 2021 12:57:37 +0800</pubDate>
       
-      <guid>/2021/04/%E7%BE%8E%E5%9B%A216/</guid>
+      <guid>https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A216/</guid>
       <description>并行计算编程技术 CPU并行计算，从体系层次上来讲，①CPU单核通过向量化技术提升单核的处理能力，②多核CPU通过多线程技术来充分利用多核处理</description>
     </item>
     
     <item>
       <title>美团机器学习实践 - 读书笔记 - Chapter 7 评论挖掘</title>
-      <link>/2021/04/%E7%BE%8E%E5%9B%A27/</link>
+      <link>https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A27/</link>
       <pubDate>Sun, 11 Apr 2021 14:57:57 +0800</pubDate>
       
-      <guid>/2021/04/%E7%BE%8E%E5%9B%A27/</guid>
+      <guid>https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A27/</guid>
       <description>UGC：User Generated Content 评论的真实性和针对性比较强，不会像游记文本出现多个实体。而且其对单一实体的描述更深刻、更直观，且获取成本更低。 评论挖掘的</description>
     </item>
     
     <item>
       <title>美团机器学习实践 - 读书笔记 - Chapter 6 POI实体链接</title>
-      <link>/2021/04/%E7%BE%8E%E5%9B%A26/</link>
+      <link>https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A26/</link>
       <pubDate>Wed, 07 Apr 2021 14:57:57 +0800</pubDate>
       
-      <guid>/2021/04/%E7%BE%8E%E5%9B%A26/</guid>
+      <guid>https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A26/</guid>
       <description>POI points of interest 基本的业务单元，在酒店领域就是酒店。在上一章用户画像领域，就是一个自然人。一个优质的POI库：POI信息完整性、POI重复情况、PO</description>
     </item>
     
     <item>
       <title>美团机器学习实践 - 读书笔记 - Chapter 4 用户画像</title>
-      <link>/2021/03/%E7%BE%8E%E5%9B%A24/</link>
+      <link>https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A24/</link>
       <pubDate>Tue, 30 Mar 2021 14:57:57 +0800</pubDate>
       
-      <guid>/2021/03/%E7%BE%8E%E5%9B%A24/</guid>
+      <guid>https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A24/</guid>
       <description>企业聚焦于利用大数据来提升各种商业行为的效率，例如精准营销、个性化搜索和推荐、征信判断、风险控制、体验优化以及商业分析等。以深入理解用户为出</description>
     </item>
     
     <item>
       <title>美团机器学习实践 - 读书笔记 - Chapter 3 常用模型</title>
-      <link>/2021/03/%E7%BE%8E%E5%9B%A23/</link>
+      <link>https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A23/</link>
       <pubDate>Sat, 27 Mar 2021 14:57:57 +0800</pubDate>
       
-      <guid>/2021/03/%E7%BE%8E%E5%9B%A23/</guid>
+      <guid>https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A23/</guid>
       <description>机器学习的算法有很多种，在工业界最常用的算法有以下几种：逻辑回归、场感知因子分解、梯度提升树、随机森林、神经网络。在Kaggle 的众多机器学</description>
     </item>
     
     <item>
       <title>美团机器学习实践 - 读书笔记 - Chapter 1 问题建模</title>
-      <link>/2021/03/%E7%BE%8E%E5%9B%A21/</link>
+      <link>https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A21/</link>
       <pubDate>Mon, 22 Mar 2021 14:57:57 +0800</pubDate>
       
-      <guid>/2021/03/%E7%BE%8E%E5%9B%A21/</guid>
+      <guid>https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A21/</guid>
       <description>#1. 通用流程 问题建模 （评估指标-&amp;gt;样本选择-&amp;gt;交叉验证 ）&amp;mdash;&amp;gt; 特征工程 &amp;mdash;&amp;gt; 模型选择 &amp;mdash;&amp;gt; 模型融合 &amp;mdash;&amp;gt; 模型应用 ①评估指标 线下</description>
     </item>
     
     <item>
       <title>美团机器学习实践 - 读书笔记 - Chapter 2 特征工程</title>
-      <link>/2021/03/%E7%BE%8E%E5%9B%A22/</link>
+      <link>https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A22/</link>
       <pubDate>Mon, 22 Mar 2021 14:57:57 +0800</pubDate>
       
-      <guid>/2021/03/%E7%BE%8E%E5%9B%A22/</guid>
+      <guid>https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A22/</guid>
       <description>特征工程不仅操作困难、耗时，而且需要专业领域知识。应用机器学习基本上就是特征工程。 &amp;ndash;吴恩达🤠 这篇笔记来自于《美团机器学习实践》特</description>
     </item>
     
