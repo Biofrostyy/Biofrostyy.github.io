@@ -25,62 +25,48 @@
   
   <url>
     <loc>https://biofrostyy.github.io/categories/</loc>
-    <lastmod>2021-07-31T13:20:57+08:00</lastmod>
+    <lastmod>2021-07-20T17:48:57+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://biofrostyy.github.io/tags/leetcode/</loc>
-    <lastmod>2021-07-31T13:20:57+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://biofrostyy.github.io/2021/07/myeveryday202107731/</loc>
-    <lastmod>2021-07-31T13:20:57+08:00</lastmod>
+    <lastmod>2021-07-20T17:48:57+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://biofrostyy.github.io/tags/</loc>
-    <lastmod>2021-07-31T13:20:57+08:00</lastmod>
+    <lastmod>2021-07-20T17:48:57+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://biofrostyy.github.io/tags/python/</loc>
-    <lastmod>2021-07-31T13:20:57+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://biofrostyy.github.io/categories/%E6%97%A5%E8%AE%B0/</loc>
-    <lastmod>2021-07-31T13:20:57+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://biofrostyy.github.io/tags/%E4%BB%A3%E7%A0%81%E6%B2%89%E6%B7%80/</loc>
-    <lastmod>2021-07-31T13:20:57+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://biofrostyy.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
-    <lastmod>2021-07-31T13:20:57+08:00</lastmod>
+    <lastmod>2021-07-20T17:48:57+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://biofrostyy.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <lastmod>2021-07-20T17:48:57+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://biofrostyy.github.io/tags/%E4%BB%A3%E7%A0%81%E6%B2%89%E6%B7%80/</loc>
+    <lastmod>2021-07-20T17:48:57+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://biofrostyy.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
     <lastmod>2021-07-20T17:48:57+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
