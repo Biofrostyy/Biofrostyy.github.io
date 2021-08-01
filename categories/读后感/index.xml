@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>“读后感” on Biofrostyy&#39;s Everyday</title>
+    <title>“读后感&#34; on Biofrostyy&#39;s Everyday</title>
     <link>https://biofrostyy.github.io/categories/%E8%AF%BB%E5%90%8E%E6%84%9F/</link>
-    <description>Recent content in “读后感” on Biofrostyy&#39;s Everyday</description>
+    <description>Recent content in “读后感&#34; on Biofrostyy&#39;s Everyday</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Sun, 23 May 2021 16:25:32 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 31 Jul 2021 15:11:57 +0800</lastBuildDate>
     
         <atom:link href="https://biofrostyy.github.io/categories/%E8%AF%BB%E5%90%8E%E6%84%9F/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>1小时读懂《深度学习推荐系统》</title>
+      <link>https://biofrostyy.github.io/2021/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Sat, 31 Jul 2021 15:11:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</guid>
+      <description>推荐系统的终极优化目标应包括两个维度：一个维度是用户体验的优化，另一个维度是满足公司的商业利益。对一个健康的商业模式来说，这两个维度应该是和</description>
+    </item>
+    
+    <item>
+      <title>MyEveryday</title>
+      <link>https://biofrostyy.github.io/2021/07/myeveryday202107731/</link>
+      <pubDate>Sat, 31 Jul 2021 15:11:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/07/myeveryday202107731/</guid>
+      <description>终于又是个周末啦，最近每天工作任务重，又赶上和毕业生大部队的校招生培训，真的是忙的团团转，毕业正式进入职场也有半年了，参加了一些项目也学到了</description>
+    </item>
     
     <item>
       <title>⭐♥Book List♥⭐</title>
