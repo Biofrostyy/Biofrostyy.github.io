@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Pure theme for Hugo</title>
+    <link>https://biofrostyy.github.io/posts/</link>
+    <description>Recent content in Posts on Pure theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>CC BY 4.0 CN</copyright>
+    <lastBuildDate>Sat, 31 Jul 2021 15:11:57 +0800</lastBuildDate>
+    
+        <atom:link href="https://biofrostyy.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MyEveryday</title>
+      <link>https://biofrostyy.github.io/2021/07/myeveryday202107731/</link>
+      <pubDate>Sat, 31 Jul 2021 15:11:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/07/myeveryday202107731/</guid>
+      <description>终于又是个周末啦，最近每天工作任务重，又赶上和毕业生大部队的校招生培训，真的是忙的团团转，毕业正式进入职场也有半年了，参加了一些项目也学到了</description>
+    </item>
+    
+  </channel>
+</rss>
