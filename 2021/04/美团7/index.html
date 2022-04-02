@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        美团机器学习实践 - 读书笔记 - Chapter 7 评论挖掘 - Pure theme for Hugo
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="UGC：User Generated Content 评论的真实性和针对性比较强，不会像游记文本出现多个实体。而且其对单一实体的描述更深刻、更直观，且获取成本更低。 评论挖掘的" />
+    <meta name="generator" content="Hugo 0.92.2 with theme pure" />
+    <title>美团机器学习实践 - 读书笔记 - Chapter 7 评论挖掘 - Pure theme for Hugo</title>
+    
+    
+    <link rel="stylesheet" href="https://biofrostyy.github.io/css/style.min.e64d754037c0ee0ec4e20ab1d6f07740ace61729bc03850559b8caa21ae4a597.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="美团机器学习实践 - 读书笔记 - Chapter 7 评论挖掘" />
+<meta property="og:description" content="UGC：User Generated Content 评论的真实性和针对性比较强，不会像游记文本出现多个实体。而且其对单一实体的描述更深刻、更直观，且获取成本更低。 评论挖掘的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A27/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-11T14:57:57+08:00" />
+<meta property="article:modified_time" content="2021-04-11T14:57:57+08:00" />
+
+<meta itemprop="name" content="美团机器学习实践 - 读书笔记 - Chapter 7 评论挖掘">
+<meta itemprop="description" content="UGC：User Generated Content 评论的真实性和针对性比较强，不会像游记文本出现多个实体。而且其对单一实体的描述更深刻、更直观，且获取成本更低。 评论挖掘的"><meta itemprop="datePublished" content="2021-04-11T14:57:57+08:00" />
+<meta itemprop="dateModified" content="2021-04-11T14:57:57+08:00" />
+<meta itemprop="wordCount" content="3358">
+<meta itemprop="keywords" content="“美团机器学习实践”,“读书笔记”," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="美团机器学习实践 - 读书笔记 - Chapter 7 评论挖掘"/>
+<meta name="twitter:description" content="UGC：User Generated Content 评论的真实性和针对性比较强，不会像游记文本出现多个实体。而且其对单一实体的描述更深刻、更直观，且获取成本更低。 评论挖掘的"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/xiaoheiAh" target="_blank">
+            <img class="img-circle img-rotate" src="https://biofrostyy.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">xiaoheiAh</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">author title</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Shanghai, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>enjoy~</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div id="tag-cloud-list" class="widget-body">
+            
+            
+            <a href="https://biofrostyy.github.io/tags/leetcode/" class="tag-list-link" rel="4">leetcode<span
+               class="tag-list-count">4</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/myeveryday/" class="tag-list-link" rel="1">myeveryday<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/python/" class="tag-list-link" rel="5">python<span
+               class="tag-list-count">5</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E4%BB%A3%E7%A0%81%E6%B2%89%E6%B7%80/" class="tag-list-link" rel="5">代码沉淀<span
+               class="tag-list-count">5</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E6%8E%A8%E7%90%86%E6%82%AC%E7%96%91/" class="tag-list-link" rel="1">推理悬疑<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" class="tag-list-link" rel="2">推荐系统<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/" class="tag-list-link" rel="1">数学之美<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="tag-list-link" rel="4">数据结构<span
+               class="tag-list-count">4</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E6%B6%88%E5%A4%B1%E7%9A%84%E7%AC%AC13%E7%BA%A7%E5%8F%B0%E9%98%B6/" class="tag-list-link" rel="1">消失的第13级台阶<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E7%BE%8E%E5%9B%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/" class="tag-list-link" rel="7">美团机器学习实践<span
+               class="tag-list-count">7</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="tag-list-link" rel="8">读书笔记<span
+               class="tag-list-count">8</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/" class="tag-list-link" rel="3">读后感<span
+               class="tag-list-count">3</span></a>
+            
+    </div>
+<script>
+document.onreadystatechange = () => {
+  if (document.readyState === 'complete') {
+    tagCloud('#tag-cloud-list a',  8 ,  20 );
+  }
+};
+
+function tagCloud(where, min, max) {
+  let iMax = 0;
+  let iMin = 0;
+  $(where).each(function() {
+    let weight = Number($(this).attr("rel"));
+    if(iMax < weight) iMax = weight;
+    if(iMin > weight || iMin == 0) iMin = weight;
+  });
+  let step = (max - min)/(iMax - iMin);
+  $(where).each(function() {
+    let weight = $(this).attr("rel") - iMin;
+    $(this).css({"font-size": min + (weight * step) + 'px'});
+  });
+};
+</script>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Categories</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/python/" class="category-list-link">python</a><span class="category-list-count">4</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category-list-link">数据结构</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E6%97%A5%E8%AE%B0/" class="category-list-link">日记</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="category-list-link">机器学习</a><span class="category-list-count">6</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E7%A8%8B/" class="category-list-link">系统工程</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="category-list-link">读书笔记</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E8%AF%BB%E5%90%8E%E6%84%9F/" class="category-list-link">读后感</a><span class="category-list-count">3</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/leetcode/" class="tag-list-link">leetcode</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/myeveryday/" class="tag-list-link">myeveryday</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/python/" class="tag-list-link">python</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E4%BB%A3%E7%A0%81%E6%B2%89%E6%B7%80/" class="tag-list-link">代码沉淀</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E6%8E%A8%E7%90%86%E6%82%AC%E7%96%91/" class="tag-list-link">推理悬疑</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" class="tag-list-link">推荐系统</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/" class="tag-list-link">数学之美</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="tag-list-link">数据结构</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E6%B6%88%E5%A4%B1%E7%9A%84%E7%AC%AC13%E7%BA%A7%E5%8F%B0%E9%98%B6/" class="tag-list-link">消失的第13级台阶</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E7%BE%8E%E5%9B%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/" class="tag-list-link">美团机器学习实践</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="tag-list-link">读书笔记</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/" class="tag-list-link">读后感</a><span
+                    class="tag-list-count">3</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2021/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" class="title">1小时读懂《深度学习推荐系统》</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-07-31 15:11:57 &#43;0800 CST" itemprop="datePublished">2021-07-31</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2021/07/myeveryday202107731/" class="title">MyEveryday</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-07-31 15:11:57 &#43;0800 CST" itemprop="datePublished">2021-07-31</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2021/07/%E6%8E%A8%E8%8D%90%E9%A1%B9%E7%9B%AE/" class="title">深度学习推荐系统</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-07-31 15:11:57 &#43;0800 CST" itemprop="datePublished">2021-07-31</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2021/07/%E4%B9%A6%E5%8D%95/" class="title">⭐♥Book List♥⭐</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-07-31 14:35:00 &#43;0800 CST" itemprop="datePublished">2021-07-31</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/" class="title">数据结构复习-排序算法</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-07-20 17:48:57 &#43;0800 CST" itemprop="datePublished">2021-07-20</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2021/04/%E7%BE%8E%E5%9B%A27/"
+    >美团机器学习实践 - 读书笔记 - Chapter 7 评论挖掘</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A27/" class="article-date">
+  <time datetime="2021-04-11 14:57:57 &#43;0800 CST" itemprop="datePublished">2021-04-11</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"> “机器学习” </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/%E7%BE%8E%E5%9B%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/"> “美团机器学习实践” </a>
+    <a class="article-tag-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> “读书笔记” </a>
+  </span>
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 3358 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 7 minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <p>UGC：User Generated Content
+评论的真实性和针对性比较强，不会像游记文本出现多个实体。而且其对单一实体的描述更深刻、更直观，且获取成本更低。</p>
+<h1 id="评论挖掘的背景">评论挖掘的背景</h1>
+<p>对用户主观做出的评价性内容进行核心思想的挖掘，其包括多维度的主观体验及不同情感倾向的感受反馈。我们要对评论进行挖掘，提取其中的标签及标签情感，可让用户以最快速最直观的方式看到最优质的评论内容。</p>
+<p>本书通过以下三个维度，来评论挖掘的背景进行深入解析。
+①评论挖掘的粒度&ndash;POI粒度及其下的商品粒度
+与电商领域不同，在在线业务场景中，以美团酒旅业务为例，某条评价的主体描述虽然可能针对某一类
+房型或某一处景点，但是，其核心评价集中于对商家整体服务的评价。
+对于在线商品来说，评论的应用方，不仅仅限于用户，而且对业务方的销售人员和运营人员也有着指导作用，例如对房间卫生的负面评价对酒店方改善店内设施有指导作用。也就是说<code>基于单个商品的评论标签，更适合公司内部使用，而从线上展示层面来说，POI粒度的评论挖掘才是重中之重</code>
+②评论挖掘的维度
+与用户画像中的标签是对C端用户进行属性挖掘和行为构建不同，评论挖掘中的标签则是对B端商家进行硬件层面的挖掘和服务层面的判定。
+<img src="" alt="">
+③整体的角度重新审视评论挖掘
+从实践中发现，海外酒店评论的平均长度高于国内酒店，也就意味着， 同样的算法需求，在应用于不同业务线时，需要采用不同的模型策略以及差异化的处理流程。从自然语言处理的深层语义角度来看，评论是一种多情感并存的内容类文本。它的明显特征在于，上下文的情感差异可能存在极端情况，如前一句话正向描述服务态度，而后一句话负向描述卫生条件 ，评论挖掘的整体流程的设计要考虑到不同评论的不同预处理方式，具体就是，什么情况下需要断句、什么情况下可以直接端到端</p>
+<h1 id="标签需求提取">标签需求提取</h1>
+<p>标签提取意味着从评论中提取核心关键词。
+①有监督学习
+②无监督学习
+③在风控领域被广泛使用的基于规则（Rule-Based）的专家系统，也不失为一类能够通过整合其他模型、明显提高召回率的规则类方法</p>
+<h2 id="数据的获取及预处理">数据的获取及预处理</h2>
+<p>在做标签提取之前，需要对评论进行表示层的预处理，也就是将评论从纯自然的中文形式，转换为模型适用的词、字符或向量形式
+<img src="" alt=""></p>
+<h2 id="无监督的标签提取方法">无监督的标签提取方法</h2>
+<p>关键词抽取的常规算法主要包括各类主题模型，如广泛用于文章主题提取的LDA、基于TF-IDF的各种变种算法，以及部分学者提出的基于统计机器翻译的新兴方法论。但评论具有随意性强、更新快和无规律的特点，因此，这些方法无法通过预先训练大量语料来对后续评论持续保持高效的抽取结果。于是，我们将TextRank作为主要的标签提取算法。</p>
+<p>⭐️TextRank
+思想来自于PageRank，将文本内容拆分成若干单元，每个单元由句子或单词组成，据此建立一个有向有权图G = (V,E)，其中V(vertices)代表组成单元的集合，E(edges)代表组成单元间关系的集合，对每个单元计算重要度得分的公式：
+<img src="" alt="">
+其中d是是阻尼系数，取值为[0，1 ]，代表从计算单元中的某个特定单元指向其他单元的概率值，经验取值一般为<code>0.8</code>，ln(Vi)代表图中某单元的入度 ，即指向该单元的单元集合，Out(Vi)代表图中某单元的出度，即从该单元指向其他单元的单元集合。在具体开发实现中， 一般会对所有单元初始化一个初值，由此持续迭代，最终收敛到图中任一单元的误差值均小于给定阈值，一般阈值设定为<code>0.0001</code>。</p>
+<p>下面将以旅游侧通过对差评评论的关键词提取进而对差评原因进行分析的案例，来说明该算法在业务场景中的具体应用。其中，评论总数为 17万多条，选定几种词性分别为名词、形容词、动名词等，概率初值定为 0.8 5，收敛阔值定为 0.0001，最终选取重要度排名前 1500 的词作为基准生成词云。
+<img src="" alt=""></p>
+<p>从图中可以明显看出，旅游评论差评中服务、设施、排队、态度、门票等是差评的主要诱因，还有收费、工作人员、环境等次级诱因，整体差评诱因一目了然。但是该算法存在一个致命缺陷，就是其无法提取文本中未出现的词。若想提取用户是否会推荐该POI，如果用户没有显示提到’推荐‘，则’推荐‘关键词的提取无法进行。因此，下一节将对有监督的神经网络算法进行原理和效果层面的表述，从而满足业务方的多元化需求。</p>
+<h2 id="基于深度学习的标签提取方法">基于深度学习的标签提取方法</h2>
+<p>①输入：评论是经过分词和去停用词处理过后的评论文本，每个文件只包含一个评论文本，标签以'\n&rsquo;分隔，每行只包含一个标签，且标签数量不固定，按照真实标签数量存放（即N个标签就存N行数据）
+②目标变量数据标注：数据标注的成本较高，因为需要人工阅读和理解。除了电梯、电脑等名词性标签可以通过关键词过滤来达到筛选的目的。较为复杂的推荐、位置、满意等主观性标签都需要进行人工标注。本美图案例所用标注标签样本量为21079个，其中总标签数为23，标注样本中平均标签数为4.3。
+③模型：看作CNN多分类问题，输出为N个标签的概率，即N维向量，取TopK作为最终输出的评论标签。
+④模型完善：
+<img src="" alt="">
+多模型融合，将基于不同长度的N-Gram的模型分别训练，以针对不同长度的评论，并且最终的输出通过人工规则的方式进行纠正，强召回被CNN标签模型忽略的标签，同时丢弃CNN标签模型判错的标签，由此将最总TOP5准确率控制在93.4%左右。
+另外本节中对TopK中K的选择，采用了K-means，将N维标签概率值向量，进行K分类（实验证明K一般选取2或3比较好），由于实现动态TopK的标签提取。（我理解为：例如上述23维结果向量，做二分类，取整体结果较高的一类个数作为TopK的K值。）
+最后还应用了一个基于问题理解方面的小技巧：对于评论长度过短，但提取出的标签过多的情况，只取前2个标签作为最终标签输出，该技巧在最终的应用上，能够在部分情况下将标签提取的Top5 准确率提升到95% 右，已经相当可观。</p>
+<h1 id="标签情感分析">标签情感分析</h1>
+<p>传统意义上的情感分析是指，根据文本的含义和其中的情感信息将文本划分成某个情感的积极或消极类别。情感分析是一个领域相关或者说是文本类别相关的问题，本节所述评论标签情感分析的文本类别为长短相结合的文本形式，其情感信息表达的<code>多义性</code>更加难以判 ，且由于评论文本过于口语化，它的<code>信息表征的隐蔽性</code>更加突出，甚至很多情感维度的极性显得<code>模棱两可</code>。接下来，本节将会通过剖析评论标签情感分析的领域特殊性，来进一步讨论探度学习算法在该方向的解决方案，并分析后续应该进行哪些优化和改进，从而进行一个概述性的整合。</p>
+<h2 id="评论标签情感分析的特殊性">评论标签情感分析的特殊性</h2>
+<p>①评论的情感非常主观，同样的客观事实会导致截然不同的情感。这些情况常常伴随着很多<code>实时性事件</code>出现，实时性事件与客观环境相关性不强，但与主体所处时间点的事件性内容强相关，如孩子苦恼等。我们可以通过一些方法过滤掉实时性事件，比如实时性事件大多出现在长文本中，若连续两句及两句以上没有出现任何评价词语，即认定此评论90%左右（实验发现某些POI下比例更高）的内容是实时性事件，进而将该评论从训练语料中删除。</p>
+<p>②长短不一的内容如何提取关键情感信息</p>
+<p>③保证在不同标签间可能存在重叠性情感信息的时候，能够把情感信息的极性表达精确分配给不同标签。从算法层面来说，这类多标签情感信息重叠的情况可以归结为情感分析中的<code>多标签正负样本杂糅</code>的问题。幸运的是，大多数标签的情感信息处于互斥状态，因为基本不会存在一句话同时描述电视或电梯或泳池或早餐，那么这句话的情感就可以精确分配给这些（电视或电梯）标签。<!-- raw HTML omitted -->但服务态度和满意程度标签的整体性较高，很多局部情感信息可能会重叠甚至相悖，这样就会使得正负样本中同时存在某句话，但是这句话对于不同标签的情感倾向不同，这类标签的情感分析就需要严格控制多标签间正负样本中的重复样本占比，进而增强不同标签间情感分析模型的容错能力<!-- raw HTML omitted --><!-- raw HTML omitted -->
+④正负样本不均衡，一般情况下，情感类二分类问题正负样本会在多标签下基本保持在5：5。但对于其他标签，如有无热水壶（1：9），这会让模型结果向大比例样本方向偏移。对于一些多分类问题，如有游泳池、无游泳池、有无边泳池（10：9：1），首先样本比例中&quot;有无边游泳池&quot;的比例极低，其次因为其中两个类别存在包含关系，遂可以先进行高准确率的二分类，再对其中的&quot;有游泳池&quot;类别进行二次分类，从而挖掘提取出最后一个三分类类别。</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A27/" title="美团机器学习实践 - 读书笔记 - Chapter 7 评论挖掘" target="_blank" rel="external">https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A27/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License: </strong>
+        <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/xiaoheiAh" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://biofrostyy.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/xiaoheiAh" target="_blank"><span class="text-dark">xiaoheiAh</span><small class="ml-1x">author title</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A26/" title="美团机器学习实践 - 读书笔记 - Chapter 6 POI实体链接"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            <li class="next">
+                <a href="https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A216/"
+                    title="美团机器学习实践 - 读书笔记 - Chapter 16 大规模机器学习"><span>Newer&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/xiaoheiAh" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://biofrostyy.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2017  -
+    2022
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+    
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://biofrostyy.github.io/js/application.min.a94ab19cb63a95c8d7fbd7b85cab3ddeea8c369bdf75b9cab6708787ead123af.js"></script>
+<script src="https://biofrostyy.github.io/js/plugin.min.19c5bcb2fb0789ab4f2b7834e5ceb5e92635645605bab902c1024b25f1502364.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            ROOT_URL: 'https:\/\/biofrostyy.github.io\/',
+            CONTENT_URL: 'https:\/\/biofrostyy.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://biofrostyy.github.io/js/insight.min.4a2d52de4bfff73e0c688404fe3d17c9a3ae12d9888e1e1ac9c690e4890de2ded50fe55f2b819c2ba55435a76f396f3ea6805765f0b0af5635cdf74ea459eab0.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

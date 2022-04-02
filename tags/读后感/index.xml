@@ -6,10 +6,19 @@
     <description>Recent content in 读后感 on Pure theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Sun, 23 May 2021 16:25:32 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 31 Jul 2021 15:11:57 +0800</lastBuildDate>
     
         <atom:link href="https://biofrostyy.github.io/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>1小时读懂《深度学习推荐系统》</title>
+      <link>https://biofrostyy.github.io/2021/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</link>
+      <pubDate>Sat, 31 Jul 2021 15:11:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</guid>
+      <description>推荐系统的终极优化目标应包括两个维度：一个维度是用户体验的优化，另一个维度是满足公司的商业利益。对一个健康的商业模式来说，这两个维度应该是和</description>
+    </item>
     
     <item>
       <title>MyEveryday</title>
@@ -21,12 +30,48 @@
     </item>
     
     <item>
+      <title>深度学习推荐系统</title>
+      <link>https://biofrostyy.github.io/2021/07/%E6%8E%A8%E8%8D%90%E9%A1%B9%E7%9B%AE/</link>
+      <pubDate>Sat, 31 Jul 2021 15:11:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/07/%E6%8E%A8%E8%8D%90%E9%A1%B9%E7%9B%AE/</guid>
+      <description>推荐系统的终极优化目标应包括两个维度：一个维度是用户体验的优化，另一个维度是满足公司的商业利益。对一个健康的商业模式来说，这两个维度应该是和</description>
+    </item>
+    
+    <item>
+      <title>⭐♥Book List♥⭐</title>
+      <link>https://biofrostyy.github.io/2021/07/%E4%B9%A6%E5%8D%95/</link>
+      <pubDate>Sat, 31 Jul 2021 14:35:00 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/07/%E4%B9%A6%E5%8D%95/</guid>
+      <description>书名 读书日期 心得&amp;amp;读书笔记标签 上帝掷色子吗 2021.3.5&amp;mdash;&amp;gt;2021.4.11 高中的时候读到了一本量子计算机相关的书，现在已忘记书名，但是给我的震撼还是非常大的，所以</description>
+    </item>
+    
+    <item>
       <title>数据结构复习-排序算法</title>
       <link>https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/</link>
       <pubDate>Tue, 20 Jul 2021 17:48:57 +0800</pubDate>
       
       <guid>https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/</guid>
       <description>几乎所有的算法书中，排序算法都是在最开始介绍的算法，不仅仅是因为排序算法非常简单，而且因为排序算法非常基础，在后续其他算法或者处理其他问题时</description>
+    </item>
+    
+    <item>
+      <title>数据结构-基础结构</title>
+      <link>https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Wed, 07 Jul 2021 19:01:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84/</guid>
+      <description>一.问题介绍 在排序数组中查找左右边界，可用于在排序数组中查找某个值出现的位置与次数等 二.刷题沉淀 ①两个栈实现队列 # 类似于负负得正的思想，ap</description>
+    </item>
+    
+    <item>
+      <title>数据结构-基础结构</title>
+      <link>https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
+      <pubDate>Fri, 02 Jul 2021 22:01:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
+      <description>一.问题介绍 在排序数组中查找左右边界，可用于在排序数组中查找某个值出现的位置与次数等$n^2$ 二.刷题沉淀 ①花费最少爬楼梯 class Solution: def minCostClimbingStairs(self, cost: List[int]) -&amp;gt; int: #</description>
     </item>
     
     <item>
@@ -66,12 +111,66 @@
     </item>
     
     <item>
+      <title>美团机器学习实践 - 读书笔记 - Chapter 16 大规模机器学习</title>
+      <link>https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A216/</link>
+      <pubDate>Thu, 29 Apr 2021 12:57:37 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A216/</guid>
+      <description>并行计算编程技术 CPU并行计算，从体系层次上来讲，①CPU单核通过向量化技术提升单核的处理能力，②多核CPU通过多线程技术来充分利用多核处理</description>
+    </item>
+    
+    <item>
+      <title>美团机器学习实践 - 读书笔记 - Chapter 7 评论挖掘</title>
+      <link>https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A27/</link>
+      <pubDate>Sun, 11 Apr 2021 14:57:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A27/</guid>
+      <description>UGC：User Generated Content 评论的真实性和针对性比较强，不会像游记文本出现多个实体。而且其对单一实体的描述更深刻、更直观，且获取成本更低。 评论挖掘的</description>
+    </item>
+    
+    <item>
+      <title>美团机器学习实践 - 读书笔记 - Chapter 6 POI实体链接</title>
+      <link>https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A26/</link>
+      <pubDate>Wed, 07 Apr 2021 14:57:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A26/</guid>
+      <description>POI points of interest 基本的业务单元，在酒店领域就是酒店。在上一章用户画像领域，就是一个自然人。一个优质的POI库：POI信息完整性、POI重复情况、PO</description>
+    </item>
+    
+    <item>
+      <title>美团机器学习实践 - 读书笔记 - Chapter 4 用户画像</title>
+      <link>https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A24/</link>
+      <pubDate>Tue, 30 Mar 2021 14:57:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A24/</guid>
+      <description>企业聚焦于利用大数据来提升各种商业行为的效率，例如精准营销、个性化搜索和推荐、征信判断、风险控制、体验优化以及商业分析等。以深入理解用户为出</description>
+    </item>
+    
+    <item>
+      <title>美团机器学习实践 - 读书笔记 - Chapter 3 常用模型</title>
+      <link>https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A23/</link>
+      <pubDate>Sat, 27 Mar 2021 14:57:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A23/</guid>
+      <description>机器学习的算法有很多种，在工业界最常用的算法有以下几种：逻辑回归、场感知因子分解、梯度提升树、随机森林、神经网络。在Kaggle 的众多机器学</description>
+    </item>
+    
+    <item>
       <title>美团机器学习实践 - 读书笔记 - Chapter 1 问题建模</title>
       <link>https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A21/</link>
       <pubDate>Mon, 22 Mar 2021 14:57:57 +0800</pubDate>
       
       <guid>https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A21/</guid>
       <description>#1. 通用流程 问题建模 （评估指标-&amp;gt;样本选择-&amp;gt;交叉验证 ）&amp;mdash;&amp;gt; 特征工程 &amp;mdash;&amp;gt; 模型选择 &amp;mdash;&amp;gt; 模型融合 &amp;mdash;&amp;gt; 模型应用 ①评估指标 线下</description>
+    </item>
+    
+    <item>
+      <title>美团机器学习实践 - 读书笔记 - Chapter 2 特征工程</title>
+      <link>https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A22/</link>
+      <pubDate>Mon, 22 Mar 2021 14:57:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A22/</guid>
+      <description>特征工程不仅操作困难、耗时，而且需要专业领域知识。应用机器学习基本上就是特征工程。 &amp;ndash;吴恩达🤠 这篇笔记来自于《美团机器学习实践》特</description>
     </item>
     
   </channel>

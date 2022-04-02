@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        美团机器学习实践 - 读书笔记 - Chapter 2 特征工程 - Pure theme for Hugo
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="特征工程不仅操作困难、耗时，而且需要专业领域知识。应用机器学习基本上就是特征工程。 &amp;ndash;吴恩达🤠 这篇笔记来自于《美团机器学习实践》特" />
+    <meta name="generator" content="Hugo 0.92.2 with theme pure" />
+    <title>美团机器学习实践 - 读书笔记 - Chapter 2 特征工程 - Pure theme for Hugo</title>
+    
+    
+    <link rel="stylesheet" href="https://biofrostyy.github.io/css/style.min.e64d754037c0ee0ec4e20ab1d6f07740ace61729bc03850559b8caa21ae4a597.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="美团机器学习实践 - 读书笔记 - Chapter 2 特征工程" />
+<meta property="og:description" content="特征工程不仅操作困难、耗时，而且需要专业领域知识。应用机器学习基本上就是特征工程。 &ndash;吴恩达🤠 这篇笔记来自于《美团机器学习实践》特" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A22/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-03-22T14:57:57+08:00" />
+<meta property="article:modified_time" content="2021-03-22T14:57:57+08:00" />
+
+<meta itemprop="name" content="美团机器学习实践 - 读书笔记 - Chapter 2 特征工程">
+<meta itemprop="description" content="特征工程不仅操作困难、耗时，而且需要专业领域知识。应用机器学习基本上就是特征工程。 &ndash;吴恩达🤠 这篇笔记来自于《美团机器学习实践》特"><meta itemprop="datePublished" content="2021-03-22T14:57:57+08:00" />
+<meta itemprop="dateModified" content="2021-03-22T14:57:57+08:00" />
+<meta itemprop="wordCount" content="5507">
+<meta itemprop="keywords" content="“美团机器学习实践”,“读书笔记”," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="美团机器学习实践 - 读书笔记 - Chapter 2 特征工程"/>
+<meta name="twitter:description" content="特征工程不仅操作困难、耗时，而且需要专业领域知识。应用机器学习基本上就是特征工程。 &ndash;吴恩达🤠 这篇笔记来自于《美团机器学习实践》特"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/xiaoheiAh" target="_blank">
+            <img class="img-circle img-rotate" src="https://biofrostyy.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">xiaoheiAh</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">author title</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Shanghai, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>enjoy~</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div id="tag-cloud-list" class="widget-body">
+            
+            
+            <a href="https://biofrostyy.github.io/tags/leetcode/" class="tag-list-link" rel="4">leetcode<span
+               class="tag-list-count">4</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/myeveryday/" class="tag-list-link" rel="1">myeveryday<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/python/" class="tag-list-link" rel="5">python<span
+               class="tag-list-count">5</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E4%BB%A3%E7%A0%81%E6%B2%89%E6%B7%80/" class="tag-list-link" rel="5">代码沉淀<span
+               class="tag-list-count">5</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E6%8E%A8%E7%90%86%E6%82%AC%E7%96%91/" class="tag-list-link" rel="1">推理悬疑<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" class="tag-list-link" rel="2">推荐系统<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/" class="tag-list-link" rel="1">数学之美<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="tag-list-link" rel="4">数据结构<span
+               class="tag-list-count">4</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E6%B6%88%E5%A4%B1%E7%9A%84%E7%AC%AC13%E7%BA%A7%E5%8F%B0%E9%98%B6/" class="tag-list-link" rel="1">消失的第13级台阶<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E7%BE%8E%E5%9B%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/" class="tag-list-link" rel="7">美团机器学习实践<span
+               class="tag-list-count">7</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="tag-list-link" rel="8">读书笔记<span
+               class="tag-list-count">8</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/" class="tag-list-link" rel="3">读后感<span
+               class="tag-list-count">3</span></a>
+            
+    </div>
+<script>
+document.onreadystatechange = () => {
+  if (document.readyState === 'complete') {
+    tagCloud('#tag-cloud-list a',  8 ,  20 );
+  }
+};
+
+function tagCloud(where, min, max) {
+  let iMax = 0;
+  let iMin = 0;
+  $(where).each(function() {
+    let weight = Number($(this).attr("rel"));
+    if(iMax < weight) iMax = weight;
+    if(iMin > weight || iMin == 0) iMin = weight;
+  });
+  let step = (max - min)/(iMax - iMin);
+  $(where).each(function() {
+    let weight = $(this).attr("rel") - iMin;
+    $(this).css({"font-size": min + (weight * step) + 'px'});
+  });
+};
+</script>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Categories</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/python/" class="category-list-link">python</a><span class="category-list-count">4</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category-list-link">数据结构</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E6%97%A5%E8%AE%B0/" class="category-list-link">日记</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="category-list-link">机器学习</a><span class="category-list-count">6</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E7%A8%8B/" class="category-list-link">系统工程</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="category-list-link">读书笔记</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E8%AF%BB%E5%90%8E%E6%84%9F/" class="category-list-link">读后感</a><span class="category-list-count">3</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/leetcode/" class="tag-list-link">leetcode</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/myeveryday/" class="tag-list-link">myeveryday</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/python/" class="tag-list-link">python</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E4%BB%A3%E7%A0%81%E6%B2%89%E6%B7%80/" class="tag-list-link">代码沉淀</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E6%8E%A8%E7%90%86%E6%82%AC%E7%96%91/" class="tag-list-link">推理悬疑</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" class="tag-list-link">推荐系统</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/" class="tag-list-link">数学之美</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="tag-list-link">数据结构</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E6%B6%88%E5%A4%B1%E7%9A%84%E7%AC%AC13%E7%BA%A7%E5%8F%B0%E9%98%B6/" class="tag-list-link">消失的第13级台阶</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E7%BE%8E%E5%9B%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/" class="tag-list-link">美团机器学习实践</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="tag-list-link">读书笔记</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/" class="tag-list-link">读后感</a><span
+                    class="tag-list-count">3</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2021/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" class="title">1小时读懂《深度学习推荐系统》</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-07-31 15:11:57 &#43;0800 CST" itemprop="datePublished">2021-07-31</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2021/07/myeveryday202107731/" class="title">MyEveryday</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-07-31 15:11:57 &#43;0800 CST" itemprop="datePublished">2021-07-31</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2021/07/%E6%8E%A8%E8%8D%90%E9%A1%B9%E7%9B%AE/" class="title">深度学习推荐系统</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-07-31 15:11:57 &#43;0800 CST" itemprop="datePublished">2021-07-31</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2021/07/%E4%B9%A6%E5%8D%95/" class="title">⭐♥Book List♥⭐</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-07-31 14:35:00 &#43;0800 CST" itemprop="datePublished">2021-07-31</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/" class="title">数据结构复习-排序算法</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-07-20 17:48:57 &#43;0800 CST" itemprop="datePublished">2021-07-20</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2021/03/%E7%BE%8E%E5%9B%A22/"
+    >美团机器学习实践 - 读书笔记 - Chapter 2 特征工程</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A22/" class="article-date">
+  <time datetime="2021-03-22 14:57:57 &#43;0800 CST" itemprop="datePublished">2021-03-22</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"> “机器学习” </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/%E7%BE%8E%E5%9B%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/"> “美团机器学习实践” </a>
+    <a class="article-tag-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> “读书笔记” </a>
+  </span>
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 5507 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 11 minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <p>特征工程不仅操作困难、耗时，而且需要专业领域知识。应用机器学习基本上就是特征工程。 &ndash;吴恩达🤠
+这篇笔记来自于《美团机器学习实践》特征工程部分，我们都知道特征工程在算法的工业应用中有着举足轻重的作用，甚至作为校招生，算法岗位的工作重点就是通过分析研究基于不同的业务场景下的不同特征情况，找到新特征或优化现有特征来提升模型性能，而这些不同场景下的算法本身并不具有特征这样的区别性，例如不同场景下的推荐模型多是应用相似的算法构架。</p>
+<p>特征工程指将原始数据空间变换为模型输入向量空间的过程。好的特征工程不仅需要我们对模型和算法有深入的理解，而需要较强的专业领域知识。特征工程不仅需要我们对<code>模型和算法</code>有深入的理解，更需要较强的<code>专业领域知识</code>(问题理解/业务理解)。特征工程和模型二者此消彼长。例如，对于线性模型，我们需要one-hot编码处理类别变量，要处理特征间的线性关系。但对于随机森林，就可以处理很高维度的数据并且不需要one-hot编码。而对于更复杂的神经网络，模型可以自动进行特征表示，但同时需要很深度的调参才能获得比较好的效果。</p>
+<p>特征工程可以说是业务逻辑的一种数据层面的表示。<!-- raw HTML omitted -->特征提取的目标是对业务进行精确、全面的描写<!-- raw HTML omitted -->。例如在对用户推荐排序时，考虑用户维度的现有因素哪些与用户点击相关，可以影响用户的选择（完全可以理解用户ID是完全无关的特征）。另外对于用户行为数据，可能是下单维度或点击行为维度，我们需要从中抽取相关因素，用数值变量进行表示，例如浏览次数、点击时间、以及价格均值等统计量特征。在我工作中，就出现过推荐模型中仅一个特征的增加就使CTR显著增加。当然如果你并不是特别了解业务。探索性数据分析也许可以帮到你哦。如果你特别了解业务，也先做一下数据分析验证你的想法吧。</p>
+<h1 id="不同类型特征的处理方法">不同类型特征的处理方法</h1>
+<h2 id="数值特征">数值特征</h2>
+<p>对于数值特征，我们主要考虑它的<code>大小和分布</code>。例如线性模型对特征大小很敏感，所以需要数值归一化。又例如对于使用平方损失函数的线性回归和最大似然逻辑回归分别假设目标变量服从高斯分布与伯努利分布，那么我们需要对目标变量进行变换使其满足假设。除了对单一特征进行变换，我们还可以对特征进行交叉组合。特征交叉提升了模型的表达能力，让线性模型具有非线性模型的性质，而树模型天然有这种性质。下面是8种常见数值特征的处理方法。</p>
+<p>1.<code>截断</code>：对于连续型数值特征，有时候太大的精度可能只是噪声。因此，可以在保留重要信息的前提下对特征进行截断，截断后的特征也可以看作是类别特征。另外，至于长尾数据，可以先进行对数转换，然后截断。</p>
+<p>2.<code>二值化</code>：对于一些用户行为特征，一些计数特征，如一首歌的播放量可以很快的累加。我们需要考虑具体的次数重要还是是否存在（二值化：0-不存在，1-存在）更重要，甚至最后一次行为距今的时间更重要。</p>
+<p>3.<code>分桶</code>：如果年龄或点击次数一类的数值特征，跨越了不同的数量级，则它不是一个好特征，例如对于逻辑回归这种对数值大小敏感的模型模型，一个特征又只对应一个系数，从而模型往往只对比较大的特征值敏感。通常这种情况的解决方式是分桶（均匀分桶、分位数分桶、聚类分桶），分桶是一种特征的离散化。</p>
+<p>4.<code>缩放</code>：标准化缩放；最大最小值缩放；最大绝对值缩放；基于某种范数的归一化，如L1范数、L2范数将数值变量的范数变为1；平方根缩放或对数缩放（<!-- raw HTML omitted -->对数缩放对于处理长尾分布且数值为正数的数值变量非常有效，它将大端长尾压缩为短尾，并将小端进行延伸<!-- raw HTML omitted -->，平方根或者对数变换是幂变换的特例，在统计学中都称为方差稳定的变换，其中Box-Cox变换是简化的幂变换，Box-Cox转换仅对取值为正数的数值变量起作用）；对于有异常点的数据，可以使用更加健壮的缩放，与一般的标准化基于标准差进行缩放不同的是，健壮的缩放使用中位数而不是均值，基于分位数而不是方差。</p>
+<p>5.<code>缺失值处理</code>：大部分模型不能处理特征缺失。对于特征缺失，第一种方法是补均值/中位数/模型预测，另一种方法是将缺失作为一种信息训练模型，一些模型可以处理缺失特征，例如XGBoost。</p>
+<p>6.<code>特征交叉</code>：将特征两两非线性组合（二阶特征），或多特征非线性组合（多阶特征），然后通过特征选择（统计检验或模型的特征重要性）来选择有用的交叉特征。有些特征交叉组合，虽然没有直观的解释，但有可能对于模型效果有很大提升。除了手动构造交叉特征外，有些模型可以自动进行特征交叉组合，例如FM\FFM和深度多阶特征的DeepFM。特征交叉可以在线性模型中引入非线性特征，提升模型的表达能力。</p>
+<p>7.<code>非线性编码</code>：除了特征交叉，非线性编码也可以在线性模型中学习非线性关系。例如使用多项式核、高斯核等。但选择合适的核函数并不容易。另外一种方法是将随机森林模型的叶节点进行编码喂给线性模型，这样线性模型的特征就包含了复杂的非线性信息。还有基因算法以及局部线性嵌入、谱嵌入、tSNE等。</p>
+<p>8.<code>行统计量</code>：除了对原始数据变量进行处理之外，直接对行向量进行统计也可以作为一类特征，如统计行向量中空值的个数、0的个数、正值或负值的个数，以及均值、方差、最大值、最小值、偏度、峰度等。
+具体采取哪一种方式不仅依赖于业务和数据本身，还依赖于所选择的模型，因此首先要理解数据和业务逻辑以及模型特点，才能更好地进行特征工程。</p>
+<h2 id="类别特征">类别特征</h2>
+<p>1.<code>one-hot编码</code>：自然数编码下简单模型容易欠拟合，复杂模型容易过拟合。而对于one-hot编码，得到的 特征矩阵太稀疏。one-hot 编码不仅会为数据集增加大量维度，而且实际上并没有太多信息，很多时候 1 散落在众多零之中，即有用的信息零散地分布在大量数据中。这会导致结果异常稀疏，使其难以进行优化，对于神经网络来说尤其如此。
+更糟糕的是，每个信息稀疏列之间都具有线性关系。这意味着一个变量可以很容易地使用其他变量进行预测，导致高维度中出现并行性和多重共线性的问题。</p>
+<p>2.<code>基于统计的类别编码</code>：即将类别特征变成关于它的一种统计量，如将该类别变成该类别在样本中出现的次数，这在有些问题中是有效的，比如纽约和新泽西都是大城市，出现次数都会很多，通过计数的类别编码，模型可以从数值里接受“都是大城市”这个信息。</p>
+<p>3.<code>目标编码</code>：基于目标变量对类别特征进行编码，即有监督的编码方法。也被称为似然编码（likelihood encoding）或平均数编码（mean encoding），而在回归问题中，由于Target是连续的，因此我们可以更灵活地生成新的目标编码功能。例如，我们可以采用均值，模式，标准差或百分位数来创建新特征。<!-- raw HTML omitted -->但是，当训练集特征和测试数据集中分类变量的分布有很大差异时，此方法可能会出现严重过拟合的糟糕情况😰<!-- raw HTML omitted -->，即在训练集中A类概率更高，B类概率更小，但测试集中相反，或者A本身概率差距太大，例如训练集中0.8，而测试集中0.5。</p>
+<pre><code class="language-python">X_target = df_train.copy()
+# 这两特征不能当数值处理，不妨转为object类型同其它非数值特征一起做目标编码
+X_target['day'] = X_target['day'].astype('object')
+X_target['month'] = X_target['month'].astype('object')
+for col in X_target.columns:
+    if (X_target[col].dtype=='object'):
+        # target非1即0，对类别分组后把target全加起来也就是1的次数；统计分组后的数目即是该类别样本数目
+        target = dict(X_target.groupby(col)['target'].agg('sum')/X_target.groupby(col)['target'].agg('count'))
+        # 上一步得到了映射的字典，据此将类别替换为目标编码后的值
+        X_target[col] = X_target[col].replace(target).values
+</code></pre>
+<p>4.<code>贝叶斯目标编码</code>
+贝叶斯目标编码（Bayesian Target Encoding）是一种使用目标作为编码方法的数学方法。仅使用均值可能是一种欺骗性度量标准，因此贝叶斯目标编码试图结合目标变量分布的其他统计度量。例如其方差或偏度（称为高阶矩「higher moments」）。
+然后通过贝叶斯模型合并这些分布的属性，从而产生一种编码，该编码更清楚类别目标分布的各个方面，但是结果的可解释性比较差。
+$P(Y = 1|X = C_j) = \frac{n|<em>{X=C_j &amp; Y=1}}{n|</em>{X=C_j}} \quad (1)$
+高基数变量的取值分布往往是不均衡的，有些取值的出现次数会很低，这将造成上式给出的结果非常不稳定。解决这个问题的一种方法是使用下式获得调整后的结果作为新的编码(Micci-Barreca 2001)：
+$P_j =  \lambda(n|<em>{X=C_j}) \times P(Y=1|X=C_j) + (1 - \lambda(n|</em>{X=C_j})) \times P(Y=1) \quad(2)$</p>
+<p>5.<code>K折交叉验证目标编码</code>
+本书中介绍的是这种目标编码方式(Viacheslav Prokopev 2018；Zumel and Mount 2016) ，注意，K折正则化只对训练集数据进行（完成后，原分类变量的每个分类最多可以与K个编码对应）；而在对测试集数据进行目标编码时，只要直接使用全部训练集数据进行计算即可（完成后，原分类变量的每个分类只与1个编码对应）。也即是说，K折正则化只影响训练集的目标编码和模型拟合结果，不影响测试集的目标编码结果。另外，有关研究提示K的取值在3-6之间时，目标编码的效果最好 (Viacheslav Prokopev 2018) 。</p>
+<pre><code class="language-python">from sklearn.model_selection import KFold
+
+X_fold = X.copy()
+# 数值形式的类别数据-&gt;字符串形式
+X_fold[['ord_0','day','month']] = X_fold[['ord_0','day','month']].astype('object')
+# 二进制数据-&gt;0/1数值
+X_fold[['bin_3','bin_4']] = X_fold[['bin_3','bin_4']].replace({'Y':1,'N':0,'T':1,&quot;F&quot;:0})
+# 分成K=5折
+kf = KFold(n_splits = 5, shuffle = False, random_state=2019)
+for train_ind,val_ind in kf.split(X): # val_ind是K中的1块数据的索引，而train_ind是剩下的K-1块数据的索引
+    for col in cols:
+        if(X_fold[col].dtype=='object'):
+            # 用K-1块数据计算Target encoding，记录到字典
+            replaced = dict(X.iloc[train_ind][[col,'target']].groupby(col)['target'].mean())
+            # 用刚刚计算出的映射对这1块内容做Target encoding
+            X_fold.loc[val_ind,col] = X_fold.iloc[val_ind][col].replace(replaced).values
+</code></pre>
+<p>K折正则化方法实现起来比较复杂；在数据量比较大时，也可以考虑使用基于校正集的方法 (Zumel and Mount 2016) ：从数据集中划分出一个额外的子集（称校正集），然后使用该子集计算变量的目标编码，并将结果应用到训练集和测试集中去。</p>
+<p>6.<code>对循环特征的编码</code>：有些特征（如星期、月份）具备循环性质，一月到十二月，紧接着又回到一月。均匀的循环特征可以视为对圆的均匀分割：
+可以用极坐标系上的角度来描述循环特征的每个位置，而角度可以用sin值和cos值唯一确定。</p>
+<pre><code class="language-python">X_train_cyclic = X.copy()
+columns = ['day','month'] # 要操作的两列循环特征
+for col in columns:
+    # 对每个循环特征派生两个特征列，如对于4月，是2pi*4/12，取sin和cos即可
+    X_train_cyclic[col+'_sin'] = np.sin((2*np.pi*X_train_cyclic[col])/max(X_train_cyclic[col]))
+    X_train_cyclic[col+'_cos'] = np.cos((2*np.pi*X_train_cyclic[col])/max(X_train_cyclic[col]))
+X_train_cyclic=X_train_cyclic.drop(columns,axis=1) # 删除原来的循环特征列
+</code></pre>
+<h2 id="文本特征">文本特征</h2>
+<p>自然语言要处理的对象是文本特征，实际的推荐场景中如商品的名称和类别名称。类别特征的处理方法同样适用，基于深度学习的自动特征工程效果变得越来越好。我们可以从以下几个方面对文本特征进行预处理：</p>
+<h1 id="特征选择">特征选择</h1>
+<p>与特征提取是从原始数据中构造新的特征不同，特征选择是尽量去除冗余和无关特征，从而从这些特征集合中选出一个子集。特征选择对于机器学习应用来说非常重要。特征选择也成为属性选择或变量选择，是指为了构建模型而选择相关特征子集的过程。特征选择的目的有如下三个：简化模型（提高可解释性）、改善性能（节省存储和计算开销）和改善通用性（降低泛化性和增加过拟合风险）。
+特征选择一般包含 产生过程、评价函数、停止准则、验证过程。为了进行特征选择，我们首先需要产生特征或特征子集候选集和，其次需要衡量特征或特征子集的重要性或者好坏程度，因此需要量化特征变量和目标变量以及特征之间的相互联系。为了避免过拟合，我们一般采用<!-- raw HTML omitted -->交叉验证<!-- raw HTML omitted -->的方式来评估特征的好坏，为了减少计算复杂度，我们可能还需要设定一个<!-- raw HTML omitted -->阈值<!-- raw HTML omitted -->，当评价函数值达到阈值后搜索停止，最后我们需要在验证数据集上验证选出来的特征子集的有效性。<img src="/static/chapter2/feature1.png" alt=""></p>
+<h2 id="过滤方法">过滤方法</h2>
+<p>过滤方法其实是更广泛的结构学习的一种特例，特征选择旨在找到跟具体的目标变量相关的特征集合，结构学习需要找到所有变量之间的相互联系，结构学习通常将这些联系表示为一个图。最常见的结构学习算法假设数据由一个贝叶斯网络生成，这时结构为一个有向图模型。特征选择中过滤方法的最优解是目标变量节点的马尔可夫毯，在贝叶斯网络中，每一个节点有且仅有一个马尔可夫毯。</p>
+<p>单变量：特征与目标变量的相关性或互信息，计算效率高不易过拟合，但不能排除冗余的变量，主要用于预处理，常用的单变量过滤方法：覆盖率、皮尔森相关系数（线性相关）、Fisher得分、假设检验、KL散度（也是一种树模型中使用的节点选择方法）、最小冗余最大相关性
+多变量：
+<code>考虑特征变量之间的相互关系（mRMR）</code>，特征集合S和目标变量c之间的相关性可以定义为，特征集合中所有特征与目标变量相关性的均值，冗余性为所有特征之间的相关性的均值，而mRMR准则定义为
+<img src="" alt="">
+但mRMR算法没有考虑到特征之间组合的情况，例如目标变量由特征变量进行XOR运算得到。mRMR是一种增量贪心策略，某个特征一旦被选择了，在后续的步骤不会删除。mRMR可以改写为全局的二次规划的优化问题（即特征集合为特征全集的情况）：QPFS-RCDM算法在特征数目相同的情况下能够挑选出质量最佳的特征子集。
+<code>相关特征选择（CFS）</code>：好的特征集合包含和目标变量非常相关的特征，但这些特征之间彼此不想关。对于包含K个特征的集合。</p>
+<h2 id="封装方法">封装方法</h2>
+<p>封装方法是特征子集搜索和评估指标相结合的方法，前者提供候选的新特征子集，后者基于新特征子集训练一个新模型，并用验证集进行评估，为每一组特征子集进行打分。
+特征子集搜索：完全搜索(分支定界在广度优先搜索的基础上加入了分支限界)、启发式搜索（序列向前、序列向后、双向搜索同时向前向后直到搜索到相同的特征子集时停止、增L去R从空集开始每轮先添加L个特征再删除R个特征）、随机搜索</p>
+<h2 id="嵌入方法">嵌入方法</h2>
+<p>嵌入方法将特征选择嵌入到模型的构建过程中。</p>
+<h1 id="工具介绍">工具介绍</h1>
+<p>过滤：若数据量较小，可以使用Sklearn里的feature_selection模块，若数据量较大，可以使用Spark MLlib。
+嵌入：一般机器学习包的线性模型都支持L1正则，如Spark MLlib和Sklearn等。除此之外，在实际应用中比较常用的特征选择方法还有基于树模型的算法包，如Sklearn中的随即森林以及目前在工业界广泛应用的XGBoost，它们都支持根据不同指标（如增益或者分裂次数等）对特征进行排序。针对XGBoost，Xgbfi提供了多种指标对特征组合进行排序。
+<img src="%5Chugo-blog%5Cpublic%5Cstatic%5C%E7%BE%8E%E5%9B%A2%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%5Cchapter2%5C%E5%B8%B8%E7%94%A8%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E6%96%B9%E6%B3%95%E6%AF%94%E8%BE%83.png" alt="常用特征选择方法比较.png"></p>
+<p><img src="https://links.jianshu.com/go?to=http%3A%2F%2Fbaidu.com%2Fpic%2Fdoge.png" alt=""></p>
+<p>References:
+网络博客
+<a href="https://medium.com/@pouryaayria/k-fold-target-encoding-dfe9a594874b">https://medium.com/@pouryaayria/k-fold-target-encoding-dfe9a594874b</a>
+<a href="https://blog.csdn.net/SHU15121856/article/details/102100689">https://blog.csdn.net/SHU15121856/article/details/102100689</a>
+期刊
+[1] 印晶. 多标签特征选择算法研究及应用[D].南京师范大学,2016.</p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A22/" title="美团机器学习实践 - 读书笔记 - Chapter 2 特征工程" target="_blank" rel="external">https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A22/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License: </strong>
+        <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/xiaoheiAh" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://biofrostyy.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/xiaoheiAh" target="_blank"><span class="text-dark">xiaoheiAh</span><small class="ml-1x">author title</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="next">
+                <a href="https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A21/"
+                    title="美团机器学习实践 - 读书笔记 - Chapter 1 问题建模"><span>Newer&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/xiaoheiAh" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://biofrostyy.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2017  -
+    2022
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+    
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://biofrostyy.github.io/js/application.min.a94ab19cb63a95c8d7fbd7b85cab3ddeea8c369bdf75b9cab6708787ead123af.js"></script>
+<script src="https://biofrostyy.github.io/js/plugin.min.19c5bcb2fb0789ab4f2b7834e5ceb5e92635645605bab902c1024b25f1502364.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            ROOT_URL: 'https:\/\/biofrostyy.github.io\/',
+            CONTENT_URL: 'https:\/\/biofrostyy.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://biofrostyy.github.io/js/insight.min.4a2d52de4bfff73e0c688404fe3d17c9a3ae12d9888e1e1ac9c690e4890de2ded50fe55f2b819c2ba55435a76f396f3ea6805765f0b0af5635cdf74ea459eab0.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        美团机器学习实践 - 读书笔记 - Chapter 16 大规模机器学习 - Pure theme for Hugo
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="并行计算编程技术 CPU并行计算，从体系层次上来讲，①CPU单核通过向量化技术提升单核的处理能力，②多核CPU通过多线程技术来充分利用多核处理" />
+    <meta name="generator" content="Hugo 0.92.2 with theme pure" />
+    <title>美团机器学习实践 - 读书笔记 - Chapter 16 大规模机器学习 - Pure theme for Hugo</title>
+    
+    
+    <link rel="stylesheet" href="https://biofrostyy.github.io/css/style.min.e64d754037c0ee0ec4e20ab1d6f07740ace61729bc03850559b8caa21ae4a597.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="美团机器学习实践 - 读书笔记 - Chapter 16 大规模机器学习" />
+<meta property="og:description" content="并行计算编程技术 CPU并行计算，从体系层次上来讲，①CPU单核通过向量化技术提升单核的处理能力，②多核CPU通过多线程技术来充分利用多核处理" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A216/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-29T12:57:37+08:00" />
+<meta property="article:modified_time" content="2021-04-29T12:57:37+08:00" />
+
+<meta itemprop="name" content="美团机器学习实践 - 读书笔记 - Chapter 16 大规模机器学习">
+<meta itemprop="description" content="并行计算编程技术 CPU并行计算，从体系层次上来讲，①CPU单核通过向量化技术提升单核的处理能力，②多核CPU通过多线程技术来充分利用多核处理"><meta itemprop="datePublished" content="2021-04-29T12:57:37+08:00" />
+<meta itemprop="dateModified" content="2021-04-29T12:57:37+08:00" />
+<meta itemprop="wordCount" content="9084">
+<meta itemprop="keywords" content="“美团机器学习实践”,“读书笔记”," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="美团机器学习实践 - 读书笔记 - Chapter 16 大规模机器学习"/>
+<meta name="twitter:description" content="并行计算编程技术 CPU并行计算，从体系层次上来讲，①CPU单核通过向量化技术提升单核的处理能力，②多核CPU通过多线程技术来充分利用多核处理"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/xiaoheiAh" target="_blank">
+            <img class="img-circle img-rotate" src="https://biofrostyy.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">xiaoheiAh</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">author title</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Shanghai, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>enjoy~</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div id="tag-cloud-list" class="widget-body">
+            
+            
+            <a href="https://biofrostyy.github.io/tags/leetcode/" class="tag-list-link" rel="4">leetcode<span
+               class="tag-list-count">4</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/myeveryday/" class="tag-list-link" rel="1">myeveryday<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/python/" class="tag-list-link" rel="5">python<span
+               class="tag-list-count">5</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E4%BB%A3%E7%A0%81%E6%B2%89%E6%B7%80/" class="tag-list-link" rel="5">代码沉淀<span
+               class="tag-list-count">5</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E6%8E%A8%E7%90%86%E6%82%AC%E7%96%91/" class="tag-list-link" rel="1">推理悬疑<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" class="tag-list-link" rel="2">推荐系统<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/" class="tag-list-link" rel="1">数学之美<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="tag-list-link" rel="4">数据结构<span
+               class="tag-list-count">4</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E6%B6%88%E5%A4%B1%E7%9A%84%E7%AC%AC13%E7%BA%A7%E5%8F%B0%E9%98%B6/" class="tag-list-link" rel="1">消失的第13级台阶<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E7%BE%8E%E5%9B%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/" class="tag-list-link" rel="7">美团机器学习实践<span
+               class="tag-list-count">7</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="tag-list-link" rel="8">读书笔记<span
+               class="tag-list-count">8</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/" class="tag-list-link" rel="3">读后感<span
+               class="tag-list-count">3</span></a>
+            
+    </div>
+<script>
+document.onreadystatechange = () => {
+  if (document.readyState === 'complete') {
+    tagCloud('#tag-cloud-list a',  8 ,  20 );
+  }
+};
+
+function tagCloud(where, min, max) {
+  let iMax = 0;
+  let iMin = 0;
+  $(where).each(function() {
+    let weight = Number($(this).attr("rel"));
+    if(iMax < weight) iMax = weight;
+    if(iMin > weight || iMin == 0) iMin = weight;
+  });
+  let step = (max - min)/(iMax - iMin);
+  $(where).each(function() {
+    let weight = $(this).attr("rel") - iMin;
+    $(this).css({"font-size": min + (weight * step) + 'px'});
+  });
+};
+</script>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Categories</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/python/" class="category-list-link">python</a><span class="category-list-count">4</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category-list-link">数据结构</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E6%97%A5%E8%AE%B0/" class="category-list-link">日记</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="category-list-link">机器学习</a><span class="category-list-count">6</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E7%A8%8B/" class="category-list-link">系统工程</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="category-list-link">读书笔记</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E8%AF%BB%E5%90%8E%E6%84%9F/" class="category-list-link">读后感</a><span class="category-list-count">3</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/leetcode/" class="tag-list-link">leetcode</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/myeveryday/" class="tag-list-link">myeveryday</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/python/" class="tag-list-link">python</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E4%BB%A3%E7%A0%81%E6%B2%89%E6%B7%80/" class="tag-list-link">代码沉淀</a><span
+                    class="tag-list-count">5</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E6%8E%A8%E7%90%86%E6%82%AC%E7%96%91/" class="tag-list-link">推理悬疑</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" class="tag-list-link">推荐系统</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/" class="tag-list-link">数学之美</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="tag-list-link">数据结构</a><span
+                    class="tag-list-count">4</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E6%B6%88%E5%A4%B1%E7%9A%84%E7%AC%AC13%E7%BA%A7%E5%8F%B0%E9%98%B6/" class="tag-list-link">消失的第13级台阶</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E7%BE%8E%E5%9B%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/" class="tag-list-link">美团机器学习实践</a><span
+                    class="tag-list-count">7</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="tag-list-link">读书笔记</a><span
+                    class="tag-list-count">8</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/" class="tag-list-link">读后感</a><span
+                    class="tag-list-count">3</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2021/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" class="title">1小时读懂《深度学习推荐系统》</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-07-31 15:11:57 &#43;0800 CST" itemprop="datePublished">2021-07-31</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2021/07/myeveryday202107731/" class="title">MyEveryday</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-07-31 15:11:57 &#43;0800 CST" itemprop="datePublished">2021-07-31</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2021/07/%E6%8E%A8%E8%8D%90%E9%A1%B9%E7%9B%AE/" class="title">深度学习推荐系统</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-07-31 15:11:57 &#43;0800 CST" itemprop="datePublished">2021-07-31</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2021/07/%E4%B9%A6%E5%8D%95/" class="title">⭐♥Book List♥⭐</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-07-31 14:35:00 &#43;0800 CST" itemprop="datePublished">2021-07-31</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/" class="title">数据结构复习-排序算法</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-07-20 17:48:57 &#43;0800 CST" itemprop="datePublished">2021-07-20</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2021/04/%E7%BE%8E%E5%9B%A216/"
+    >美团机器学习实践 - 读书笔记 - Chapter 16 大规模机器学习</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A216/" class="article-date">
+  <time datetime="2021-04-29 12:57:37 &#43;0800 CST" itemprop="datePublished">2021-04-29</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/%E7%B3%BB%E7%BB%9F%E5%B7%A5%E7%A8%8B/"> “系统工程” </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/%E7%BE%8E%E5%9B%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/"> “美团机器学习实践” </a>
+    <a class="article-tag-link" href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> “读书笔记” </a>
+  </span>
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 9084 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 19 minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <h1 id="并行计算编程技术">并行计算编程技术</h1>
+<p><img src="" alt=""></p>
+<p>CPU并行计算，从体系层次上来讲，①CPU单核通过向量化技术提升单核的处理能力，②多核CPU通过多线程技术来充分利用多核处理性能，③GPU异构计算来扩充单机的处理能力，④多机并行把多机串联起来组成计算集群</p>
+<h2 id="cpu单核通过向量化技术提升单核的处理能力">①CPU单核通过向量化技术提升单核的处理能力</h2>
+<p>在X86体系架构的CPU上，主要的向量化编程技术是SSE和AVX。主要用于对不同数据执行同一（批）命令。Intel公司的单指令多数据流式扩展(Streaming SIMD Extension, SSE)支持的处理器有16个128位寄存器，每一个寄存器可以存放4个（32位）单精度的浮点数。即理论上可以提升4倍计算加速，不过在实际运行中，由于加载数据到寄存器有时间消耗，加速比略低于这个理论值。</p>
+<h2 id="多核cpu通过多线程技术来充分利用多核处理性能">②多核CPU通过多线程技术来充分利用多核处理性能</h2>
+<p>为了充分利用多核CPU的计算能力，各个操作系统和编程语言都提供了多线程编程库，例如UNIX/Linux中Pthread、Windows环境下的WinThread。但是相对于机器学习并行来说，一方面多线程编程技术的开发成本较高，而且此技术需要妥善处理同步互斥等问题；另一方面，不同平台使用的多线程编程库是不一样的，这样也会造成移植性问题。OpenMP是一个支持共享存储并行设计的库，特别适宜多核CPU上的并行程序设计，它可以有效解决上面两个问题， 具有如下几个特点：
+1，OpenMP 是基于共享存储体系结构的一个并行编程标准。目前主流编译器GCC和Visual Studio都支持它。
+2，OpenMP通过在源代码(串行程序)中添加 OpenMP指令和调用OpenMP库函数来实现在共享内存系统上的并行执行，使得很方便对传统的程序进行并行化改造。
+3，OpenMP为共享内存并行程序员提供了一种简单灵活的开发并行应用的接口模型 ，使程序既可以在台式机上IA行，也可以在超级计算机上执行，具有良好的可移植性。</p>
+<p>例如下方对for循环语句进行并行化改造：
+<img src="" alt=""></p>
+<h2 id="gpu异构计算来扩充单机的处理能力">③GPU异构计算来扩充单机的处理能力</h2>
+<p>CPU vs. GPU
+1.CPU主要是为串行指令而优化，而GPU是为大规模并行运算而优化
+2.GPU相对CPU来说，在同样的芯片面积上， GPU拥有更多的计算单元，这也使得GPU计算性能更加强大，而CPU则拥有更多的缓存和相关的控制部件
+3.GPU相对CPU来说拥有更高的带宽
+<img src="" alt="">
+接下来，我们来看看CUDA相关的几个概念:线程 线程块、线程网格 、线程束、流处理器、流多处理器
+口流处理器：它是最基本的处理单元，最后具体的指令和任务都是在其上处理的。GPu进行并行计算 ，也就是很多个流处理器同时做计算
+口流多处理器：多个流处理器加上其他的一些资源组成一个流多处理器。资源也就是存储资源、共享内存、寄储器等。流多处理器就相当于 CPU 中的核，负责线程束的执行。同一时刻只能有一个线程束执行。
+口线程束：它是GPU执行程序时的调度单位，目前CUDA的Warp 的大小为32 ，同在 Warp的线程以不同数据资源执行相同的指令。
+口网格、线程块、线程：在利用CUDA进行编程时，一个网格分为多个线程块，而一个线程块分为多个线程。其中任务划分到是否影响最后的执行效果。划分的依据是任务特性和GPU本身的硬件特性。</p>
+<p><img src="" alt=""></p>
+<p>CUDA通过函数名前缀来指明函数类型
+口<code>_device_</code>函数在设备端执行，并且也只能从设备端调用， 即作为设备端的子函数来使用
+口<code>_global_</code>函数即kernel 函数，它在设备上执行，但是要从Host端调用
+口<code>_host_</code>函数在Host端执行，也只能从Host端调用，与一般的C函数相同</p>
+<p>更多关于CUDA编程的知识，请参考其官方网站</p>
+<h2 id="多机并行把多机串联起来组成计算集群">④多机并行把多机串联起来组成计算集群</h2>
+<p>多机并行技术发展起来，消息传递接口(Massage Passing Interface, MPI)就是其中一个典型代表。MPI是消息传递函数库的标准规范，由MPI论坛开发，支持Fortran和C/C++，它具有如下特点：
+1，MPI是一种新的库描述，不是一种语言
+2，MPI共有上百个函数调用接口， Fortran和C++ 可以直接对这些函数进行调用
+3，MPI是一种标准或规范，而不是特指某一个对它的具体实现
+4，MPI 种消息传递编程模型，并成为这种编程模型的代表和事实上的标准</p>
+<p>目前比较主流的MPI实现有MPICH2和OpenMPI。MPI从本质上解决了多机并行中的数据通信问题，从而使得多机并行开发变得容易。MPI程序执行流程如下图</p>
+<p><img src="" alt=""></p>
+<p>MPI是一种多进程编程技术。根据经验，MPI的学习曲线和开发成本都是比较低的，下面是6个最基本也是最常用的MPI函数
+<code>MPI_Init()</code>初始化环境
+<code>MPI_Comm_size()</code> 获取进程数
+<code>MPI_Comm_rank()</code> 获取进程序号
+<code>MPI_Send()</code> 送消息
+<code>MPI_Recv()</code> 接收消息
+<code>MPI_Finalize()</code> 并行结束函数</p>
+<p>MPI主要解决了进程之间的通信问题，包括跨主机的进程通信
+<img src="" alt=""></p>
+<h4 id="数据移动">数据移动</h4>
+<p><img src="" alt=""></p>
+<h4 id="数据归约">数据归约</h4>
+<p><img src="" alt=""></p>
+<h2 id="并行编程技术小结">并行编程技术小结</h2>
+<p>上述四种技术在机器学习领域得到广泛应用
+1，向量化化和OpenMP，在单机执行机器学习训练的情况下，主要采用该技术进行加速，使用该技术常用的开源机器学习包有XGBoost、Multi-core Liblinear、Libffm和ANN
+2，GPU编程（CUDA) ：几乎所有的深度学习包都会使用该技术， 比如Theano、MXNet、TensorFlow和Caffe
+3，MPI：有些大公司也开发了自己的消息通信系统，其功能上与MPI大同小异， Graphlab、Distributed MPI LIBLINEAR、Paracel都是采用MPI的代表</p>
+<p>我们可以根据自己的硬件条件和应用场景来选择合适的并行计算编程技术
+<img src="" alt=""></p>
+<h1 id="并行计算模型">并行计算模型</h1>
+<p>随着大数据技术的发展，分布式系统越来越多。我们熟悉的MapReduce系统Hadoop、基于内存的MapReduce的Spark系统是Job中间输出结果、可以保存在内存中的实时流处理系统Storm，以及后起之秀面向分布式数据流处理和批量数据处理的开源计算平台Flink。而对于机器学习的分布式系统，基于Hadoop的Mahout因为效果不理想已经停止更新。Spark的MLlib也提供了大量的机器学习算法的分布式实现。</p>
+<p>但是，为什么一些公司会研发自己的分布式机器学习平台？常见的分布式深度学习包如TensorFlow、MXNet、PaddlePaddle等并没有直接基于Spark等平台实现？</p>
+<p>答案其实就是术业有专攻，第一段提到的Hadoop和spark等系统是通用的分布式任务处理解决方案，当然也可以用来处理分布式机器学习任务，而互联网巨头研发的分布式机器学习平台是<code>专门为机器学习任务处理</code>而设计的。TensorFlow等甚至是专门为分布式深度学习设计的。</p>
+<h3 id="传统分布式任务于分布式机器学习任务的区别">传统分布式任务于分布式机器学习任务的区别</h3>
+<p>1，传统 MapReduce 模型计算过程中一旦发生错误，错误是会一直传播而不会得到任何修正的，而对于机器学习程序来说，<code>中间结果的错误是可以容忍的</code>，有多条路径都可以收敛到最优
+2，机器学习算法比传统的MapReduce程序拥有<code>更加复杂的结构依赖</code>，就是说机器学习模型中的参数通常不是不独立的
+3，机器学习算法还有一个特性是<code>参数收敛速度的不均匀</code>，MapReduce排序把数据分发到不同节点执行，各节点的任务和负载基本上是均衡的</p>
+<p>根据以上的区别，分布式机器学习系统需要解决以下三个问题：
+1，如何更好地切分多个任务
+2，如何调度子任务
+3，均衡各节点的负载</p>
+<p>机器学习中重要的两个问题：建模和求解。分布式机器学习主要需要解决求解的并行化问题，具体来说其实主要是梯度下降求解的并行化问题，并针对最优化求解并行化提出了很多并行模型。
+<img src="" alt=""></p>
+<h2 id="bsp">BSP</h2>
+<p>一个较早的并行计算模型，也是当前主流的并行计算模型之一
+<img src="" alt="">
+BSP模型简单说就是切分好的并行任务同时计算(线程或进程)， 算完之后统一进行通信，对各自的计算结果进行同步，然后再开始新一轮的计算和同步。BSP模型中，计算由一系列用全局同步分开的周期为L的计算组成，这些计算称为超级步( SuperStep )
+<img src="" alt="">
+<img src="" alt="">
+这个性能公式对于算法和程序分析是很简单方便的。</p>
+<p>BSP具有如下优点：
+1，它将处理器和路由器分开，强调了计算任务和通信任务的分开，而路由器仅仅完成点到点的消息传递，不提供组合、复制和广播等功能，这样做既掩盖具体的互连网络拓扑，又简化了通信协议
+2，采用障碍同步的方式以硬件实现的全局同步是在可控的粗粒度级，从而提供了执行紧耦合同步式并行算法的有效方式，而程序员并无过分的负担
+BSP模型的这些特点使它成为并行计算主流模型之一，开源的Mahout、ApacheHuma、Spark MLlib、Google Pregel、Graphlab和XGBoost等的并行实现都是基于BSP模型的。</p>
+<h2 id="ssp">SSP</h2>
+<p>BSP在每一轮结论都需要一次同步，这就会造成木桶效应，导致每一轮迭代的效率由最慢的计算任务来决定，为了缓解这个现象，SSP模型被提出来了
+<img src="" alt="">
+当最快的worker比最慢的worker超过一个预设的bound时，所有的worker进行一次参数同步。这个Bound可以根据迭代的次数，也可以根据参数更新的差值来确定。SSP协议的好处在于，Faster worker会遇到参数版本过于陈旧的问题，导致每一步迭代都需要网络通信，从而达到了平衡计算和网络通信时间开销的效果。</p>
+<p>可能有人由疑问，这样不会导致参数不同步的问题吗？答案是肯定的，但是在传统分布式任务于分布式机器学习任务的区别第一点中，我们提到机器学习可以容忍错误，对于机器学习程序来说，中间结果的错误是可以容忍的，有多条路径都可以收敛到最优，因此少量的错误可类似于随机噪声，但不影响最终的收敛结果。尽管每一次迭代可能存在误差，但是经过多轮迭代后，平均误差趋近于零。尽管每次求解路径可能不是最优的，但是最终还是找到了一条通往最优解的整体路径。尽管这条路径不是最快的路径，但是由于其在通信方面的优势，整体的求解速度相对于BSP来说还是更快一些，特别是在数据规模和参数规模非常大的情况下、多机并行的环境下。</p>
+<h2 id="asp">ASP</h2>
+<p>如果我们把SSP的同步时机约束无限放宽，SSP模型就变成了ASP模型。也就是说在ASP模型下，Worker之间没有同步操作了。
+<img src="" alt=""></p>
+<p>这种看似非常大胆的举动，<!-- raw HTML omitted -->？却会在特定的情况下发挥很重要的作用。<!-- raw HTML omitted --><!-- raw HTML omitted -->这里我们对比下BSP、SSP、ASP三种模型
+①SSP协议可以有效平衡计算和网络通信的开销。解决Faster Worker参数版本过于陈旧的问题。
+②<!-- raw HTML omitted -->？SSP有收敛性保障，异步是没有的。异步的问题在于，整体对参数的更新量de!ta w = delta w 1+
+delta w2+… (de!ta wi表示单个Worker 根据部分数据计算的参数更新量)， delta wi之间
+应该是不能跨迭代次数的(而SSP则放宽了这种约束)，因此异步并没有收敛的保证。而SSP是有收敛保证的，有的论文提供了 Bound<!-- raw HTML omitted --><!-- raw HTML omitted -->
+③对于非凸问题， BSP和SSP收敛的最优解可能不一样。非凸优化问题(比如说神经网络)有大量局部最优解，随机梯度下降(可以跳出局部最优解)比批量梯度下降效果要更好。</p>
+<h2 id="基于上述紫色文字部分疑问的补充知识">基于上述紫色文字部分疑问的补充知识</h2>
+<p><img src="" alt="">
+在Angel中这三种设置方式非常简单，如图中只要设置不同的staleness，就能以不同的异步模型运行。但是，同步限制放宽之后可能导致收敛质量下降甚至任务不收敛的情况，这需要在实际算法中，需要指标的变化情况，调整同步协议以及相关的参数，以达到收敛性和计算速度的平衡。在Angel中，我们是通过向量时钟的方式，来实现异步模型控制。
+来源：https://edgue.github.io/angel/docs/design/sync_controller.html#2-ssp</p>
+<h2 id="参数服务器">参数服务器</h2>
+<p>参数服务器是近年来在分布式机器学习领域非常火的一种技术。参数服务器是个编程框架，用于方便分布式并行程序的编写，其重点是对<code>大规模参数的分布式存储和协同</code>的支持。在参数服务器的机器学习训练集中，集群中的节点可以分为计算节点和参数服务节点两种。</p>
+<p>其中，计算节点负责对分配到自己本地的训练数据进行计算学习，并更新对应的参数；参数服务节点采用分布式存储的方式，各自存储全局参数的一部分，并作为服务方接受计算节点的参数查询和更新请求。</p>
+<p><img src="" alt=""></p>
+<p>①参数的获取与提交
+计算节点从参数服务节点上获取当前的梯度，然后根据本地分配的训练样本进行梯度计算，通过几轮迭代后将更新后的梯度推送给参数服务节点。参数在参数服务器中需要高效地进行分布式存储，同时计算节点和参数服务节点之间的通信要足够高效。
+②参数值的同步问题
+根据参数服务的设计和运行原理，我们可以得知在每一个时刻计算节点的梯度和当前参数服务节点上存储的梯度可能是不一致的。
+<img src="" alt="">
+一般我们设定，每个计算节点Worker迭代这个轮数后和参数服务节点做一次同步。</p>
+<p>③非凸问题能否收敛到最优解
+本身梯度下降严格来说是无法得到非凸问题的全局最优解的。参数服务器的异步随机梯度方法正好可以跳出局部最优解，最终的训练效果还不错。</p>
+<h2 id="梯度更新方法">梯度更新方法</h2>
+<p>梯度更新方法主要有参数平均法和基于更新方法两种</p>
+<p>①参数平均法
+将每个计算节点获取的参数值平均后作为全局参数值，可以证明参数平均法的结果在数学意义上等同于用单个机器进行训练
+<img src="" alt="">
+②基于异步梯度下的更新方法，相对于参数平均法在工作节点于参数服务器之间传递参数，我们在这里只传递梯度更新信息
+<img src="" alt=""></p>
+<h2 id="梯度更新时机">梯度更新时机</h2>
+<p><img src="" alt="">
+Bounded Delay：它是Sequential与Eventual之间的折中，当最快计算任务比最慢计算任务快于一定阀值时，最快的计算任务进行等待，也可以当计算任务对梯度的累计更新值大于一定阔值时，最快计算任务进行等待。可以设置 τ 为最大的延时时间，也就是说，只有大于 τ 阈值之前的任务都被完成了，才能开始一个新的任务。极端的情况有 τ= 0，Bounded Delay 等价于 Sequential； τ =∞， Bounded Delay 等价于Eventual
+<img src="" alt=""></p>
+<h2 id="bspsspasp与参数服务器">BSP、SSP、ASP与参数服务器</h2>
+<p><img src="" alt="">
+参数服务器的这些优点使之成为最近最流行的机器学习分布式机器解决方案</p>
+<h1 id="并行计算案例">并行计算案例</h1>
+<p>现在有很多开源的分布式机器学习包，这里我们对DMLC的XGBoost和MXNet两个开源的机器学习包实现原理进行剖析。XGBoost是目前GBDT模型最好的实现，在工业界和Kaggle比赛中都发挥了非常重要作用，取得不错的效果。MXNet 也是目前最优秀的分布式深度学习框架之一，并被亚马逊云计算选为官方深度学习包。</p>
+<h2 id="xgboost并行库rabit">XGBoost并行库Rabit</h2>
+<p>XGBoost的分布式实现有如下几个特点
+①OpenMP支持多核并行
+②CUDA支持GPU加速
+③Rabit支持分布式</p>
+<p>XGBoost的核心就是Rabit，XGBoost将其分布式核心功能抽象出来，Rabit是基于BSP模型的，通过两个基本原语Broadcast和AIIReduce来实现其分布式功能。Broadcase和AIIReduce与MPI的功能基本上一致，设计思想类似。那么，为什么不直接使用MPI? 原因就是Rabit在MPI的AIIReduce和Broadcast操作原语这个基础上提供了更好的容错处理功能，弥补了MPI的不足。</p>
+<p>为什么传统的MapReduce模型在机器学习并行化中的作用有限呢？首先，MapReduce每一轮迭代计算后其中间结果都放入到存储系统，有的甚至是在硬盘(比如Hadoop) 中，这就降低了迭代效率。其次，在每-轮迭代后数据都需要重新洗牌分发，这无疑又增加了系统的通信开销。
+<img src="" alt=""></p>
+<p>XGBoost Rabit针对这个缺陷，在两个地方都做了优化，其一，每一轮迭代结束后计算结果不需要放入到存储系统，而是直接保留在内存；其二，每一轮迭代后没有数据重新分发的过程，直接进行下一轮迭代，这使得计算效率大大提升。
+<img src="" alt=""></p>
+<p>Rabit通过检查点机制来进行容错恢复，Rabit在一轮AllReduce通信结束后会在各节点内存中将模型结果缓存为检查点，并增加检查点版本号。同步结果后，各节点会继续各自的计算直到下一次AllReduce通信同步。在这个过程中，如果其中有节点发生故障计算失败，该故障节点会从集群中找到最近的节点，拿到上一轮的模型文件，然后重新开始计算。其他无故障节点等待故障节点计算完成后，各节点间才再一次进行AllReduce通信同步。</p>
+<p><img src="" alt=""></p>
+<p>XGBoost Rabit对分布式操作的封装非常好，可以很方便移植到其他系统中去，我们可以基于Rabit来开发我们的分布式机器学习程序：
+<img src="" alt=""></p>
+<h2 id="mxnet并行库ps-lite">MXNet并行库PS-Lite</h2>
+<p>PS-Lite是MXNet分布式现实的核心，它是基于参数服务器模型的。它的实现具有如下特点。
+①高效的通信
+异步通信不会拖慢计算
+②弹性一致
+将模型一致这个条件放宽松，允许在算法收敛速度和系统性能之间做平衡。通过之前提到的Bound来解决计算节点与参数服务器的参数同步时机
+③扩展性强
+增加节点无须重启集群。在数据一致性上，使用的是传统的一致性散列算法。这是分布式计算和存储中一种非常有名的算法&mdash;当数据太大而无法存储在一个节点或机器上时，将对象和服务器都放置到同一个哈希环后，在哈希环上顺时针查找距离这个对象的 hash 值最近的机器，即是这个对象所属的机器。 当添加新服务器时，如果使用简单的取模方法，当新添加服务器时可能会导致大部分缓存失效，而使用一致性哈希算法后，这种情况得到了较大的改善，因为只有少部分对象需要重新分配。
+<img src="" alt="">
+④错误容忍
+机器错误恢复时间短，向量时钟( Vector Clock) 容许网络错误。使用向量时钟来记录每个节点中参数的时间戳，分布式系统能够用来跟踪状态或避免数据的重复发送，推或拉的时候，需要更新的参数都是Rang-Based。这带来了一个好处是，这个Range里面的参数共享的是同一个时间戳，这显然可以大大降低空间复杂度
+⑤易用性
+全局共享的参数使用向量和矩阵表示，而这些又可以用高性能多线程库进行优化</p>
+<p>传统的基于随机梯度下降及其优化变种Momentum、Nesterov Momentum、AdaGrad、RMSProp、
+Adam的机器学习算法能很容易移植至PS-Lite框架下。
+PS-Lite的使用很简单，开发人员可以很方便对现有的机器学习程序进行分布式改造。PS-Lite的核心是KVStore。PS-Lite提供一个分布式的键值对存储来进行数据交换，它主要有两个函数。
+①<code>push</code> 它将键值对从一个设备push进存储，用于计算节点将更新后的参数值推送到参数服务器上
+②<code>pull</code> 它将某个键上的值从存储中pull 出来，用于计算节点从参数服务器上获取相关的参数值</p>
+<p>KVStore还接受自定义的更新函数来控制收到的值如何写入到存储中。最后，KVStore提供数种包含最终一致性模型和顺序一致性模型在内的数据一致性模型
+<img src="" alt="">
+<img src="" alt=""></p>
+<h2 id="美团并行计算机器学习平台---ginger">美团并行计算机器学习平台 - Ginger</h2>
+<p>Ginger是美团结合自己的业务场景和应用特点自主研发的大规模并行深度学习平台。 Ginger属于第一代深度学习框架( 比如Caffe-vl和Paddle等) 封装深度学习算法的前向、后向等操作为Layer ，基于Layer 组装成网络，相比第二代深度学习框架( 对运算的封装)，它的抽象粒度更大，它对开发者要求更高，需要开发者实现Layer梯度计算，但运行效率可以做得更高。因为Ginger框架目标是&quot;运行更快，使用更灵活&quot;，框架会充分考虑效率，因此借鉴第一代深度学习框架思想设计
+<img src="" alt=""></p>
+<p>Ginger架构的组成包括存储部分（Stores、Tensor） 、模型组建部分( Layer、Net、Model)、控
+制部分（Engine、Updator ）、并行库( Parallel Lib )和在线预测（Online Pred）。
+①存储部分
+它包括深度学习算法在运行时输入数据、 训练参数、 中间状态的存储和操作。使用的是Tensor (看成多维数组)， 比如 Mini-Batch x Hl x H2 , TensorOp就是对Tensor的运算，加减乘除使用的是MKL高性能库。Stores依赖的Tensor和lTensorOp与具体Layer有关，比如全连接层的参数及梯度等。</p>
+<p>②模型组建部分
+它是整个框架最主要部分，模型是Ginger每个进程生成的整体，可以包括网络、引擎或者一些特殊功能，而网络 (Net) 由层 (Layer) 组合而成，其中层包含数据读取层、功能层、Loss层和组件层。
+&ndash;数据读取层：它要求数据是二进制格式，对海量数据实现多线程异步读取，支持LIBSVM格式和NLP的词ID格式
+&ndash;功能层：它支持多入( Concat、Eltwise) 或者多出( Split) 的功能层以组合复杂的网络
+&ndash;Loss层：它支持多分类的Softmax 、二分类的LogLoss、Pairwise的HingeLoss等
+&ndash;组件层：它包含各种非线性变化 (Sigmoid、SoftSign、Relu、Elu、Polynominal等)、全连接 (Fully Connected , FC) 层、LookUp层、卷积层等</p>
+<p>③控制部分
+它包含Engine和Updator。其中Engine会控制数据在网络中的流动、参数的变化，比如FeedFoward的操作。而Updator是Engine所管的一个实施者，负责参数更新、隐层状态的清空、梯度的清空或累计，对应包括各种更新算法， 比如SGD及SGD的变形</p>
+<p>④并行库
+它基于ZMQ实现的多服务器的参数服务器主要面向大规模机器学习，设计的通信机制能做到通信耗时与节点数目无关，因此扩展性很好。ZMQ也是著名的分布式流式计算系统Storm的消息通信组件，在这里我们用ZMQ取代了MPI 的通信功能</p>
+<p>⑤在线预测
+线上预测可以生成库嵌入到C++线上代码中，或者生成服务可通过网络访问。在线预测部分的数据输入是在线的数据流，因此和计算线下的Mini-Batch不一样，并且考虑到线上性能和内存要求，Ginger对有些计算和存在特殊优化过</p>
+<p>Ginger采用业界主流的参数服务器架构，模型参数分布在服务器节点上，Worker为计算节点，训练样本分布在每个Worker节点上。Worker只和服务器通信， Worker/Worker和Server/Server之间没有通信，Worker与所有服务器都保持通信。训练时，Worker 通过消息系统从所有服务器中获取完整的模型参数信息，然后根据本地训练样本进行梯度计算。
+<img src="" alt=""></p>
+<p>服务器和worker启动，根据配置文件中远程节点的IP和端口建立收发数据的连接。
+开始训练，Worker根据指定的通信间隔与服务器通信，服务器根据指定的策略（Async、BSP、SSP）更新模型。
+Worker训练结束后给服务器发送结束信息并退出，服务器收到所有Worker的结束信息之后退出。
+随机梯度下降作为深度学习的核心求优算法，Ginger对其进行了很好的支持。支持随机梯度下降的优化算法有Momentum、Adagrad、RMSprop和Adam。</p>
+<p>Ginger有非常不错的性能，这里我们对主流的机器学习框架XGBoost、Tensorflow以及Keras作了对比测试的实验。
+<img src="" alt=""></p>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A216/" title="美团机器学习实践 - 读书笔记 - Chapter 16 大规模机器学习" target="_blank" rel="external">https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A216/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License: </strong>
+        <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/xiaoheiAh" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://biofrostyy.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/xiaoheiAh" target="_blank"><span class="text-dark">xiaoheiAh</span><small class="ml-1x">author title</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://biofrostyy.github.io/2021/04/%E7%BE%8E%E5%9B%A27/" title="美团机器学习实践 - 读书笔记 - Chapter 7 评论挖掘"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            <li class="next">
+                <a href="https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/"
+                    title="python 实现规则集分类并融合压缩"><span>Newer&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/xiaoheiAh" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://biofrostyy.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2017  -
+    2022
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+    
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://biofrostyy.github.io/js/application.min.a94ab19cb63a95c8d7fbd7b85cab3ddeea8c369bdf75b9cab6708787ead123af.js"></script>
+<script src="https://biofrostyy.github.io/js/plugin.min.19c5bcb2fb0789ab4f2b7834e5ceb5e92635645605bab902c1024b25f1502364.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            ROOT_URL: 'https:\/\/biofrostyy.github.io\/',
+            CONTENT_URL: 'https:\/\/biofrostyy.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://biofrostyy.github.io/js/insight.min.4a2d52de4bfff73e0c688404fe3d17c9a3ae12d9888e1e1ac9c690e4890de2ded50fe55f2b819c2ba55435a76f396f3ea6805765f0b0af5635cdf74ea459eab0.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>
