@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        数据结构复习-排序算法 - Pure theme for Hugo
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="几乎所有的算法书中，排序算法都是在最开始介绍的算法，不仅仅是因为排序算法非常简单，而且因为排序算法非常基础，在后续其他算法或者处理其他问题时" />
+    <meta name="generator" content="Hugo 0.92.2 with theme pure" />
+    <title>数据结构复习-排序算法 - Pure theme for Hugo</title>
+    
+    
+    <link rel="stylesheet" href="https://biofrostyy.github.io/css/style.min.e64d754037c0ee0ec4e20ab1d6f07740ace61729bc03850559b8caa21ae4a597.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="数据结构复习-排序算法" />
+<meta property="og:description" content="几乎所有的算法书中，排序算法都是在最开始介绍的算法，不仅仅是因为排序算法非常简单，而且因为排序算法非常基础，在后续其他算法或者处理其他问题时" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-20T17:48:57+08:00" />
+<meta property="article:modified_time" content="2021-07-20T17:48:57+08:00" />
+
+<meta itemprop="name" content="数据结构复习-排序算法">
+<meta itemprop="description" content="几乎所有的算法书中，排序算法都是在最开始介绍的算法，不仅仅是因为排序算法非常简单，而且因为排序算法非常基础，在后续其他算法或者处理其他问题时"><meta itemprop="datePublished" content="2021-07-20T17:48:57+08:00" />
+<meta itemprop="dateModified" content="2021-07-20T17:48:57+08:00" />
+<meta itemprop="wordCount" content="3268">
+<meta itemprop="keywords" content="“python”,代码沉淀,数据结构,leetcode," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="数据结构复习-排序算法"/>
+<meta name="twitter:description" content="几乎所有的算法书中，排序算法都是在最开始介绍的算法，不仅仅是因为排序算法非常简单，而且因为排序算法非常基础，在后续其他算法或者处理其他问题时"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/xiaoheiAh" target="_blank">
+            <img class="img-circle img-rotate" src="https://biofrostyy.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">xiaoheiAh</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">author title</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Shanghai, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>enjoy~</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div id="tag-cloud-list" class="widget-body">
+            
+            
+            <a href="https://biofrostyy.github.io/tags/leetcode/" class="tag-list-link" rel="2">leetcode<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/myeveryday/" class="tag-list-link" rel="1">myeveryday<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/python/" class="tag-list-link" rel="3">python<span
+               class="tag-list-count">3</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E4%BB%A3%E7%A0%81%E6%B2%89%E6%B7%80/" class="tag-list-link" rel="3">代码沉淀<span
+               class="tag-list-count">3</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E6%8E%A8%E7%90%86%E6%82%AC%E7%96%91/" class="tag-list-link" rel="1">推理悬疑<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/" class="tag-list-link" rel="1">数学之美<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="tag-list-link" rel="2">数据结构<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E6%B6%88%E5%A4%B1%E7%9A%84%E7%AC%AC13%E7%BA%A7%E5%8F%B0%E9%98%B6/" class="tag-list-link" rel="1">消失的第13级台阶<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E7%BE%8E%E5%9B%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/" class="tag-list-link" rel="1">美团机器学习实践<span
+               class="tag-list-count">1</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="tag-list-link" rel="2">读书笔记<span
+               class="tag-list-count">2</span></a>
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/" class="tag-list-link" rel="1">读后感<span
+               class="tag-list-count">1</span></a>
+            
+    </div>
+<script>
+document.onreadystatechange = () => {
+  if (document.readyState === 'complete') {
+    tagCloud('#tag-cloud-list a',  8 ,  20 );
+  }
+};
+
+function tagCloud(where, min, max) {
+  let iMax = 0;
+  let iMin = 0;
+  $(where).each(function() {
+    let weight = Number($(this).attr("rel"));
+    if(iMax < weight) iMax = weight;
+    if(iMin > weight || iMin == 0) iMin = weight;
+  });
+  let step = (max - min)/(iMax - iMin);
+  $(where).each(function() {
+    let weight = $(this).attr("rel") - iMin;
+    $(this).css({"font-size": min + (weight * step) + 'px'});
+  });
+};
+</script>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Categories</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/python/" class="category-list-link">python</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="category-list-link">数据结构</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E6%97%A5%E8%AE%B0/" class="category-list-link">日记</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="category-list-link">机器学习</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="category-list-link">读书笔记</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E8%AF%BB%E5%90%8E%E6%84%9F/" class="category-list-link">读后感</a><span class="category-list-count">1</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/leetcode/" class="tag-list-link">leetcode</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/myeveryday/" class="tag-list-link">myeveryday</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/python/" class="tag-list-link">python</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E4%BB%A3%E7%A0%81%E6%B2%89%E6%B7%80/" class="tag-list-link">代码沉淀</a><span
+                    class="tag-list-count">3</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E6%8E%A8%E7%90%86%E6%82%AC%E7%96%91/" class="tag-list-link">推理悬疑</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/" class="tag-list-link">数学之美</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="tag-list-link">数据结构</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E6%B6%88%E5%A4%B1%E7%9A%84%E7%AC%AC13%E7%BA%A7%E5%8F%B0%E9%98%B6/" class="tag-list-link">消失的第13级台阶</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E7%BE%8E%E5%9B%A2%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E8%B7%B5/" class="tag-list-link">美团机器学习实践</a><span
+                    class="tag-list-count">1</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="tag-list-link">读书笔记</a><span
+                    class="tag-list-count">2</span></li>
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/" class="tag-list-link">读后感</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2021/07/myeveryday202107731/" class="title">MyEveryday</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-07-31 15:11:57 &#43;0800 CST" itemprop="datePublished">2021-07-31</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/" class="title">数据结构复习-排序算法</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-07-20 17:48:57 &#43;0800 CST" itemprop="datePublished">2021-07-20</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2021/06/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%88%B7%E9%A2%98tips/" class="title">数据结构-刷题tips</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-06-26 22:01:57 &#43;0800 CST" itemprop="datePublished">2021-06-26</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2021/06/10%E5%88%86%E9%92%9F%E8%AF%BB%E5%AE%8C%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/" class="title">十分钟读完数学之美</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-06-10 21:21:34 &#43;0800 CST" itemprop="datePublished">2021-06-10</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2021/05/%E8%AF%BB%E5%90%8E%E6%84%9F-%E6%B6%88%E5%A4%B1%E7%9A%84%E7%AC%AC13%E7%BA%A7%E5%8F%B0%E9%98%B6/" class="title">消失的第13级台阶</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2021-05-23 16:25:32 &#43;0800 CST" itemprop="datePublished">2021-05-23</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/"
+    >数据结构复习-排序算法</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/" class="article-date">
+  <time datetime="2021-07-20 17:48:57 &#43;0800 CST" itemprop="datePublished">2021-07-20</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"> “数据结构&#34; </a>
+</span>  
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>&nbsp;
+    <a class="article-tag-link" href="/tags/python/"> “python” </a>
+    <a class="article-tag-link" href="/tags/%E4%BB%A3%E7%A0%81%E6%B2%89%E6%B7%80/"> 代码沉淀 </a>
+    <a class="article-tag-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"> 数据结构 </a>
+    <a class="article-tag-link" href="/tags/leetcode/"> leetcode </a>
+  </span>
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 3268 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 7 minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <p>几乎所有的算法书中，排序算法都是在最开始介绍的算法，不仅仅是因为排序算法非常简单，而且因为排序算法非常基础，在后续其他算法或者处理其他问题时都有广泛的应用。就像我在刷题时，应用到排序就可以直接按时间复杂度$O(nlogn)$计算。所以此次复习算法和数据结构也从排序算法开始，使用到的工具书有&lt;算法4&gt;、&lt;我的第一本算法书&gt;及其app、&lt;labuladong的算法小抄&gt;。刷题网站为leetcode，理论上会把相关主题的题全部刷到，并且整理出笔记与代码沉淀。</p>
+<h1 id="一排序算法">一.排序算法</h1>
+<h2 id="时间复杂度为on2的排序算法选择排序插入排序希尔排序">①时间复杂度为$O(n^2)$的排序算法——选择排序、插入排序、希尔排序</h2>
+<p>选择排序的过程为，首先，找到数组中最小的那个元素，其次，将它和数组的第一个元素交换位置（如果第一个元素就是最小元素那么它就和自己交换）。再次，在剩下的元素中找到最小的元素，将它与数组的第二个元素交换位置。如此往复，直到将整个数组排序。这种方法叫做选择排序，因为它在不断地选择剩余元素之中的最小者。</p>
+<p>总的来说，选择排序是一种很容易理解和实现的简单排序算法，它有两个很鲜明的特点。其一：运行时间和输入无关。即一个已经有序的数组或是主键全部相等的数组和一个元素随机排列的数组所用的排序时间一样长。一些其他的排序算法可能会更善于利用输入的初始状态。其二：数据移动是最少的。每次在找到最小值时才会进行一次交换，因此选择排序用了N次交换——交换次数和数组的大小是线性关系。我们将研究的其他任何算法都不具备这个特征（大部分的增长数量级都是线性对数或是平方级别）。</p>
+<p>插入排序则像整理桥牌一样一张一张的来，将每一张牌插入到其他已经有序的牌中的适当位置，与选择排序一样，当前索引左边的所有元素都是有序的，但它们的最终位置还不确定，为了给更小的元素腾出空间，它们可能会被移动。但是当索引到达数组的右端时，数组排序就完成了。</p>
+<p>对于随机排列的长度为$N$且主键不重复的数组，平均情况下插入排序需要$\cfrac{N^2}{4}$次比较以及$\cfrac{N^2}{4}$次交换。最坏情况下需要$\cfrac{N^2}{2}$次比较和$\cfrac{N^2}{2}$次交换，最好情况下需要$N-1$次比较和$0$次交换。其中的情况好坏取决于输入中元素的初始顺序。</p>
+<p>我们可以发现在比较好的情况下，即对于部分有序的数组，插入排序可以获得线性的时间复杂度！</p>
+<p>PS.衡量一个数组是不是部分有序和有序的程度时，可以用到倒置数量这个指标。倒置指的是数组中的两个顺序颠倒的元素。比如E X A M P L E中有11对倒置：E-A、 X-A、 X-M、 X-P、 X-L、 X-E、 M-L、 M-E、 P-L、 P-E以及L-E。如果数组中倒置的数量小于数组大小的某个倍数，那么我们说这个数组是部分有序的。下面是几种典型的部分有序的数组：❏数组中每个元素距离它的最终位置都不远；❏一个有序的大数组接一个小数组；❏数组中只有几个元素的位置不正确。插入排序对这样的数组很有效，而选择排序则不然。事实上，当倒置的数量很少时，插入排序很可能比本章中的其他任何算法都要快。</p>
+<p>上面我们说到，对于部分有序的数组，插入排序非常有效，那么我们可不可以对数组预处理成部分有序，再用插入排序呢。这就是希尔排序。希尔排序又叫缩小增量排序，它是基于插入排序的增强版。时间复杂度是$O(N*(logN)^2)$，在最坏的请款下比较次数和$N^{\cfrac{3}{2}}$。人们发明了很多递增序列来渐进式地改进最坏情况下所需的比较次数（N4/3,N5/4, N6/5…），但这些结论大多只有学术意义，因为对于实际应用中的N来说它们的递增序列的生成函数（以及与N乘以一个常数因子）之间的区别并不明显。</p>
+<p><img src="/leetcode/rank_xier.png" alt="image"></p>
+<h2 id="时间复杂度为onlogn的排序算法归并排序快速排序">②时间复杂度为$O(nlogn)$的排序算法——归并排序、快速排序</h2>
+<p>当我们看到$logn$时不难想到&quot;二分&quot;的思想。</p>
+<p>归并排序运行速度比简单排序块，但是它需要的空间是原始数组空间的两倍；通常这是一个严重的缺点。</p>
+<h1 id="二代码沉淀">二.代码沉淀</h1>
+<h2 id="有序数组中查找左右边界">①有序数组中查找左右边界</h2>
+<pre><code class="language-python">def helper(tar): #左边界
+    i, j = 0, len(nums) - 1    
+    while i &lt;= j:
+        m = (i + j) // 2
+        if nums[m] &lt; tar: i = m + 1
+            else: j = m - 1
+     return j
+
+def helper(tar): # 右边界
+    i, j = 0, len(nums) - 1
+    while i &lt;= j:
+        m = (i + j) // 2
+        if nums[m] &lt;= tar: i = m + 1
+            else: j = m - 1
+    return i
+</code></pre>
+<h2 id="双指针将两个数组合并">②双指针——将两个数组合并</h2>
+<pre><code class="language-python"># 有些题中，为了不占用新内存空间，可以使用逆向双指针在原数组上进行
+class Solution:
+    def merge(self, A: List[int], m: int, B: List[int], n: int) -&gt; None:
+        &quot;&quot;&quot;
+        Do not return anything, modify A in-place instead.
+        &quot;&quot;&quot;
+        pointera = m-1
+        pointerb = n-1
+        while pointera &gt;= 0 and pointerb &gt;= 0:
+            if A[pointera] &gt;= B[pointerb]:
+                A[pointera+pointerb+1] = A[pointera]
+                pointera -= 1
+            else:
+                A[pointera+pointerb+1] = B[pointerb]
+                pointerb -= 1
+
+        while pointerb &gt;= 0:
+            A[pointerb] = B[pointerb]
+            pointerb -= 1
+'''题目链接：https://leetcode-cn.com/problems/sorted-merge-lcci/
+此题还可以直接把B数组填入A数组中，对A进行排序'''
+
+# 另一些题中，希望两种数字（如奇偶），在特定的位置，可以使用双指针，找到后交换两指针的元素
+</code></pre>
+<h2 id="python排序实现">③python排序实现</h2>
+<pre><code class="language-python">------自定义排序
+在python中有自定义排序函数,list.sort(key=函数)
+sorted_items = sorted(list,key=函数,reverse=False)
+可以根据function对一个list进行排序，函数可以返回一个tuple(x[0],-x[1])，表示先根据x[0]排序，如果相同再根据x[1]排序，负号可以达到根据x[1]降序排列的目的
+引申的，如果想根据一个元素在list中出现的次数排序，sorted(list,key=lambda x:(list.count(x),-x))，collections.Counter(s)方法可以返回一个字典，表示每个元素的出现次数。对于上述方法的提升---return ''.join([i*j for i, j in sorted([[i, j] for i, j in dict_al.items()], key=lambda x: -x[1])])
+
+------计数排序，当数据种类较少时可以使用
+参考例题：https://leetcode-cn.com/problems/relative-sort-array/
+</code></pre>
+<h2 id="python排列组合实现">④python排列组合实现</h2>
+<pre><code class="language-python">------全排列combinations和permutations函数
+combinations方法重点在组合，permutations方法重在排列。返回的都是一个iterator。
+
+------回溯递归
+def permutation(self, s: str) -&gt; List[str]:
+     if len(s) &lt;= 1: #当只剩一个的时候返回
+         return [s]
+     return list(set(s[i] + perm for i in range(len(s)) for perm in self.permutation(s[:i] + s[i+1:]))) 
+    # 此时当每个元素都不同时，不会有相同的返回值，当有基本元素相同时(['a','a','b']三个基本元素就会出现两个&quot;aab&quot;)，set()，可以帮助去除重复
+
+def permutation(self, s: str) -&gt; List[str]: # 递归普通写法
+    result = []
+    def permutation(ans, s):
+        if not s:
+            return result.append(ans)
+        for i in set(s):
+            new_ans = i
+            new_s = s.copy()
+            new_s.remove(i)
+            permutation(ans + new_ans, new_s)
+    permutation('', list(s))
+    return result
+-------回溯非递归
+class Solution:
+    def permutation(self, s: str) -&gt; List[str]:
+        n = len(s)
+        curr = list(sorted(s))
+        end = list(reversed(curr))
+        ans = []
+        # 生成下一个排列
+        while curr != end:
+            ans.append(''.join(curr))
+            i = n - 2
+            # 29631 -&gt; 31269
+            while i &gt; 0 and curr[i] &gt;= curr[i+1]:
+                i -= 1
+            j = n - 1
+            while j &gt; i-1 and curr[j] &lt;= curr[i]:
+                j -= 1
+            curr[i], curr[j] = curr[j], curr[i]
+            curr = curr[:i+1] + sorted(curr[i+1:])
+        ans.append(''.join(end))
+        return ans
+</code></pre>
+<h2 id="python-bisect二分查找">⑤python bisect二分查找</h2>
+<pre><code class="language-python">&quot;&quot;&quot;
+bisect 为可排序序列提供二分查找算法
+&quot;&quot;&quot;
+import bisect
+
+#使用bisect函数前需要对列表进行排序，否则虽然可以输出数值，但没有意义
+a = [1, 5, 6, 10, 9]
+a.sort()
+print(&quot;最初的列表：&quot;, a)
+
+#bisect.bisect 返回某个数在列表中可以插入的位置，但不会插入该数。
+#如果这个数与列表中的元素相同，则返回元素后面的位置
+print(&quot;6在列表中可以插入的位置：&quot;, bisect.bisect(a, 6))
+
+#bisect.insort 将某个数插入列表
+bisect.insort(a, 7)
+print(&quot;在列表中插入7：&quot;, a)
+
+#处理插入数值与列表元素相同的情况，返回位置，但不会插入该数
+#bisect.bisect_left 插入元素左侧位置；bisect.bisect_right 插入元素右侧位置
+print(&quot;9在列表中可以插入的位置：&quot;, bisect.bisect_left(a, 9))
+print(&quot;9在列表中可以插入的位置：&quot;, bisect.bisect_right(a, 9))
+
+#处理插入数值与列表元素相同的情况，插入该数
+#bisect.insort_left 插入元素左侧位置；bisect.insort_right 插入元素右侧位置
+bisect.insort_left(a, 9)
+print(&quot;在列表中插入10：&quot;, a)
+bisect.insort_right(a, 10)
+print(&quot;在列表中插入10：&quot;, a)
+</code></pre>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/" title="数据结构复习-排序算法" target="_blank" rel="external">https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License: </strong>
+        <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/xiaoheiAh" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://biofrostyy.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/xiaoheiAh" target="_blank"><span class="text-dark">xiaoheiAh</span><small class="ml-1x">author title</small></a></h3>
+        <div>Good Good Study, Day Day Up~</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://biofrostyy.github.io/2021/06/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%88%B7%E9%A2%98tips/" title="数据结构-刷题tips"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            <li class="next">
+                <a href="https://biofrostyy.github.io/2021/07/myeveryday202107731/"
+                    title="MyEveryday"><span>Newer&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://github.com/xiaoheiAh" target="_blank" title="github" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-github"></i></a></li>
+    <li><a href="https://biofrostyy.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2017  -
+    2022
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+    
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://biofrostyy.github.io/js/application.min.a94ab19cb63a95c8d7fbd7b85cab3ddeea8c369bdf75b9cab6708787ead123af.js"></script>
+<script src="https://biofrostyy.github.io/js/plugin.min.19c5bcb2fb0789ab4f2b7834e5ceb5e92635645605bab902c1024b25f1502364.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            ROOT_URL: 'https:\/\/biofrostyy.github.io\/',
+            CONTENT_URL: 'https:\/\/biofrostyy.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://biofrostyy.github.io/js/insight.min.4a2d52de4bfff73e0c688404fe3d17c9a3ae12d9888e1e1ac9c690e4890de2ded50fe55f2b819c2ba55435a76f396f3ea6805765f0b0af5635cdf74ea459eab0.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>

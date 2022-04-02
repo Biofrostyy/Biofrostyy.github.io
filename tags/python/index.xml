@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>“python” on Pure theme for Hugo</title>
+    <link>https://biofrostyy.github.io/tags/python/</link>
+    <description>Recent content in “python” on Pure theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>CC BY 4.0 CN</copyright>
+    <lastBuildDate>Tue, 20 Jul 2021 17:48:57 +0800</lastBuildDate>
+    
+        <atom:link href="https://biofrostyy.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MyEveryday</title>
+      <link>https://biofrostyy.github.io/2021/07/myeveryday202107731/</link>
+      <pubDate>Sat, 31 Jul 2021 15:11:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/07/myeveryday202107731/</guid>
+      <description>终于又是个周末啦，最近每天工作任务重，又赶上和毕业生大部队的校招生培训，真的是忙的团团转，毕业正式进入职场也有半年了，参加了一些项目也学到了</description>
+    </item>
+    
+    <item>
+      <title>数据结构复习-排序算法</title>
+      <link>https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Tue, 20 Jul 2021 17:48:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/</guid>
+      <description>几乎所有的算法书中，排序算法都是在最开始介绍的算法，不仅仅是因为排序算法非常简单，而且因为排序算法非常基础，在后续其他算法或者处理其他问题时</description>
+    </item>
+    
+    <item>
+      <title>数据结构-刷题tips</title>
+      <link>https://biofrostyy.github.io/2021/06/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%88%B7%E9%A2%98tips/</link>
+      <pubDate>Sat, 26 Jun 2021 22:01:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/06/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%88%B7%E9%A2%98tips/</guid>
+      <description>一.问题介绍 在排序数组中查找左右边界，可用于在排序数组中查找某个值出现的位置与次数等 二.刷题沉淀 ①ListNode题 # 可以使用一个空起始点来</description>
+    </item>
+    
+    <item>
+      <title>十分钟读完数学之美</title>
+      <link>https://biofrostyy.github.io/2021/06/10%E5%88%86%E9%92%9F%E8%AF%BB%E5%AE%8C%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/</link>
+      <pubDate>Thu, 10 Jun 2021 21:21:34 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/06/10%E5%88%86%E9%92%9F%E8%AF%BB%E5%AE%8C%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/</guid>
+      <description>本书基本上算是我自然语言处理方向的启蒙读物，虽然之后研究生读了机器学习，没有选择自然语言处理，但是无论是在学习中还是工作中，都还是会接触一些</description>
+    </item>
+    
+    <item>
+      <title>消失的第13级台阶</title>
+      <link>https://biofrostyy.github.io/2021/05/%E8%AF%BB%E5%90%8E%E6%84%9F-%E6%B6%88%E5%A4%B1%E7%9A%84%E7%AC%AC13%E7%BA%A7%E5%8F%B0%E9%98%B6/</link>
+      <pubDate>Sun, 23 May 2021 16:25:32 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/05/%E8%AF%BB%E5%90%8E%E6%84%9F-%E6%B6%88%E5%A4%B1%E7%9A%84%E7%AC%AC13%E7%BA%A7%E5%8F%B0%E9%98%B6/</guid>
+      <description>评前碎碎念 翻译的好坏总是能左右我对一本书的兴趣，仿佛我试图入坑克苏鲁神话被译本晦涩仿佛机翻的语言劝退的那天，一直以来我对译本总是抱着怀疑的态</description>
+    </item>
+    
+    <item>
+      <title>python 实现规则集分类并融合压缩</title>
+      <link>https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/</link>
+      <pubDate>Sun, 16 May 2021 22:01:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/</guid>
+      <description>一.问题介绍 工作中遇到一个问题，一个列表中，存在多个以&amp;quot;-&amp;ldquo;连接的范围string，希望可以把规则集压缩，即融合的范围</description>
+    </item>
+    
+    <item>
+      <title>美团机器学习实践 - 读书笔记 - Chapter 1 问题建模</title>
+      <link>https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A21/</link>
+      <pubDate>Mon, 22 Mar 2021 14:57:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/03/%E7%BE%8E%E5%9B%A21/</guid>
+      <description>#1. 通用流程 问题建模 （评估指标-&amp;gt;样本选择-&amp;gt;交叉验证 ）&amp;mdash;&amp;gt; 特征工程 &amp;mdash;&amp;gt; 模型选择 &amp;mdash;&amp;gt; 模型融合 &amp;mdash;&amp;gt; 模型应用 ①评估指标 线下</description>
+    </item>
+    
+  </channel>
+</rss>
