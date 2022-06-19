@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>AutoML--NNL经验分享</title>
+      <link>https://biofrostyy.github.io/2022/06/automl-nnl%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</link>
+      <pubDate>Wed, 15 Jun 2022 20:23:31 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2022/06/automl-nnl%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</guid>
+      <description>AutoML全称是Automated Machine Learning，是2014年以来，机器学习和深度学习领域最炙手可热的领域之一。NNI(Neural Network</description>
+    </item>
+    
+    <item>
       <title>知识网络</title>
       <link>https://biofrostyy.github.io/2022/05/%E7%9F%A5%E8%AF%86%E7%BD%91%E7%BB%9C/</link>
       <pubDate>Sat, 07 May 2022 12:23:31 +0800</pubDate>
@@ -47,6 +56,15 @@
     </item>
     
     <item>
+      <title>浅谈hive sql优化</title>
+      <link>https://biofrostyy.github.io/2022/03/%E6%B5%85%E8%B0%88hive-sql%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Wed, 30 Mar 2022 12:23:31 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2022/03/%E6%B5%85%E8%B0%88hive-sql%E4%BC%98%E5%8C%96/</guid>
+      <description>hive sql绝对是大数据从业者绕不开的需求，而数据量巨大，十亿、百亿时如何让任务运行得又快又准确，也是需求中永恒的命题。下面我回来介绍我在工作中</description>
+    </item>
+    
+    <item>
       <title>1小时读懂《深度学习推荐系统》</title>
       <link>https://biofrostyy.github.io/2021/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</link>
       <pubDate>Sat, 31 Jul 2021 15:11:57 +0800</pubDate>
@@ -62,42 +80,6 @@
       
       <guid>https://biofrostyy.github.io/2021/07/%E6%8E%A8%E8%8D%90%E9%A1%B9%E7%9B%AE/</guid>
       <description>推荐系统的终极优化目标应包括两个维度：一个维度是用户体验的优化，另一个维度是满足公司的商业利益。对一个健康的商业模式来说，这两个维度应该是和</description>
-    </item>
-    
-    <item>
-      <title>数据结构复习-排序算法</title>
-      <link>https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/</link>
-      <pubDate>Tue, 20 Jul 2021 17:48:57 +0800</pubDate>
-      
-      <guid>https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/</guid>
-      <description>几乎所有的算法书中，排序算法都是在最开始介绍的算法，不仅仅是因为排序算法非常简单，而且因为排序算法非常基础，在后续其他算法或者处理其他问题时</description>
-    </item>
-    
-    <item>
-      <title>数据结构-基础结构</title>
-      <link>https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84/</link>
-      <pubDate>Wed, 07 Jul 2021 19:01:57 +0800</pubDate>
-      
-      <guid>https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84/</guid>
-      <description>一.问题介绍 在排序数组中查找左右边界，可用于在排序数组中查找某个值出现的位置与次数等 二.刷题沉淀 ①两个栈实现队列 # 类似于负负得正的思想，ap</description>
-    </item>
-    
-    <item>
-      <title>数据结构-基础结构</title>
-      <link>https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
-      <pubDate>Fri, 02 Jul 2021 22:01:57 +0800</pubDate>
-      
-      <guid>https://biofrostyy.github.io/2021/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
-      <description>一.问题介绍 在排序数组中查找左右边界，可用于在排序数组中查找某个值出现的位置与次数等$n^2$ 二.刷题沉淀 ①花费最少爬楼梯 class Solution: def minCostClimbingStairs(self, cost: List[int]) -&amp;gt; int: #</description>
-    </item>
-    
-    <item>
-      <title>数据结构-刷题tips</title>
-      <link>https://biofrostyy.github.io/2021/06/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%88%B7%E9%A2%98tips/</link>
-      <pubDate>Sat, 26 Jun 2021 22:01:57 +0800</pubDate>
-      
-      <guid>https://biofrostyy.github.io/2021/06/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%88%B7%E9%A2%98tips/</guid>
-      <description>一.问题介绍 在排序数组中查找左右边界，可用于在排序数组中查找某个值出现的位置与次数等 二.刷题沉淀 ①ListNode题 # 可以使用一个空起始点来</description>
     </item>
     
     <item>
@@ -120,11 +102,56 @@
     
     <item>
       <title>python 实现规则集分类并融合压缩</title>
-      <link>https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/</link>
+      <link>https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E8%A7%84%E5%88%99%E9%9B%86%E5%88%86%E7%B1%BB%E5%B9%B6%E8%9E%8D%E5%90%88%E5%8E%8B%E7%BC%A9/</link>
       <pubDate>Sun, 16 May 2021 22:01:57 +0800</pubDate>
       
-      <guid>https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/</guid>
+      <guid>https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E8%A7%84%E5%88%99%E9%9B%86%E5%88%86%E7%B1%BB%E5%B9%B6%E8%9E%8D%E5%90%88%E5%8E%8B%E7%BC%A9/</guid>
       <description>一.问题介绍 工作中遇到一个问题，一个列表中，存在多个以&amp;quot;-&amp;ldquo;连接的范围string，希望可以把规则集压缩，即融合的范围</description>
+    </item>
+    
+    <item>
+      <title>阿里BST CTR预测模型复现练习</title>
+      <link>https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-bst/</link>
+      <pubDate>Sun, 16 May 2021 22:01:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-bst/</guid>
+      <description>一.算法介绍 实践于阿里19年发布的paper，地址 https://arxiv.org/abs/1905.06874?context=cs.AI 关键字：pytorch, BST, 行为序列建模，推荐模型，Transformer 主要输入特征有I</description>
+    </item>
+    
+    <item>
+      <title>数据结构复习-排序算法</title>
+      <link>https://biofrostyy.github.io/2020/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/</link>
+      <pubDate>Mon, 20 Jul 2020 17:48:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2020/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/</guid>
+      <description>几乎所有的算法书中，排序算法都是在最开始介绍的算法，不仅仅是因为排序算法非常简单，而且因为排序算法非常基础，在后续其他算法或者处理其他问题时</description>
+    </item>
+    
+    <item>
+      <title>数据结构-基础结构</title>
+      <link>https://biofrostyy.github.io/2020/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84/</link>
+      <pubDate>Tue, 07 Jul 2020 19:01:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2020/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84/</guid>
+      <description>一.问题介绍 在排序数组中查找左右边界，可用于在排序数组中查找某个值出现的位置与次数等 二.刷题沉淀 ①两个栈实现队列 # 类似于负负得正的思想，ap</description>
+    </item>
+    
+    <item>
+      <title>数据结构-基础结构</title>
+      <link>https://biofrostyy.github.io/2020/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
+      <pubDate>Thu, 02 Jul 2020 22:01:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2020/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
+      <description>一.问题介绍 在排序数组中查找左右边界，可用于在排序数组中查找某个值出现的位置与次数等$n^2$ 二.刷题沉淀 ①花费最少爬楼梯 class Solution: def minCostClimbingStairs(self, cost: List[int]) -&amp;gt; int: #</description>
+    </item>
+    
+    <item>
+      <title>数据结构-刷题tips</title>
+      <link>https://biofrostyy.github.io/2020/06/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%88%B7%E9%A2%98tips/</link>
+      <pubDate>Fri, 26 Jun 2020 22:01:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2020/06/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%88%B7%E9%A2%98tips/</guid>
+      <description>一.问题介绍 在排序数组中查找左右边界，可用于在排序数组中查找某个值出现的位置与次数等 二.刷题沉淀 ①ListNode题 # 可以使用一个空起始点来</description>
     </item>
     
   </channel>

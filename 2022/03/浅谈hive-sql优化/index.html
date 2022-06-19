@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>
-        知识网络 - My Everyday
+        浅谈hive sql优化 - My Everyday
       </title>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -20,29 +20,29 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content="PDF文件见GitHub 推荐算法 Embedding 向量检索 自监督学习" />
+    <meta name="description" content="hive sql绝对是大数据从业者绕不开的需求，而数据量巨大，十亿、百亿时如何让任务运行得又快又准确，也是需求中永恒的命题。下面我回来介绍我在工作中" />
     <meta name="generator" content="Hugo 0.92.2 with theme pure" />
-    <title>知识网络 - My Everyday</title>
+    <title>浅谈hive sql优化 - My Everyday</title>
     
     
     <link rel="stylesheet" href="https://biofrostyy.github.io/css/style.min.e64d754037c0ee0ec4e20ab1d6f07740ace61729bc03850559b8caa21ae4a597.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="知识网络" />
-<meta property="og:description" content="PDF文件见GitHub 推荐算法 Embedding 向量检索 自监督学习" />
+    <meta property="og:title" content="浅谈hive sql优化" />
+<meta property="og:description" content="hive sql绝对是大数据从业者绕不开的需求，而数据量巨大，十亿、百亿时如何让任务运行得又快又准确，也是需求中永恒的命题。下面我回来介绍我在工作中" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://biofrostyy.github.io/2022/05/%E7%9F%A5%E8%AF%86%E7%BD%91%E7%BB%9C/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-05-07T12:23:31+08:00" />
-<meta property="article:modified_time" content="2022-05-07T12:23:31+08:00" />
+<meta property="og:url" content="https://biofrostyy.github.io/2022/03/%E6%B5%85%E8%B0%88hive-sql%E4%BC%98%E5%8C%96/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-30T12:23:31+08:00" />
+<meta property="article:modified_time" content="2022-03-30T12:23:31+08:00" />
 
-<meta itemprop="name" content="知识网络">
-<meta itemprop="description" content="PDF文件见GitHub 推荐算法 Embedding 向量检索 自监督学习"><meta itemprop="datePublished" content="2022-05-07T12:23:31+08:00" />
-<meta itemprop="dateModified" content="2022-05-07T12:23:31+08:00" />
-<meta itemprop="wordCount" content="26">
+<meta itemprop="name" content="浅谈hive sql优化">
+<meta itemprop="description" content="hive sql绝对是大数据从业者绕不开的需求，而数据量巨大，十亿、百亿时如何让任务运行得又快又准确，也是需求中永恒的命题。下面我回来介绍我在工作中"><meta itemprop="datePublished" content="2022-03-30T12:23:31+08:00" />
+<meta itemprop="dateModified" content="2022-03-30T12:23:31+08:00" />
+<meta itemprop="wordCount" content="542">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="知识网络"/>
-<meta name="twitter:description" content="PDF文件见GitHub 推荐算法 Embedding 向量检索 自监督学习"/>
+<meta name="twitter:title" content="浅谈hive sql优化"/>
+<meta name="twitter:description" content="hive sql绝对是大数据从业者绕不开的需求，而数据量巨大，十亿、百亿时如何让任务运行得又快又准确，也是需求中永恒的命题。下面我回来介绍我在工作中"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -279,8 +279,8 @@ function tagCloud(where, min, max) {
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/2022/05/%E7%9F%A5%E8%AF%86%E7%BD%91%E7%BB%9C/"
-    >知识网络</a
+    href="/2022/03/%E6%B5%85%E8%B0%88hive-sql%E4%BC%98%E5%8C%96/"
+    >浅谈hive sql优化</a
   >
 </h1>
 
@@ -288,30 +288,40 @@ function tagCloud(where, min, max) {
         
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://biofrostyy.github.io/2022/05/%E7%9F%A5%E8%AF%86%E7%BD%91%E7%BB%9C/" class="article-date">
-  <time datetime="2022-05-07 12:23:31 &#43;0800 CST" itemprop="datePublished">2022-05-07</time>
+<a href="https://biofrostyy.github.io/2022/03/%E6%B5%85%E8%B0%88hive-sql%E4%BC%98%E5%8C%96/" class="article-date">
+  <time datetime="2022-03-30 12:23:31 &#43;0800 CST" itemprop="datePublished">2022-03-30</time>
 </a>
 </span>
 <span class="article-category">
   <i class="icon icon-folder"></i>&nbsp;
-  <a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86%E7%BD%91%E7%BB%9C/"> 知识网络 </a>
+  <a class="article-category-link" href="/categories/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/"> 模块沉淀 </a>
 </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 26 words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 1 minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 542 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 2 minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <!-- raw HTML omitted -->
-<p>PDF文件见GitHub</p>
-<h1 id="推荐算法">推荐算法</h1>
-<p><img src="/knowledge_network/recommend.png" alt="image"></p>
-<h1 id="embedding">Embedding</h1>
-<p><img src="/knowledge_network/embedding.png" alt="image"></p>
-<h1 id="向量检索">向量检索</h1>
-<p><img src="/knowledge_network/vector_search.png" alt="image"></p>
-<h1 id="自监督学习">自监督学习</h1>
-<p><img src="/knowledge_network/self_supervised_learning.png" alt="image"></p>
+      <p>hive sql绝对是大数据从业者绕不开的需求，而数据量巨大，十亿、百亿时如何让任务运行得又快又准确，也是需求中永恒的命题。下面我回来介绍我在工作中遇到的问题，帮助大家在工作中优化算力需求，快速定位问题修复问题。</p>
+<h1 id="一数据倾斜">一.数据倾斜</h1>
+<h2 id="表现">表现</h2>
+<p>任务的map或reduce stage卡在99%很长时间不成功。
+我遇到过最久的一次是一天多，10亿的数据量的join任务。</p>
+<h2 id="原因">原因</h2>
+<p>某个job载了远超于其他job的工作量，导致其他job完成工作后，其还剩非常多的任务</p>
+<h2 id="排查及解决方法">排查及解决方法：</h2>
+<h3 id="join任务">join任务</h3>
+<p>排查问题1：首先排查代码是否有错误，最典型的就是join任务没有设定on的规则导致的笛卡尔积，一般表现为reduce卡在60%左右非常久</p>
+<p>解决方法1：增加on规则字段</p>
+<p>排查问题2：再排查主表的联表字段是否有空值，且空值占比与其他值的占比差距较大，此时大量空值会被分到一个job中，使这个job承载了远超于其他job的工作量</p>
+<p>解决方法2：增加随机数，on nvl(id, rand()) = id</p>
+<p>排查方法3：再排查主表和副表的联表字段是否均有空值，这部分空值也会导致笛卡尔积</p>
+<p>解决方法3：增加随机数填补</p>
+<h3 id="group-by任务">group by任务</h3>
+<p>排查group by字段是否有空值，且空值占比与其他值的占比差距较大</p>
+<h1 id="二表数据量">二.表数据量</h1>
+<p>深度了解语句的执行顺序，可以帮助我们优化代码以尽可能减少运算量</p>
+<p>1.先筛选后join</p>
 
     </div>
     <div class="article-footer">
@@ -319,7 +329,7 @@ function tagCloud(where, min, max) {
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>Permalink: </strong>
-      <a href="https://biofrostyy.github.io/2022/05/%E7%9F%A5%E8%AF%86%E7%BD%91%E7%BB%9C/" title="知识网络" target="_blank" rel="external">https://biofrostyy.github.io/2022/05/%E7%9F%A5%E8%AF%86%E7%BD%91%E7%BB%9C/</a>
+      <a href="https://biofrostyy.github.io/2022/03/%E6%B5%85%E8%B0%88hive-sql%E4%BC%98%E5%8C%96/" title="浅谈hive sql优化" target="_blank" rel="external">https://biofrostyy.github.io/2022/03/%E6%B5%85%E8%B0%88hive-sql%E4%BC%98%E5%8C%96/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License: </strong>
@@ -350,13 +360,13 @@ function tagCloud(where, min, max) {
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://biofrostyy.github.io/2022/05/%E8%AE%BA%E6%96%87%E5%8D%95/" title="⭐♥Paper List♥⭐"><i
+                <a href="https://biofrostyy.github.io/2021/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" title="1小时读懂《深度学习推荐系统》"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
             </li>
             <li class="next">
-                <a href="https://biofrostyy.github.io/2022/06/automl-nnl%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"
-                    title="AutoML--NNL经验分享"><span>Newer&nbsp;&nbsp;</span><i
+                <a href="https://biofrostyy.github.io/2022/03/2%E5%88%86%E9%92%9F%E4%BA%86%E8%A7%A3%E5%94%90%E6%9C%9D%E4%BA%BA%E6%B0%91%E7%94%9F%E6%B4%BB/"
+                    title="唐朝穿越指南"><span>Newer&nbsp;&nbsp;</span><i
                         class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
