@@ -303,7 +303,7 @@ function tagCloud(where, min, max) {
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
       <p>AutoML全称是Automated Machine Learning，是2014年以来，机器学习和深度学习领域最炙手可热的领域之一。NNI(Neural Network Intelligence)是一个轻量级但功能强大的机器学习(AutoML)工具包，可帮助用户自动化特征工程、神经架构搜索、超参数调优和模型压缩，并支持单机、本地多机、云等不同的运行环境。</p>
-<p><img src="/AutoML/NNI%E8%B6%85%E5%8F%82%E6%95%B0.jpg" alt="image"></p>
+<p><img src="/AutoML/NNI.jpg" alt="image"></p>
 <h1 id="nni使用场景">NNI使用场景</h1>
 <h2 id="场景1超参数优化">场景1:超参数优化</h2>
 <p>[学习率,列采样率,树深度,正样本权重,迭代轮数等]
@@ -311,7 +311,7 @@ function tagCloud(where, min, max) {
 <p>搜索的参数可以设定为离散的也可以设定为连续的。同时也可以自定义各种不同的网络大小格子、核函数多大等设定。</p>
 <h2 id="经验">经验</h2>
 <p>一般会比以经验为基础的手动调参要相对值10%左右。但使用时不要直接使用最优的超参数组合，建议使用top10/top20进行各个超参数的取值投票，否则容易造成异常值、过拟合问题。</p>
-<p><img src="/AutoML/NNI.png" alt="image"></p>
+<p><img src="/AutoML/NNI%E8%B6%85%E5%8F%82%E6%95%B0.png" alt="image"></p>
 <p>卷积层的维度的合理性需要自己控制,NNI没有那么智能,例如上层8*8，去乘一个 16*16 的矩阵就会报错。</p>
 <h2 id="场景2模型压缩">场景2:模型压缩</h2>
 <p>模型训练和部署的资源都不是无限的，有时我们会需要对模型进行轻量化以在资源匮乏时进行部署及运行，此时就需要进行模型压缩。现有的压缩技术分为三大类：剪枝、量化和蒸馏</p>
