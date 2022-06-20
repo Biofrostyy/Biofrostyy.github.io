@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>深入浅出Transformer</title>
+      <link>https://biofrostyy.github.io/2022/06/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAtransformer/</link>
+      <pubDate>Mon, 20 Jun 2022 12:23:31 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2022/06/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAtransformer/</guid>
+      <description>Transformer作为一种新的神经网络架构，由Google于2017年发表的论文Attention Is All You Need提出，仅仅利用注意力机制</description>
+    </item>
+    
+    <item>
       <title>AutoML--NNL经验分享</title>
       <link>https://biofrostyy.github.io/2022/06/automl-nnl%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</link>
       <pubDate>Wed, 15 Jun 2022 20:23:31 +0800</pubDate>
