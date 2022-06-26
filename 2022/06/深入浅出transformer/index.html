@@ -39,7 +39,7 @@
 <meta itemprop="name" content="深入浅出Transformer">
 <meta itemprop="description" content="Transformer作为一种新的神经网络架构，由Google于2017年发表的论文Attention Is All You Need提出，仅仅利用注意力机制"><meta itemprop="datePublished" content="2022-06-20T12:23:31+08:00" />
 <meta itemprop="dateModified" content="2022-06-20T12:23:31+08:00" />
-<meta itemprop="wordCount" content="3537">
+<meta itemprop="wordCount" content="3831">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="深入浅出Transformer"/>
 <meta name="twitter:description" content="Transformer作为一种新的神经网络架构，由Google于2017年发表的论文Attention Is All You Need提出，仅仅利用注意力机制"/>
@@ -297,7 +297,7 @@ function tagCloud(where, min, max) {
   <a class="article-category-link" href="/categories/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/"> 模块沉淀 </a>
 </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 3537 words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 3831 words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 8 minutes </span>
       </div>
     </div>
@@ -329,7 +329,8 @@ $$Attention(Q,K,V) = softmax(\frac {QK^T} {\sqrt d_k})V$$
 <p>那么为什么不直接使用$\large X$而要对其进行线性变换呢？</p>
 <p>当然是为了提升模型的拟合能力，矩阵$\large W$都是可以训练的，起到一个缓冲的效果。多头注意力，也是指参数矩阵$\large W$有多种组合，后将这些attention编码后的结果进行拼接。</p>
 <p><img src="/Transformer/%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B.png" alt="image"></p>
-<p>此时对于$Attention(Q,K,V) = softmax(\frac {QK^T} {\sqrt d_k})V$，我们已经理解了</p>
+<p>此时对于$Attention(Q,K,V) = softmax(\frac {QK^T} {\sqrt d_k})V$，我们已经理解了$softmax({QK^T})V$。</p>
+<p>假设Q，K都服从均值为0，方差为1的标准高斯分布，那么$QK^T$中元素的均值为0，方差为d。当d变得很大时，$QK^T$中的元素的方差也会变得很大，如果QK^T$中的元素方差很大，那么$softmax(QK^T)$的分布会趋于陡峭（分布方差大，分布集中在绝对值大的区域）。总结一下就是$softmax(QK^T)$的分布会和$d$有关。因此中每个元素除以$d$后，方差又变为了1。这使得的分布的陡峭程度和$d$成功解耦，从而使得Transformer在训练过程中的梯度值保持稳定。总的来说，d的维度就是$QK^T$的维度，除以d的目的就是降低方差。</p>
 <h2 id="位置编码position-embedding">位置编码Position Embedding</h2>
 <p>最开始介绍模型的时候，我们提到过，Transformer只需要自注意力就可以捕捉序列信息，可上一部分讨论的自注意力机制只根据每个item自身的Embedding编码来计算注意力，即只是个精妙的“词袋模型”而已！它并不能捕捉item的前后顺序信息。举个例子，就算把句子中的词都打乱顺序，得到的结果还是一样的。</p>
 <p>那Transformer是通过什么来学习顺序信息的呢？那就是Position Embedding，位置向量，将每个位置编号，然后每个编号对应一个向量，通过结合位置向量和词向量，就给每个词都引入了一定的位置信息，这样Attention就可以分辨出不同位置的词了，可以看到下图中，位置编码被应用于增强模型输入，让输入的词向量具有它的位置信息，是一个相对独立的模块。</p>
