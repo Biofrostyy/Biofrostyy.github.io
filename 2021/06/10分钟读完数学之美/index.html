@@ -472,9 +472,9 @@ $$
 <p>拼音转汉字的算法和在导航中寻找最短路径的算法相同，都是动态规划。</p>
 <p><img src="/beauty_of_mathematics/pinyin_type1.png" alt="image"></p>
 <p>每一条路，都是一个可选结果，找到概率最高的一条就是最优的句子：</p>
-<p>$w_!,w_2,&hellip;,w_N = \mathop{ArgMax}\limits_{w∈W}P(W_1,W_2,&hellip;,w_n|y_1,y_2,&hellip;,y_N)$</p>
+<p>$w_1,w_2,&hellip;,w_N = \mathop{ArgMax}\limits_{w∈W}P(W_1,W_2,&hellip;,w_n|y_1,y_2,&hellip;,y_N)$</p>
 <p>上述公式的简化方法：</p>
-<p>$w_!,w_2,&hellip;,w_N = \mathop{ArgMax}\limits_{w∈W}P(y_1,y_2,&hellip;,y_N|W_1,W_2,&hellip;,w_n)\ \cdot \ P(W_1,W_2,&hellip;,w_n)≈ \mathop{ArgMax}\limits_{w∈W}\prod\limits_{i=1}^{N}P(w_i|w_{i-1})·P(y_i|w_i)$</p>
+<p>$w_1,w_2,&hellip;,w_N = \mathop{ArgMax}\limits_{w∈W}P(y_1,y_2,&hellip;,y_N|W_1,W_2,&hellip;,w_n)\ \cdot \ P(W_1,W_2,&hellip;,w_n)≈ \mathop{ArgMax}\limits_{w∈W}\prod\limits_{i=1}^{N}P(w_i|w_{i-1})·P(y_i|w_i)$</p>
 <p>如果对上述简化公式中的概率取对数同时取反，即定义$d(W_{i-1},W_i)=-logP(w_i|w_{i-1})·P(y_i|w_i)$，上面的连乘关系，就变成了加法关系，寻找最大概率的问题，就变成了最短路径问题。</p>
 <p>当输入速度超过一定阈值后，用户的体验可能更重要，客户端上虽然不能放置太大的语言模型，但是可以建立个性化的语言模型。那么就有两个问题：如何训练一个个性化的语言模型，其次是怎样处理好它和通用语言模型的关系。为某个人训练一个特定的词汇量在几万的二元语言模型需要几千万的语料，这对一个人来说可能一辈子也达不到，没有足够多的训练数据，高阶的语言模型根本没用，一些输入法就找到了一种经验做法：用户词典，这实际上是一个小规模的一元模型加上非常小量的元组（比如一个用户定义的词ABC，实际是一个三元组）。</p>
 <p>更好的办法是找到大量符合用户经常输入的内容和用语习惯的语料，训练一个用户特定的语言模型。这就要用到余弦定理和文本分类的技术了，即找到某个人输入文本的特征向量Y和已有文本$X_1,X_2,&hellip;,X_{1000}$，选择前K个和Y距离最近的类对应的文本，作为这个特定用户语言模型的训练数据。</p>

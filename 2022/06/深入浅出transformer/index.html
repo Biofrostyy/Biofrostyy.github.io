@@ -39,7 +39,7 @@
 <meta itemprop="name" content="深入浅出Transformer">
 <meta itemprop="description" content="Transformer作为一种新的神经网络架构，由Google于2017年发表的论文Attention Is All You Need提出，仅仅利用注意力机制"><meta itemprop="datePublished" content="2022-06-20T12:23:31+08:00" />
 <meta itemprop="dateModified" content="2022-06-20T12:23:31+08:00" />
-<meta itemprop="wordCount" content="532">
+<meta itemprop="wordCount" content="3537">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="深入浅出Transformer"/>
 <meta name="twitter:description" content="Transformer作为一种新的神经网络架构，由Google于2017年发表的论文Attention Is All You Need提出，仅仅利用注意力机制"/>
@@ -297,25 +297,78 @@ function tagCloud(where, min, max) {
   <a class="article-category-link" href="/categories/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/"> 模块沉淀 </a>
 </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 532 words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 2 minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 3537 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 8 minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <p>Transformer作为一种新的神经网络架构，由Google于2017年发表的论文<em>Attention Is All You Need</em>提出，<!-- raw HTML omitted -->仅仅利用注意力机制<!-- raw HTML omitted -->就可以处理序列数据，不同于LSTM等序列处理模型中串行训练依赖，可以并行处理整个序列(训练耗时短)，并能同等训练短期及长期依赖(对长句子也有能有效捕捉信息)，并且对大数据集或有限数据集均有良好表现。由于这些优点，Transformer被使用在序列数据训练中并取得优异成绩，例如语言模型，行为序列建模中。</p>
-<p>经过一段时间的文献阅读及研究求教，我在这里摒弃文献里讲了一百八十遍的高深名词和公式推导，以通俗易懂的角度来帮助理解Transfomer的本质，它与之前的序列建模模型有什么本质区别？到底是架构中的什么在发挥作用？我们应该怎么使用它？</p>
+      <p>Transformer作为一种新的神经网络架构，由Google于2017年发表的论文<em>Attention Is All You Need</em>提出，<!-- raw HTML omitted -->仅仅利用注意力机制<!-- raw HTML omitted -->就可以处理序列数据。</p>
+<p>现有的序列数据处理方法大都基于RNN或CNN。</p>
+<p>$$y_t = f(y_{t-1}, x_t) \tag{RNN}$$</p>
+<p>RNN是一个串行的递归序列结构，本质是一个马尔科夫决策过程，无法并行，速度较慢，且无法很好得捕捉全局的结构信息（对长句子、段落来说是致命的）。</p>
+<p>$$y_t = f(x_{t-1}, x_t,x_{t+1}) \tag{CNN}$$</p>
+<p>CNN起源于Facebook，窗口式遍历整个向量序列，CNN方便不同于RNN，它可以并行，故而捕捉到一些全局信息。</p>
+<p>$$y_t = f(x_{t}, A,B) \tag{Transformer}$$</p>
+<p>Transformer，即这篇文章的主角，可以并行处理整个序列(训练耗时短)，并能同等训练短期及长期依赖(对长句子也有能有效捕捉信息)，并且对大数据集或有限数据集均有良好表现。由于这些优点，Transformer被使用在序列数据训练中并取得优异成绩，例如语言模型，行为序列建模中。</p>
+<p>经过一段时间的文献阅读及研究求教，我在这里摒弃网络上里讲了一百八十遍的论文直译、高深名词和公式推导，以通俗易懂的角度来理解Transfomer的本质，它与之前的序列建模模型有什么本质区别？到底是架构中的什么在发挥作用？我们应该怎么使用它？</p>
 <p><img src="/AutoML/NNI.png" alt="image"></p>
-<p><!-- raw HTML omitted -->Transformer的本质<!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->到底是Transformer中的什么在发挥作用?<!-- raw HTML omitted --></p>
-<h3 id="多头注意力机制">多头注意力机制</h3>
-<p>注意力机制</p>
-<p>多头</p>
-<p><!-- raw HTML omitted -->Transformer与其他序列建模模型的区别<!-- raw HTML omitted --></p>
-<p>Transformer好在哪？是哪些特质让它拥有这些优点？</p>
-<p><!-- raw HTML omitted -->Transformer要怎么用<!-- raw HTML omitted --></p>
-<p>哪些场景下适合使用Transformer？</p>
-<p><!-- raw HTML omitted -->Transformer应用实例<!-- raw HTML omitted --></p>
-<p>现有的Transformer应用的成熟实例？&ndash;BERT，美团，阿里巴巴</p>
+<h1 id="font-colorroyalblue-size5transformer的本质font"><!-- raw HTML omitted -->Transformer的本质<!-- raw HTML omitted --></h1>
+<p><!-- raw HTML omitted -->到底是Transformer中的什么在发挥作用?</p>
+<p>Transformer的核心：多头自注意力机制和位置向量<!-- raw HTML omitted --></p>
+<h2 id="多头自注意力机制multi-head-self-attention">多头自注意力机制Multi-Head Self-Attention</h2>
+<p>虽然Attention机制并不新鲜，但是Google在这里把Attention视作一个层看待，是一个更加正式的架构设计。
+$$Attention(Q,K,V) = softmax(\frac {QK^T} {\sqrt d_k})V$$
+论文中定义了清晰的Attention公式，其中Q，K，V是三个$n<em>d_k$、$d_k</em>m$、$m<em>d_v$的矩阵，都是通过原序列矩阵S，与参数query,key,value相乘后得到的，Q、K、V进行上式相乘运算后得到一个$n</em>d_v$的矩阵，我们可以认为：这个Attention层，将序列Q($n<em>d_k$)编码成了一个新的$n</em>d_v$的序列。</p>
+<p>想要理解这个公式，我们需要先回想一下自注意力$Softmax(SS^T)S$的含义。</p>
+<p>首先$S·S^T$，矩阵S($n*d$)是一个item的序列，每个item都是其中的一个向量。一个矩阵乘以自己转置的运算，可以看做这些item向量分别与其他向量计算内积（第一行乘第一列、第一行乘第二列&hellip;），而向量的内积又表征了两个向量的夹角，即一个向量在另一个向量上的投影，又即两个向量的相关度。投影值越大，两个向量的相关度越大，如果两个向量夹角90°，那么这两个向量线性无关，如果夹角0°，则线性相关性最大。自然而然，这个相关性即是attention，相关性越大，需要的关注度就越大。</p>
+<p>矩阵$\large SS^T$是一个方阵，我们以行向量的角度理解，里面保存了每个向量和自己与其他向量进行内积运算的结果。softmax就是将这些运算结果(注意力)归一化。让某个item对所有items的注意力加和值为1。</p>
+<p>用$\large SS^T$这个权重方阵，乘原item矩阵，就得到了自注意力编码结果。</p>
+<p><img src="/Transformer/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B.png" alt="image"></p>
+<p>即上图中，softmax后的“早”字注意力结果为[0.4,0.4,0.2]，可以理解为“早”字由0.4个“早”字，0.4个“上”字，0.2个“好”字组成。其中对“早”和“上”字的关注度比对“好”字的注意力高。经过加权加和后得到新的、编码后的“早”字item的向量。</p>
+<p>在$Softmax(SS^T)S$的基础上，将三个S分别换成(Q,K,V)，不必对(Q,K,V)感到陌生，它们都是S乘上不同的参数(query,key,value),本质上都是$\large S$的线性变换，如下图。</p>
+<p><img src="/Transformer/qkv.png" alt="image"></p>
+<p>那么为什么不直接使用$\large X$而要对其进行线性变换呢？</p>
+<p>当然是为了提升模型的拟合能力，矩阵$\large W$都是可以训练的，起到一个缓冲的效果。多头注意力，也是指参数矩阵$\large W$有多种组合，后将这些attention编码后的结果进行拼接。</p>
+<p><img src="/Transformer/%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B.png" alt="image"></p>
+<p>此时对于$Attention(Q,K,V) = softmax(\frac {QK^T} {\sqrt d_k})V$，我们已经理解了</p>
+<h2 id="位置编码position-embedding">位置编码Position Embedding</h2>
+<p>最开始介绍模型的时候，我们提到过，Transformer只需要自注意力就可以捕捉序列信息，可上一部分讨论的自注意力机制只根据每个item自身的Embedding编码来计算注意力，即只是个精妙的“词袋模型”而已！它并不能捕捉item的前后顺序信息。举个例子，就算把句子中的词都打乱顺序，得到的结果还是一样的。</p>
+<p>那Transformer是通过什么来学习顺序信息的呢？那就是Position Embedding，位置向量，将每个位置编号，然后每个编号对应一个向量，通过结合位置向量和词向量，就给每个词都引入了一定的位置信息，这样Attention就可以分辨出不同位置的词了，可以看到下图中，位置编码被应用于增强模型输入，让输入的词向量具有它的位置信息，是一个相对独立的模块。</p>
+<p><img src="/Transformer/%E4%BD%8D%E7%BD%AE%E5%90%91%E9%87%8F.jpg" alt="image"></p>
+<p>说到位置编码，其实Facebook的CNN序列模型中就有过应用，但在CNN与RNN模型中，位置编码比较粗糙，因为RNN和CNN本就可以捕捉到位置信息，所以位置编码的作用并不突出。但在Transformer中，位置编码是位置信息的唯一来源，是整个模型的核心成分，论文也对其做了更详细的研究和描述。</p>
+<p>一种好的位置编码方案需要满足以下几条要求：</p>
+<p>它能为每个时间步输出一个独一无二的编码；
+不同长度的句子之间，任何两个时间步之间的距离应该保持一致；
+模型应该能毫不费力地泛化到更长的句子。它的值应该是有界的；
+它必须是确定性的;</p>
+<p>这样它才能用来表征item的绝对关系和相对关系。以往的Position Embedding中，基本都是根据任务训练出来的向量。而Google直接给出了一个构造Position Embedding的公式：</p>
+<p>这种编码不是单一的数值，而是包含句子中特定位置信息的[公式]维向量（非常像词向量）。PE是一个矩阵[句子长度，模型隐层维度(BERT base中取768)]，其中矩阵的每一行都是对应词的位置向量，位置向量长度为模型隐层维度，之后会与输入词向量进行相加（直接相加的原因请看下一章）。下面就是PE这个矩阵的计算方法。</p>
+<p>$$\begin{cases}
+PE(pos,2i) = sin(pos/10000^{2i/d_{model}})\
+PE(pos,2i+1) = cos(pos/10000^{2i/d_{model}})
+\end{cases}$$</p>
+<p>其中pos为token在序列中的位置号码，它的取值是0到序列最大长度之间的整数。BERT base最大长度是512，pos取值能一直取到511。当然如果序列真实长度小于最大长度时，后面的位置号没有意义，最终会被mask掉。</p>
+<p>$d_{model}$是位置向量的维度，与整个模型的隐藏状态维度值相同，即嵌入向量的维度，这个维度在bert base模型里设置为768。</p>
+<p>$i$ 是从0到$d_{model}/2-1$之间的整数值，即0，1，2，&hellip;383。</p>
+<p>$2i$ 是指向量维度中偶数维，即第0维，第2维，第4维，直到第766维。</p>
+<p>$2i+1$ 是维度中奇数维，即第1维，第3维，第5维，直到第767维。</p>
+<p>PE(pos,2i)是PE矩阵中第pos行，第2i列的数值，是个标量。这里是在第偶数列上的值，偶数列用正玄函数计算。</p>
+<p>PE(pos,2i+1) 是PE矩阵中第pos行，第2i+1列的数值，是个标量。这里是在第奇数列上的值，奇数列用余玄函数计算。</p>
+<p>由于三角函数是周期函数，随着位置号的增加，相同维度的值有周期性变化的特点。同样对于两个长度相同的句子，它们的位置编码完全一样。</p>
+<p><img src="/Transformer/%E4%BD%8D%E7%BD%AE%E5%90%91%E9%87%8F2.jpg" alt="image"></p>
+<p>为什么要使用sin和cos值呢，因为相对绝对位置，相对位置更重要，而三角函数的性质：
+$$sin(α+β) = sinαcosβ + cosαsinβ$$
+$$cos(α+β) = cosαcosβ - sinαsinβ$$</p>
+<p>因此可以推导出，两个位置向量的点积是一个与他们两个位置差值（即相对位置）有关，而与绝对位置无关。这个性质使得在计算注意力权重的时候(两个向量做点积)，使得相对位置对注意力发生影响，而绝对位置变化不会对注意力有任何影响，这更符合常理。但是这里似乎有个缺陷，就是这个相对位置没有正负之分，比如&quot;华&quot;在&quot;中&quot;的后面，对于&quot;中&quot;字，&ldquo;华&quot;相对位置值应该是1，而&quot;爱&quot;在&quot;中&quot;的前面，相对位置仍然是1，这就没法区分到底是前面的还是后面的。</p>
+<p>Google在论文中说到他们比较过直接训练出来的位置向量和上述公式计算出来的位置向量，效果是接近的，所以可以直接使用，无需再耗费算力训练位置向量，毕竟Attention自身的复杂度也是比较高的。</p>
+<p>注：在bert的代码中采用的是可训练向量方式。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h1 id="font-colorroyalblue-size5transformer要怎么用font"><!-- raw HTML omitted -->Transformer要怎么用<!-- raw HTML omitted --></h1>
+<p>BERT</p>
+<h1 id="font-colorroyalblue-size5transformer其他思考font"><!-- raw HTML omitted -->Transformer其他思考<!-- raw HTML omitted --></h1>
+<p>为什么输入向量可以直接相加
+<a href="https://www.zhihu.com/question/374835153">https://www.zhihu.com/question/374835153</a></p>
 
     </div>
     <div class="article-footer">
