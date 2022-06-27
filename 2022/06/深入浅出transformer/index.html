@@ -39,7 +39,7 @@
 <meta itemprop="name" content="深入浅出Transformer">
 <meta itemprop="description" content="Transformer作为一种新的神经网络架构，由Google于2017年发表的论文Attention Is All You Need提出，仅仅利用注意力机制"><meta itemprop="datePublished" content="2022-06-20T12:23:31+08:00" />
 <meta itemprop="dateModified" content="2022-06-20T12:23:31+08:00" />
-<meta itemprop="wordCount" content="3831">
+<meta itemprop="wordCount" content="5539">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="深入浅出Transformer"/>
 <meta name="twitter:description" content="Transformer作为一种新的神经网络架构，由Google于2017年发表的论文Attention Is All You Need提出，仅仅利用注意力机制"/>
@@ -297,8 +297,8 @@ function tagCloud(where, min, max) {
   <a class="article-category-link" href="/categories/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/"> 模块沉淀 </a>
 </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 3831 words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 8 minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 5539 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 12 minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -331,6 +331,9 @@ $$Attention(Q,K,V) = softmax(\frac {QK^T} {\sqrt d_k})V$$
 <p><img src="/Transformer/%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B.png" alt="image"></p>
 <p>此时对于$Attention(Q,K,V) = softmax(\frac {QK^T} {\sqrt d_k})V$，我们已经理解了$softmax({QK^T})V$。</p>
 <p>假设Q，K都服从均值为0，方差为1的标准高斯分布，那么$QK^T$中元素的均值为0，方差为d。当d变得很大时，$QK^T$中的元素的方差也会变得很大，如果QK^T$中的元素方差很大，那么$softmax(QK^T)$的分布会趋于陡峭（分布方差大，分布集中在绝对值大的区域）。总结一下就是$softmax(QK^T)$的分布会和$d$有关。因此中每个元素除以$d$后，方差又变为了1。这使得的分布的陡峭程度和$d$成功解耦，从而使得Transformer在训练过程中的梯度值保持稳定。总的来说，d的维度就是$QK^T$的维度，除以d的目的就是降低方差。</p>
+<p>而在NLP中，我们需要不同的模式识别。比如第一个head用来识别词语间的指代关系(某个句子里有一个单词it，这个it具体指什么呢），第二个head用于识别词语间的时态关系（看见yesterday就要用过去式）等等，将每个head上的attention score分数打出，可以具象化地感受每个head的关注点，以句子&quot;The animal didn&rsquo;t cross the streest because it was too tired&quot;为例。<!-- raw HTML omitted --></p>
+<p><img src="/Transformer/%E5%A4%9A%E5%A4%B4%E5%8F%AF%E8%A7%86%E5%8C%96.jpg" alt="image"></p>
+<p>设头的数量为num_heads，那么本质上，就是训练num_heads个$W_Q,W_K,W_V$ 个矩阵，用于生成num_heads个 Q,K,V 结果。每个结果的计算方式和单头的attention的计算方式一致，最后将多个头的结果concat起来。值得注意的是，为了使多头的结果维度不受影响且运算量不增加，$W_Q,W_K,W_V$的维度要相应变小为d_model//num_heads。</p>
 <h2 id="位置编码position-embedding">位置编码Position Embedding</h2>
 <p>最开始介绍模型的时候，我们提到过，Transformer只需要自注意力就可以捕捉序列信息，可上一部分讨论的自注意力机制只根据每个item自身的Embedding编码来计算注意力，即只是个精妙的“词袋模型”而已！它并不能捕捉item的前后顺序信息。举个例子，就算把句子中的词都打乱顺序，得到的结果还是一样的。</p>
 <p>那Transformer是通过什么来学习顺序信息的呢？那就是Position Embedding，位置向量，将每个位置编号，然后每个编号对应一个向量，通过结合位置向量和词向量，就给每个词都引入了一定的位置信息，这样Attention就可以分辨出不同位置的词了，可以看到下图中，位置编码被应用于增强模型输入，让输入的词向量具有它的位置信息，是一个相对独立的模块。</p>
@@ -362,6 +365,30 @@ $$cos(α+β) = cosαcosβ - sinαsinβ$$</p>
 <p>因此可以推导出，两个位置向量的点积是一个与他们两个位置差值（即相对位置）有关，而与绝对位置无关。这个性质使得在计算注意力权重的时候(两个向量做点积)，使得相对位置对注意力发生影响，而绝对位置变化不会对注意力有任何影响，这更符合常理。但是这里似乎有个缺陷，就是这个相对位置没有正负之分，比如&quot;华&quot;在&quot;中&quot;的后面，对于&quot;中&quot;字，&ldquo;华&quot;相对位置值应该是1，而&quot;爱&quot;在&quot;中&quot;的前面，相对位置仍然是1，这就没法区分到底是前面的还是后面的。</p>
 <p>Google在论文中说到他们比较过直接训练出来的位置向量和上述公式计算出来的位置向量，效果是接近的，所以可以直接使用，无需再耗费算力训练位置向量，毕竟Attention自身的复杂度也是比较高的。</p>
 <p>注：在bert的代码中采用的是可训练向量方式。</p>
+<p><!-- raw HTML omitted -->Transformer架构<!-- raw HTML omitted -->
+Encoder-Decoder
+<img src="/Transformer/encoder_decoder.png" alt="image"></p>
+<p>其中Encoder部分应用比较多，例如BERT中使用了Encoder部分进行预训练，行为序列建模也只使用了Encoder部分。</p>
+<h2 id="encoder">Encoder</h2>
+<p>从Input开始，通过查表进行Embedding，此时输入$X_{Embedding}$[batch size, sequence length, embedding dimention]</p>
+<p>$X_{Embedding}$流转到Positional Encoding，按照上文的正余弦计算公式，计算sequence中的位置向量矩阵$X_{pos}$，并进行相加(为何直接进行相加，而不是concat，后文会探讨)$X_{Embedding}=X_{Embedding}+X_{pos}$，为了可以相加，pos的shape要于embedding的完全相同，即[batch size, sequence length, embedding dimention]</p>
+<p>此时加入位置信息的$X_{Embedding}$进入了重头戏&ndash;自注意力，将$X_{Embedding}$乘不同的权重矩阵$W_Q,W_K,W_V$进行线性映射产生Q，K，V。Key就是键用来和你要查询的Query做比较，比较得到一个分数（相关性或者相似度）再乘以Value这个值得到最终的结果。多头就是多个上述attention模块（参数不共享），以此增加泛化能力，最后将所有的结果concat，由于权重矩阵$W_Q,W_K,W_V$根据头数进行压缩d_model//num_heads，此时$X_{hidden}$维度仍为[batch size, sequence length, embedding dimention]</p>
+<p>Add &amp; Norm这一步进行了残差连接和Layer Normalization。残差连接就是把输入$X_{Embedding}$和多头自注意力的输出连接起来，即$X_{Embedding}+Attention(Q,K,V)$，此时输出维度为[batch size, sequence length, embedding dimention]。Layer Normalization作用是把神经网络中隐藏层归一为标准正态分布，加速收敛，具体操作是将每一行的每个元素减去这行的均值，再除以这行的标准差，从而得到归一化后的数值。</p>
+<p>上述归一化后的结果[batch size, sequence length, embedding dimention]输入前馈网络，简单的两层线性映射再经过激活函数一下，即$X_{hidden} = Relu(X_{hidden}<em>W_1</em>W_2)$，后再进行一遍上述的Add &amp; Norm操作。</p>
+<h2 id="decoder">Decoder</h2>
+<p>Decoder类似于RNN，是一个item间串行的过程。</p>
+<p><!-- raw HTML omitted -->Transformer与其他序列建模模型的区别<!-- raw HTML omitted --></p>
+<p>Transformer好在哪？是哪些特质让它拥有这些优点？它有没有相对于其他模型的缺点？</p>
+<p>优点</p>
+<ol>
+<li>
+<p>可以直接计算每个词之间的相关性，不需要通过隐藏层传递</p>
+</li>
+<li>
+<p>可以<strong>并行</strong>计算，可以充分利用GPU资源
+这里的并行指的不是很多seq形成的batch同时运行，而是模型本身对单个seq输入训练/推理时的并行能力。Encoder部分不用说，因为position embedding的引入，无需再像RNN一样逐个item计算。对于Decoder端，做推理的时候类似RNN, 是很难并行的. 但是训练的时候可以一口气把整个seq输入进去,通过mask做后续遮掩，做到类似encoder部分的并行。</p>
+</li>
+</ol>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <h1 id="font-colorroyalblue-size5transformer要怎么用font"><!-- raw HTML omitted -->Transformer要怎么用<!-- raw HTML omitted --></h1>
@@ -369,6 +396,9 @@ $$cos(α+β) = cosαcosβ - sinαsinβ$$</p>
 <h1 id="font-colorroyalblue-size5transformer其他思考font"><!-- raw HTML omitted -->Transformer其他思考<!-- raw HTML omitted --></h1>
 <p>为什么输入向量可以直接相加
 <a href="https://www.zhihu.com/question/374835153">https://www.zhihu.com/question/374835153</a></p>
+<p>多头注意力中，并无法每个头都平均准确得关注不同的点，只有几个头是重要的，可以进行剪枝
+<a href="https://www.zhihu.com/question/341222779">https://www.zhihu.com/question/341222779</a></p>
+<!-- raw HTML omitted -->
 
     </div>
     <div class="article-footer">
