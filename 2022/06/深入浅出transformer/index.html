@@ -39,7 +39,7 @@
 <meta itemprop="name" content="深入浅出Transformer">
 <meta itemprop="description" content="Transformer作为一种新的神经网络架构，由Google于2017年发表的论文Attention Is All You Need提出，仅仅利用注意力机制"><meta itemprop="datePublished" content="2022-06-20T12:23:31+08:00" />
 <meta itemprop="dateModified" content="2022-06-20T12:23:31+08:00" />
-<meta itemprop="wordCount" content="5539">
+<meta itemprop="wordCount" content="5525">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="深入浅出Transformer"/>
 <meta name="twitter:description" content="Transformer作为一种新的神经网络架构，由Google于2017年发表的论文Attention Is All You Need提出，仅仅利用注意力机制"/>
@@ -297,7 +297,7 @@ function tagCloud(where, min, max) {
   <a class="article-category-link" href="/categories/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/"> 模块沉淀 </a>
 </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 5539 words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 5525 words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 12 minutes </span>
       </div>
     </div>
@@ -365,9 +365,9 @@ $$cos(α+β) = cosαcosβ - sinαsinβ$$</p>
 <p>因此可以推导出，两个位置向量的点积是一个与他们两个位置差值（即相对位置）有关，而与绝对位置无关。这个性质使得在计算注意力权重的时候(两个向量做点积)，使得相对位置对注意力发生影响，而绝对位置变化不会对注意力有任何影响，这更符合常理。但是这里似乎有个缺陷，就是这个相对位置没有正负之分，比如&quot;华&quot;在&quot;中&quot;的后面，对于&quot;中&quot;字，&ldquo;华&quot;相对位置值应该是1，而&quot;爱&quot;在&quot;中&quot;的前面，相对位置仍然是1，这就没法区分到底是前面的还是后面的。</p>
 <p>Google在论文中说到他们比较过直接训练出来的位置向量和上述公式计算出来的位置向量，效果是接近的，所以可以直接使用，无需再耗费算力训练位置向量，毕竟Attention自身的复杂度也是比较高的。</p>
 <p>注：在bert的代码中采用的是可训练向量方式。</p>
-<p><!-- raw HTML omitted -->Transformer架构<!-- raw HTML omitted -->
-Encoder-Decoder
-<img src="/Transformer/encoder_decoder.png" alt="image"></p>
+<h1 id="font-colorroyalblue-size5transformer架构font"><!-- raw HTML omitted -->Transformer架构<!-- raw HTML omitted --></h1>
+<p>Encoder-Decoder</p>
+<p><img src="/Transformer/encoder_decoder.png" alt="image"></p>
 <p>其中Encoder部分应用比较多，例如BERT中使用了Encoder部分进行预训练，行为序列建模也只使用了Encoder部分。</p>
 <h2 id="encoder">Encoder</h2>
 <p>从Input开始，通过查表进行Embedding，此时输入$X_{Embedding}$[batch size, sequence length, embedding dimention]</p>
@@ -377,7 +377,7 @@ Encoder-Decoder
 <p>上述归一化后的结果[batch size, sequence length, embedding dimention]输入前馈网络，简单的两层线性映射再经过激活函数一下，即$X_{hidden} = Relu(X_{hidden}<em>W_1</em>W_2)$，后再进行一遍上述的Add &amp; Norm操作。</p>
 <h2 id="decoder">Decoder</h2>
 <p>Decoder类似于RNN，是一个item间串行的过程。</p>
-<p><!-- raw HTML omitted -->Transformer与其他序列建模模型的区别<!-- raw HTML omitted --></p>
+<h1 id="font-colorroyalblue-size5transformer与其他序列建模模型的区别font"><!-- raw HTML omitted -->Transformer与其他序列建模模型的区别<!-- raw HTML omitted --></h1>
 <p>Transformer好在哪？是哪些特质让它拥有这些优点？它有没有相对于其他模型的缺点？</p>
 <p>优点</p>
 <ol>
