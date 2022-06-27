@@ -317,7 +317,7 @@ function tagCloud(where, min, max) {
 <h2 id="多头自注意力机制multi-head-self-attention">多头自注意力机制Multi-Head Self-Attention</h2>
 <p>虽然Attention机制并不新鲜，但是Google在这里把Attention视作一个层看待，是一个更加正式的架构设计。
 $$Attention(Q,K,V) = softmax(\frac {QK^T} {\sqrt d_k})V$$
-论文中定义了清晰的Attention公式，其中Q，K，V是三个$n*d_k、d_k*m、m*d_v$的矩阵，都是通过原序列矩阵S，与参数query,key,value相乘后得到的，Q、K、V进行上式相乘运算后得到一个$n<em>d_v$的矩阵，我们可以认为：这个Attention层，将序列Q($n</em>d_k$)编码成了一个新的$n*d_v$的序列。</p>
+论文中定义了清晰的Attention公式，其中Q，K，V是三个$n*d_k、d_k*m、m*d_v$的矩阵，都是通过原序列矩阵S，与参数query,key,value相乘后得到的，Q、K、V进行上式相乘运算后得到一个$n*d_v$的矩阵，我们可以认为：这个Attention层，将序列Q($n<em>d_k$)编码成了一个新的$n</em>d_v$的序列。</p>
 <p>想要理解这个公式，我们需要先回想一下自注意力$Softmax(SS^T)S$的含义。</p>
 <p>首先$S·S^T$，矩阵S($n*d$)是一个item的序列，每个item都是其中的一个向量。一个矩阵乘以自己转置的运算，可以看做这些item向量分别与其他向量计算内积（第一行乘第一列、第一行乘第二列&hellip;），而向量的内积又表征了两个向量的夹角，即一个向量在另一个向量上的投影，又即两个向量的相关度。投影值越大，两个向量的相关度越大，如果两个向量夹角90°，那么这两个向量线性无关，如果夹角0°，则线性相关性最大。自然而然，这个相关性即是attention，相关性越大，需要的关注度就越大。</p>
 <p>矩阵$\large SS^T$是一个方阵，我们以行向量的角度理解，里面保存了每个向量和自己与其他向量进行内积运算的结果。softmax就是将这些运算结果(注意力)归一化。让某个item对所有items的注意力加和值为1。</p>
