@@ -39,7 +39,7 @@
 <meta itemprop="name" content="深入浅出Transformer">
 <meta itemprop="description" content="Transformer作为一种新的神经网络架构，由Google于2017年发表的论文Attention Is All You Need提出，仅仅利用注意力机制"><meta itemprop="datePublished" content="2022-06-20T12:23:31+08:00" />
 <meta itemprop="dateModified" content="2022-06-20T12:23:31+08:00" />
-<meta itemprop="wordCount" content="6432">
+<meta itemprop="wordCount" content="6991">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="深入浅出Transformer"/>
 <meta name="twitter:description" content="Transformer作为一种新的神经网络架构，由Google于2017年发表的论文Attention Is All You Need提出，仅仅利用注意力机制"/>
@@ -297,8 +297,8 @@ function tagCloud(where, min, max) {
   <a class="article-category-link" href="/categories/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/"> 模块沉淀 </a>
 </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 6432 words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 13 minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 6991 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 14 minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -409,6 +409,15 @@ Decoder block 最后的部分是利用 Softmax 预测下一个单词，在之前
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <h1 id="font-colorroyalblue-size5transformer要怎么用font"><!-- raw HTML omitted -->Transformer要怎么用<!-- raw HTML omitted --></h1>
+<p>BST模型是阿里搜索推荐团队2019年发布在arXiv上的文章《Behavior Sequence Transformer for E-commerce Recommendation in Alibaba》。核心为使用Transformer捕捉用户行为序列的序列信息。目前BST已经部署在淘宝推荐的精排阶段，每天为数亿消费者提供推荐服务<!-- raw HTML omitted -->。</p>
+<p>对于用户行为序列(UBS:User Behaviour Sequence)的信息捕捉，已有的UBS的建模方式可以归纳为：</p>
+<p>1.sum/mean pooling，工业实践中的效果还不错
+2.weight pooling，关键点是weight的计算方式。例如经典模型DIN，DIN使用注意力机制来捕捉候选item与用户点击item序列之间的相似性作为weight
+3.RNN类，考虑时序信息，例如阿里妈妈利用GRU捕捉USB序列信息，将DIN升级为DIEN。这是一种非常大的突破，因为在推荐中首次考虑了购买序列的前后时序，即“未来”的信息，例如买了手机的用户，下一刻可能会购买耳机、保护膜。</p>
+<p>随着Transformer在很多NLP任务中的表现超过RNN，相比RNN也有可并行的独特优势，利用Transformer代替RNN来捕捉时序信息是个很自然的想法，BST就应运而生了。其中的核心创新点就是使用Transformer来建模输入特征中的时序特征。</p>
+<p>结构如下：
+<img src="/Transformer/BST%E7%BB%93%E6%9E%84.png" alt="image"></p>
+<p>BST符合CTR中典型的 MLP+Embedding 结构，核心在图中右半部分，即使用 Transformer Layer 建模 User Behavior Sequence。</p>
 <p>BERT</p>
 <h1 id="font-colorroyalblue-size5transformer其他思考font"><!-- raw HTML omitted -->Transformer其他思考<!-- raw HTML omitted --></h1>
 <p>为什么输入向量可以直接相加
