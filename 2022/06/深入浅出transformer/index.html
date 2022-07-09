@@ -39,7 +39,7 @@
 <meta itemprop="name" content="深入浅出Transformer">
 <meta itemprop="description" content="Transformer作为一种新的神经网络架构，由Google于2017年发表的论文Attention Is All You Need提出，仅仅利用注意力机制"><meta itemprop="datePublished" content="2022-06-20T12:23:31+08:00" />
 <meta itemprop="dateModified" content="2022-06-20T12:23:31+08:00" />
-<meta itemprop="wordCount" content="6991">
+<meta itemprop="wordCount" content="7136">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="深入浅出Transformer"/>
 <meta name="twitter:description" content="Transformer作为一种新的神经网络架构，由Google于2017年发表的论文Attention Is All You Need提出，仅仅利用注意力机制"/>
@@ -297,8 +297,8 @@ function tagCloud(where, min, max) {
   <a class="article-category-link" href="/categories/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/"> 模块沉淀 </a>
 </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 6991 words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 14 minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 7136 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 15 minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -418,7 +418,7 @@ Decoder block 最后的部分是利用 Softmax 预测下一个单词，在之前
 <p>结构如下：
 <img src="/Transformer/BST%E7%BB%93%E6%9E%84.png" alt="image"></p>
 <p>BST符合CTR中典型的 MLP+Embedding 结构，核心在图中右半部分，即使用 Transformer Layer 建模 User Behavior Sequence。</p>
-<p>BERT</p>
+<p>Transformer的原理已经讲述过了，这里使用的就是encoder部分将行为矩阵映射为另一个矩阵，需要补充的是，论文中使用的行为长度为20，即截断取用户最近的N个行为，若用户少于N个行为则直接padding补零向量，DIEN中最长使用50长度。embedding size中在4～64之间。</p>
 <h1 id="font-colorroyalblue-size5transformer其他思考font"><!-- raw HTML omitted -->Transformer其他思考<!-- raw HTML omitted --></h1>
 <p>为什么输入向量可以直接相加
 <a href="https://www.zhihu.com/question/374835153">https://www.zhihu.com/question/374835153</a></p>
