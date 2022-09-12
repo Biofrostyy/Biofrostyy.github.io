@@ -3,21 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://biofrostyy.github.io/categories/</loc>
-    <lastmod>2022-06-20T12:23:31+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://biofrostyy.github.io/</loc>
-    <lastmod>2022-06-20T12:23:31+08:00</lastmod>
+    <lastmod>2022-09-12T19:50:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://biofrostyy.github.io/posts/</loc>
+    <lastmod>2022-09-12T19:50:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://biofrostyy.github.io/2022/09/%E4%B9%A6%E5%8D%95/</loc>
+    <lastmod>2022-09-12T19:50:00+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://biofrostyy.github.io/categories/</loc>
     <lastmod>2022-06-20T12:23:31+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -61,13 +68,6 @@
   <url>
     <loc>https://biofrostyy.github.io/2022/05/%E8%AE%BA%E6%96%87%E5%8D%95/</loc>
     <lastmod>2022-05-06T20:32:00+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://biofrostyy.github.io/2022/05/%E4%B9%A6%E5%8D%95/</loc>
-    <lastmod>2022-05-06T14:32:00+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
