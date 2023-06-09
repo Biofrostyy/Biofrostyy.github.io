@@ -39,7 +39,7 @@
 <meta itemprop="name" content="多目标学习">
 <meta itemprop="description" content="背景 做推荐算法肯定绕不开多目标，点击率模型、时长模型和完播率模型是大部分信息流产品推荐算法团队都会尝试去做的模型。单独优化点击率模型容易推出"><meta itemprop="datePublished" content="2023-06-09T10:55:31+08:00" />
 <meta itemprop="dateModified" content="2023-06-09T10:55:31+08:00" />
-<meta itemprop="wordCount" content="7627">
+<meta itemprop="wordCount" content="7945">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="多目标学习"/>
 <meta name="twitter:description" content="背景 做推荐算法肯定绕不开多目标，点击率模型、时长模型和完播率模型是大部分信息流产品推荐算法团队都会尝试去做的模型。单独优化点击率模型容易推出"/>
@@ -300,7 +300,7 @@ function tagCloud(where, min, max) {
   <a class="article-category-link" href="/categories/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0/"> 多任务学习 </a>
 </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 7627 words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 7945 words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 16 minutes </span>
       </div>
     </div>
@@ -324,8 +324,14 @@ function tagCloud(where, min, max) {
 <li>每次调优一个模型，而不更新组合并不一定会带来最终效果的提升；</li>
 <li>没有考虑两个数据之间的关系，如上述的CTR与CVR之间存在顺序的关系；</li>
 </ul>
+<h1 id="font-colorroyalblue-size4二多任务学习font"><!-- raw HTML omitted -->二.多任务学习<!-- raw HTML omitted --></h1>
+<p>对于多模型融合存在的问题，通过多任务学习能够在一定程度上解决这些问题，首先，在多任务学习中，由于将多个模型合并成一个模型，这样能够减少维护成本及减少资源；对于数据较为稀疏的任务，通过多任务学习的方式，能够提高模型的效果；</p>
 <h2 id="共享embedding-多塔结构">共享Embedding 多塔结构</h2>
 <p>底层共享embedding，三个目标三个独立的塔，NN层各个目标完全独立的。点击模型使用全量有效曝光样本进行训练，时长模型和完播率模型使用点击样本进行训练。经过多次迭代，这个结构上线后大盘PV和时长都有一定提升，每一个目标单独来看，点击指标基本微降，时长和完播率指标提升较多。</p>
+<p>在底层共享表示优化中，目前业界主流的多目标建模的网络结构是MMoE[1]和PLE[2]两种，其中MMoE的网络结构如下图c所示：</p>
+<p><img src="/MultiTaskLearning/%E5%A4%9A%E7%9B%AE%E6%A0%87%E5%BB%BA%E6%A8%A12_1.png" alt="image"></p>
+<p>在上图a中是Shared-Bottom model，任务A和任务B共享部分的网络结构，假设这部分的共享网络结构由$f(x)$表示，$h^A(f(x))$表示的是任务A的输出，$h^B(f(x))$表示的是任务B的输出，综上，Shared-Bottom Model可由下式表示：</p>
+<p>$$yk=h^k(f(x))$$</p>
 <p>矩阵$\large SS^T$是一个方阵，我们以行向量的角度理解，里面保存了每个向量和自己与其他向量进行内积运算的结果。softmax就是将这些运算结果(注意力)归一化。让某个item对所有items的注意力加和值为1。</p>
 <p>用$\large SS^T$这个权重方阵，乘原item矩阵，就得到了自注意力编码结果。</p>
 <p><img src="/Transformer/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B.png" alt="image"></p>
