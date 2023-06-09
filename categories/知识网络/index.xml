@@ -12,12 +12,30 @@
     
     
     <item>
+      <title>多目标学习</title>
+      <link>https://biofrostyy.github.io/2023/06/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Fri, 09 Jun 2023 10:55:31 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2023/06/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0/</guid>
+      <description>背景 做推荐算法肯定绕不开多目标，点击率模型、时长模型和完播率模型是大部分信息流产品推荐算法团队都会尝试去做的模型。单独优化点击率模型容易推出</description>
+    </item>
+    
+    <item>
       <title>⭐♥Book List♥⭐</title>
       <link>https://biofrostyy.github.io/2022/09/%E4%B9%A6%E5%8D%95/</link>
       <pubDate>Mon, 12 Sep 2022 19:50:00 +0800</pubDate>
       
       <guid>https://biofrostyy.github.io/2022/09/%E4%B9%A6%E5%8D%95/</guid>
       <description>记录读书历程，喜欢在书店畅销书货架及微信读书推荐栏目淘书，看的书大都比较大众。有想过把专业工具书放在paper list中，但最后因为界限模糊</description>
+    </item>
+    
+    <item>
+      <title>深入浅出Transformer</title>
+      <link>https://biofrostyy.github.io/2022/06/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAmmoe/</link>
+      <pubDate>Mon, 20 Jun 2022 12:23:31 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2022/06/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAmmoe/</guid>
+      <description>Transformer作为一种新的神经网络架构，由Google于2017年发表的论文Attention Is All You Need提出，仅仅利用注意力机制</description>
     </item>
     
     <item>

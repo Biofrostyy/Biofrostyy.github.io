@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Series on My Everyday</title>
-    <link>https://biofrostyy.github.io/series/</link>
-    <description>Recent content in Series on My Everyday</description>
+    <title>多任务学习 on My Everyday</title>
+    <link>https://biofrostyy.github.io/categories/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0/</link>
+    <description>Recent content in 多任务学习 on My Everyday</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
+    <lastBuildDate>Fri, 09 Jun 2023 10:55:31 +0800</lastBuildDate>
     
-        <atom:link href="https://biofrostyy.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://biofrostyy.github.io/categories/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

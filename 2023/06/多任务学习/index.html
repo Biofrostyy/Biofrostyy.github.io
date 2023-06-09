@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>
-        深入浅出Transformer - My Everyday
+        多目标学习 - My Everyday
       </title>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -20,29 +20,29 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content="Transformer作为一种新的神经网络架构，由Google于2017年发表的论文Attention Is All You Need提出，仅仅利用注意力机制" />
+    <meta name="description" content="背景 做推荐算法肯定绕不开多目标，点击率模型、时长模型和完播率模型是大部分信息流产品推荐算法团队都会尝试去做的模型。单独优化点击率模型容易推出" />
     <meta name="generator" content="Hugo 0.92.2 with theme pure" />
-    <title>深入浅出Transformer - My Everyday</title>
+    <title>多目标学习 - My Everyday</title>
     
     
     <link rel="stylesheet" href="https://biofrostyy.github.io/css/style.min.e64d754037c0ee0ec4e20ab1d6f07740ace61729bc03850559b8caa21ae4a597.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="深入浅出Transformer" />
-<meta property="og:description" content="Transformer作为一种新的神经网络架构，由Google于2017年发表的论文Attention Is All You Need提出，仅仅利用注意力机制" />
+    <meta property="og:title" content="多目标学习" />
+<meta property="og:description" content="背景 做推荐算法肯定绕不开多目标，点击率模型、时长模型和完播率模型是大部分信息流产品推荐算法团队都会尝试去做的模型。单独优化点击率模型容易推出" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://biofrostyy.github.io/2022/06/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAtransformer/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-06-20T12:23:31+08:00" />
-<meta property="article:modified_time" content="2022-06-20T12:23:31+08:00" />
+<meta property="og:url" content="https://biofrostyy.github.io/2023/06/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-09T10:55:31+08:00" />
+<meta property="article:modified_time" content="2023-06-09T10:55:31+08:00" />
 
-<meta itemprop="name" content="深入浅出Transformer">
-<meta itemprop="description" content="Transformer作为一种新的神经网络架构，由Google于2017年发表的论文Attention Is All You Need提出，仅仅利用注意力机制"><meta itemprop="datePublished" content="2022-06-20T12:23:31+08:00" />
-<meta itemprop="dateModified" content="2022-06-20T12:23:31+08:00" />
-<meta itemprop="wordCount" content="7136">
+<meta itemprop="name" content="多目标学习">
+<meta itemprop="description" content="背景 做推荐算法肯定绕不开多目标，点击率模型、时长模型和完播率模型是大部分信息流产品推荐算法团队都会尝试去做的模型。单独优化点击率模型容易推出"><meta itemprop="datePublished" content="2023-06-09T10:55:31+08:00" />
+<meta itemprop="dateModified" content="2023-06-09T10:55:31+08:00" />
+<meta itemprop="wordCount" content="7735">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="深入浅出Transformer"/>
-<meta name="twitter:description" content="Transformer作为一种新的神经网络架构，由Google于2017年发表的论文Attention Is All You Need提出，仅仅利用注意力机制"/>
+<meta name="twitter:title" content="多目标学习"/>
+<meta name="twitter:description" content="背景 做推荐算法肯定绕不开多目标，点击率模型、时长模型和完播率模型是大部分信息流产品推荐算法团队都会尝试去做的模型。单独优化点击率模型容易推出"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -281,8 +281,8 @@ function tagCloud(where, min, max) {
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/2022/06/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAtransformer/"
-    >深入浅出Transformer</a
+    href="/2023/06/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0/"
+    >多目标学习</a
   >
 </h1>
 
@@ -290,38 +290,43 @@ function tagCloud(where, min, max) {
         
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://biofrostyy.github.io/2022/06/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAtransformer/" class="article-date">
-  <time datetime="2022-06-20 12:23:31 &#43;0800 CST" itemprop="datePublished">2022-06-20</time>
+<a href="https://biofrostyy.github.io/2023/06/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2023-06-09 10:55:31 &#43;0800 CST" itemprop="datePublished">2023-06-09</time>
 </a>
 </span>
 <span class="article-category">
   <i class="icon icon-folder"></i>&nbsp;
-  <a class="article-category-link" href="/categories/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/"> 模块沉淀 </a>
+  <a class="article-category-link" href="/categories/%E5%A4%9A%E6%A8%A1%E5%9E%8B%E8%9E%8D%E5%90%88/"> 多模型融合 </a>
+  <a class="article-category-link" href="/categories/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0/"> 多任务学习 </a>
 </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 7136 words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 15 minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 7735 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 16 minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <p>Transformer作为一种新的神经网络架构，由Google于2017年发表的论文<em>Attention Is All You Need</em>提出，<!-- raw HTML omitted -->仅仅利用注意力机制<!-- raw HTML omitted -->就可以处理序列数据。</p>
-<p>现有的序列数据处理方法大都基于RNN或CNN。</p>
-<p>$$y_t = f(y_{t-1}, x_t) \tag{RNN}$$</p>
-<p>RNN是一个串行的递归序列结构，本质是一个马尔科夫决策过程，无法并行，速度较慢，且无法很好得捕捉全局的结构信息（对长句子、段落来说是致命的）。</p>
-<p>$$y_t = f(x_{t-1}, x_t,x_{t+1}) \tag{CNN}$$</p>
-<p>CNN起源于Facebook，窗口式遍历整个向量序列，CNN方便不同于RNN，它可以并行，故而捕捉到一些全局信息。</p>
-<p>$$y_t = f(x_{t}, A,B) \tag{Transformer}$$</p>
-<p>Transformer，即这篇文章的主角，可以并行处理整个序列(训练耗时短)，并能同等训练短期及长期依赖(对长句子也有能有效捕捉信息)，并且对大数据集或有限数据集均有良好表现。由于这些优点，Transformer被使用在序列数据训练中并取得优异成绩，例如语言模型，行为序列建模中。</p>
-<p>经过一段时间的文献阅读及研究求教，我在这里摒弃网络上里讲了一百八十遍的论文直译、高深名词和公式推导，以通俗易懂的角度来理解Transfomer的本质，它与之前的序列建模模型有什么本质区别？到底是架构中的什么在发挥作用？我们应该怎么使用它？</p>
-<h1 id="font-colorroyalblue-size5transformer的本质font"><!-- raw HTML omitted -->Transformer的本质<!-- raw HTML omitted --></h1>
-<p><!-- raw HTML omitted -->到底是Transformer中的什么在发挥作用?</p>
-<p>Transformer的核心：多头自注意力机制和位置向量<!-- raw HTML omitted --></p>
-<h2 id="多头自注意力机制multi-head-self-attention">多头自注意力机制Multi-Head Self-Attention</h2>
-<p>虽然Attention机制并不新鲜，但是Google在这里把Attention视作一个层看待，是一个更加正式的架构设计。
-$$Attention(Q,K,V) = softmax(\frac {QK^T} {\sqrt d_k})V$$
-论文中定义了清晰的Attention公式，其中Q，K，V是三个$n*d_k、d_k*m、m*d_v$的矩阵，都是通过原序列矩阵S，与参数query,key,value相乘后得到的，Q、K、V进行上式相乘运算后得到一个$n*d_v$的矩阵，我们可以认为：这个Attention层，将序列Q($n*d_k$)编码成了一个新的$n*d_v$的序列。</p>
-<p>想要理解这个公式，我们需要先回想一下自注意力$Softmax(SS^T)S$的含义。</p>
-<p>首先$S·S^T$，矩阵S($n*d$)是一个item的序列，每个item都是其中的一个向量。一个矩阵乘以自己转置的运算，可以看做这些item向量分别与其他向量计算内积（第一行乘第一列、第一行乘第二列&hellip;），而向量的内积又表征了两个向量的夹角，即一个向量在另一个向量上的投影，又即两个向量的相关度。投影值越大，两个向量的相关度越大，如果两个向量夹角90°，那么这两个向量线性无关，如果夹角0°，则线性相关性最大。自然而然，这个相关性即是attention，相关性越大，需要的关注度就越大。</p>
+      <h1 id="font-colorroyalblue-size5背景font"><!-- raw HTML omitted -->背景<!-- raw HTML omitted --></h1>
+<p>做推荐算法肯定绕不开多目标，点击率模型、时长模型和完播率模型是大部分信息流产品推荐算法团队都会尝试去做的模型。单独优化点击率模型容易推出来标题党，单独优化时长模型可能推出来的都是长视频或长文章，单独优化完播率模型可能短视频短图文就容易被推出来，所以多目标就应运而生。</p>
+<p>刚开始做多目标的时候，一般针对每一个目标都单独训练一个模型，单独部署一套预估服务，然后将多个目标的预估分融合后排序。这样能够比较好的解决推荐过程当中的一些负面case，在各个指标之间达到一个平衡，提升用户留存。但是同时维护多个模型成本比较高，首先是硬件上，需要多倍的训练、PS、和预估机器，这是一笔不小的开销（一个月保守百万左右吧），然后是各个目标的迭代不好协同，比如新上了一批好用的特征，多个目标都需要重新训练实验和上线，然后就是同时维护多个目标对相关人员的精力也是一个比较大的消耗。</p>
+<p>可以通过排序优化算法排序学习LTR（Learning To Rank）方法优化Item的重要性来解决多目标打算解决的问题，但是由于工程实现、推荐框架调整等方面的困难，相关方法在实际应用中比较少。</p>
+<p>排序学习可以理解为机器学习中用户排序的方法，这里首先推荐一本微软亚洲研究院刘铁岩老师关于LTR的著作，Learning to Rank for Information Retrieval，书中对排序学习的各种方法做了很好的阐述和总结。我这里是一个超级精简版。</p>
+<blockquote>
+<h1 id="font-size1排序学习可以理解为机器学习中用户排序的方法首先推荐一本微软亚洲研究院刘铁岩老师关于ltr的著作learning-to-rank-for-information-retrieval书中对排序学习的各种方法做了很好的阐述和总结排序学习是一个有监督的机器学习过程对每一个给定的查询-文档对抽取特征通过日志挖掘或者人工标注的方法获得真实数据标注然后通过排序模型使得输入能够和实际的数据相似常用的排序学习分为三种pointwisepairwise和listwisefont"><!-- raw HTML omitted --><em>排序学习可以理解为机器学习中用户排序的方法，首先推荐一本微软亚洲研究院刘铁岩老师关于LTR的著作，Learning to rank for information retrieval，书中对排序学习的各种方法做了很好的阐述和总结。排序学习是一个有监督的机器学习过程，对每一个给定的查询-文档对，抽取特征，通过日志挖掘或者人工标注的方法获得真实数据标注。然后通过排序模型，使得输入能够和实际的数据相似。常用的排序学习分为三种：PointWise,PairWise和ListWise。</em><!-- raw HTML omitted --></h1>
+</blockquote>
+<p>多任务学习是目前处理多目标建模使用较多的方法，相较于多模型的融合，多任务学习能做到端到端的学习，同时能够节约建模的时间，因为多个模型可以同时建模。在多任务学习中，又可以细分成底层共享表示的优化和任务序列依赖关键的建模。在底层共享表示的优化中，以MMoE（Multi-gate Mixture-of-Experts）[1]和PLE（Progressive Layered Extraction）[2]两种网络结构较为常用。在任务序列依赖关系建模中，以阿里的ESMM[3]较为典型。</p>
+<p>通过上述多任务学习训练一个模型预估多个目标，然后线上融合多个目标进行排序。多个目标融合的时候很多公司都是加权融合，比如更看重时长可能时长的权重就大些，更看重分享，分享的权重就大些，加权系数一般通过AB实验调整然后固定，这样带来的问题就是，当模型不断迭代的时候，这个系数可能就不合适了，经常会出现的问题是加权系数影响模型的迭代效率。具体多个目标怎么融合，这个里面机制发挥的空间比较大，这里不再赘述。</p>
+<h1 id="font-colorroyalblue-size5多目标建模的常用方法font"><!-- raw HTML omitted -->多目标建模的常用方法<!-- raw HTML omitted --></h1>
+<h1 id="font-colorroyalblue-size4一多模型融合font"><!-- raw HTML omitted -->一.多模型融合<!-- raw HTML omitted --></h1>
+<p>多模型融合是指根据不同的任务单独训练不同的模型，最终根据最终的目标将各模型的结果相加或者相乘后进行融合排序。以CTR和CVR为例，最终的目标通常是CTCVR，因此，可以分别训练一个CTR模型和CVR模型，如下图所示：</p>
+<p><img src="/MultiTaskLearning/%E5%A4%9A%E7%9B%AE%E6%A0%87%E5%BB%BA%E6%A8%A11.png" alt="image"></p>
+<p>通常在实际的任务中会根据不同任务的重要性，对该任务赋予不同的权重。这种方案最主要的优点是相对较为简单，每次单独训练一个模型，只需要调优该模型，不需要考虑其它目标。缺点也是很明显的，主要有如下的几个方面：</p>
+<ul>
+<li>多个模型结果的融合，这里面涉及到超参数的选择，通常可以采取grid search的方案确定超参；</li>
+<li>每次调优一个模型，而不更新组合并不一定会带来最终效果的提升；</li>
+<li>没有考虑两个数据之间的关系，如上述的CTR与CVR之间存在顺序的关系；</li>
+</ul>
+<h2 id="共享embedding-多塔结构">共享Embedding 多塔结构</h2>
+<p>底层共享embedding，三个目标三个独立的塔，NN层各个目标完全独立的。点击模型使用全量有效曝光样本进行训练，时长模型和完播率模型使用点击样本进行训练。经过多次迭代，这个结构上线后大盘PV和时长都有一定提升，每一个目标单独来看，点击指标基本微降，时长和完播率指标提升较多。</p>
 <p>矩阵$\large SS^T$是一个方阵，我们以行向量的角度理解，里面保存了每个向量和自己与其他向量进行内积运算的结果。softmax就是将这些运算结果(注意力)归一化。让某个item对所有items的注意力加和值为1。</p>
 <p>用$\large SS^T$这个权重方阵，乘原item矩阵，就得到了自注意力编码结果。</p>
 <p><img src="/Transformer/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B.png" alt="image"></p>
@@ -437,7 +442,7 @@ Decoder block 最后的部分是利用 Softmax 预测下一个单词，在之前
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>Permalink: </strong>
-      <a href="https://biofrostyy.github.io/2022/06/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAtransformer/" title="深入浅出Transformer" target="_blank" rel="external">https://biofrostyy.github.io/2022/06/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAtransformer/</a>
+      <a href="https://biofrostyy.github.io/2023/06/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0/" title="多目标学习" target="_blank" rel="external">https://biofrostyy.github.io/2023/06/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License: </strong>
@@ -468,14 +473,9 @@ Decoder block 最后的部分是利用 Softmax 预测下一个单词，在之前
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://biofrostyy.github.io/2022/06/automl-nnl%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/" title="AutoML--NNL经验分享"><i
+                <a href="https://biofrostyy.github.io/2022/09/%E4%B9%A6%E5%8D%95/" title="⭐♥Book List♥⭐"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
-            </li>
-            <li class="next">
-                <a href="https://biofrostyy.github.io/2022/06/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAmmoe/"
-                    title="深入浅出Transformer"><span>Newer&nbsp;&nbsp;</span><i
-                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">
