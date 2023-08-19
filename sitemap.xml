@@ -38,6 +38,20 @@
   </url>
   
   <url>
+    <loc>https://biofrostyy.github.io/tags/</loc>
+    <lastmod>2023-06-09T10:55:31+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://biofrostyy.github.io/tags/%E7%BD%91%E7%90%83/</loc>
+    <lastmod>2023-06-09T10:55:31+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://biofrostyy.github.io/categories/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2023-06-09T10:55:31+08:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -53,6 +67,20 @@
   
   <url>
     <loc>https://biofrostyy.github.io/2023/06/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2023-06-09T10:55:31+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://biofrostyy.github.io/categories/%E5%A4%A7%E5%B8%88%E8%AF%BE/</loc>
+    <lastmod>2023-06-09T10:55:31+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://biofrostyy.github.io/2023/06/%E5%B0%8F%E5%A8%81%E7%BD%91%E7%90%83%E5%A4%A7%E5%B8%88%E8%AF%BE/</loc>
     <lastmod>2023-06-09T10:55:31+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -228,12 +256,6 @@
   
   <url>
     <loc>https://biofrostyy.github.io/series/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://biofrostyy.github.io/tags/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

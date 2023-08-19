@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on My Everyday</title>
+    <link>https://biofrostyy.github.io/categories/</link>
+    <description>Recent content in Categories on My Everyday</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>CC BY 4.0 CN</copyright>
+    <lastBuildDate>Sat, 19 Aug 2023 17:47:31 +0800</lastBuildDate>
+    
+        <atom:link href="https://biofrostyy.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>数据结构-刷题tips</title>
+      <link>https://biofrostyy.github.io/2020/06/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%88%B7%E9%A2%98tips/</link>
+      <pubDate>Fri, 26 Jun 2020 22:01:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2020/06/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%88%B7%E9%A2%98tips/</guid>
+      <description>一.问题介绍 在排序数组中查找左右边界，可用于在排序数组中查找某个值出现的位置与次数等 二.刷题沉淀 ①ListNode题 # 可以使用一个空起始点来</description>
+    </item>
+    
+  </channel>
+</rss>
