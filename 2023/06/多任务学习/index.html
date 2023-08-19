@@ -39,7 +39,7 @@
 <meta itemprop="name" content="多目标学习">
 <meta itemprop="description" content="背景 做推荐算法肯定绕不开多目标，点击率模型、时长模型和完播率模型是大部分信息流产品推荐算法团队都会尝试去做的模型。单独优化点击率模型容易推出"><meta itemprop="datePublished" content="2023-06-09T10:55:31+08:00" />
 <meta itemprop="dateModified" content="2023-06-09T10:55:31+08:00" />
-<meta itemprop="wordCount" content="7945">
+<meta itemprop="wordCount" content="2288">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="多目标学习"/>
 <meta name="twitter:description" content="背景 做推荐算法肯定绕不开多目标，点击率模型、时长模型和完播率模型是大部分信息流产品推荐算法团队都会尝试去做的模型。单独优化点击率模型容易推出"/>
@@ -183,6 +183,7 @@ function tagCloud(where, min, max) {
     <div class="widget-body">
         <ul class="category-list">
             <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E5%88%B7%E9%A2%98/" class="category-list-link">刷题</a><span class="category-list-count">4</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/" class="category-list-link">因果推断</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0/" class="category-list-link">多任务学习</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E5%A4%9A%E6%A8%A1%E5%9E%8B%E8%9E%8D%E5%90%88/" class="category-list-link">多模型融合</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/" class="category-list-link">模块沉淀</a><span class="category-list-count">4</span></li>
@@ -207,6 +208,16 @@ function tagCloud(where, min, max) {
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2023/08/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/" class="title">因果推断</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2023-08-19 17:47:31 &#43;0800 CST" itemprop="datePublished">2023-08-19</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -244,16 +255,6 @@ function tagCloud(where, min, max) {
                     </p>
                     <p class="item-date">
                         <time datetime="2022-06-20 12:23:31 &#43;0800 CST" itemprop="datePublished">2022-06-20</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://biofrostyy.github.io/2022/06/automl-nnl%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/" class="title">AutoML--NNL经验分享</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2022-06-15 20:23:31 &#43;0800 CST" itemprop="datePublished">2022-06-15</time>
                     </p>
                 </div>
             </li>
@@ -300,8 +301,8 @@ function tagCloud(where, min, max) {
   <a class="article-category-link" href="/categories/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0/"> 多任务学习 </a>
 </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 7945 words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 16 minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 2288 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 5 minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -332,114 +333,11 @@ function tagCloud(where, min, max) {
 <p><img src="/MultiTaskLearning/%E5%A4%9A%E7%9B%AE%E6%A0%87%E5%BB%BA%E6%A8%A12_1.png" alt="image"></p>
 <p>在上图a中是Shared-Bottom model，任务A和任务B共享部分的网络结构，假设这部分的共享网络结构由$f(x)$表示，$h^A(f(x))$表示的是任务A的输出，$h^B(f(x))$表示的是任务B的输出，综上，Shared-Bottom Model可由下式表示：</p>
 <p>$$yk=h^k(f(x))$$</p>
-<p>矩阵$\large SS^T$是一个方阵，我们以行向量的角度理解，里面保存了每个向量和自己与其他向量进行内积运算的结果。softmax就是将这些运算结果(注意力)归一化。让某个item对所有items的注意力加和值为1。</p>
-<p>用$\large SS^T$这个权重方阵，乘原item矩阵，就得到了自注意力编码结果。</p>
-<p><img src="/Transformer/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B.png" alt="image"></p>
-<p>即上图中，softmax后的“早”字注意力结果为[0.4,0.4,0.2]，可以理解为“早”字由0.4个“早”字，0.4个“上”字，0.2个“好”字组成。其中对“早”和“上”字的关注度比对“好”字的注意力高。经过加权加和后得到新的、编码后的“早”字item的向量。</p>
-<p>在$Softmax(SS^T)S$的基础上，将三个S分别换成(Q,K,V)，不必对(Q,K,V)感到陌生，它们都是S乘上不同的参数(query,key,value),本质上都是$\large S$的线性变换，如下图。</p>
-<p><img src="/Transformer/qkv.png" alt="image"></p>
-<p>那么为什么不直接使用$\large X$而要对其进行线性变换呢？</p>
-<p>当然是为了提升模型的拟合能力，矩阵$\large W$都是可以训练的，起到一个缓冲的效果。多头注意力，也是指参数矩阵$\large W$有多种组合，后将这些attention编码后的结果进行拼接。</p>
-<p><img src="/Transformer/%E5%A4%9A%E5%A4%B4%E6%B3%A8%E6%84%8F%E5%8A%9B.png" alt="image"></p>
-<p>此时对于$Attention(Q,K,V) = softmax(\frac {QK^T} {\sqrt d_k})V$，我们已经理解了$softmax({QK^T})V$。</p>
-<p>假设Q，K都服从均值为0，方差为1的标准高斯分布，那么$QK^T$中元素的均值为0，方差为d。当d变得很大时，$QK^T$中的元素的方差也会变得很大，如果QK^T$中的元素方差很大，那么$softmax(QK^T)$的分布会趋于陡峭（分布方差大，分布集中在绝对值大的区域）。总结一下就是$softmax(QK^T)$的分布会和$d$有关。因此中每个元素除以$d$后，方差又变为了1。这使得的分布的陡峭程度和$d$成功解耦，从而使得Transformer在训练过程中的梯度值保持稳定。总的来说，d的维度就是$QK^T$的维度，除以d的目的就是降低方差。</p>
-<p>而在NLP中，我们需要不同的模式识别。比如第一个head用来识别词语间的指代关系(某个句子里有一个单词it，这个it具体指什么呢），第二个head用于识别词语间的时态关系（看见yesterday就要用过去式）等等，来捕捉单词之间多种维度上的相关系数 attention score，将每个head(维度)上的相关系数分数打出，可以具象化地感受每个head的关注点，以句子&quot;The animal didn&rsquo;t cross the streest because it was too tired&quot;为例。<!-- raw HTML omitted --></p>
-<p><img src="/Transformer/%E5%A4%9A%E5%A4%B4%E5%8F%AF%E8%A7%86%E5%8C%96.jpg" alt="image"></p>
-<p>设头的数量为num_heads，那么本质上，就是训练num_heads个$W_Q,W_K,W_V$ 个矩阵，用于生成num_heads个 Q,K,V 结果。每个结果的计算方式和单头的attention的计算方式一致，最后将多个头的结果concat起来。值得注意的是，为了使多头的结果维度不受影响且运算量不增加，$W_Q,W_K,W_V$的维度要相应变小为d_model//num_heads。</p>
-<h2 id="位置编码position-embedding">位置编码Position Embedding</h2>
-<p>最开始介绍模型的时候，我们提到过，Transformer只需要自注意力就可以捕捉序列信息，可上一部分讨论的自注意力机制只根据每个item自身的Embedding编码来计算注意力，即只是个精妙的“词袋模型”而已！它并不能捕捉item的前后顺序信息。举个例子，就算把句子中的词都打乱顺序，得到的结果还是一样的。</p>
-<p>那Transformer是通过什么来学习顺序信息的呢？那就是Position Embedding，位置向量，将每个位置编号，然后每个编号对应一个向量，通过结合位置向量和词向量，就给每个词都引入了一定的位置信息，这样Attention就可以分辨出不同位置的词了，可以看到下图中，位置编码被应用于增强模型输入，让输入的词向量具有它的位置信息，是一个相对独立的模块。</p>
-<p><img src="/Transformer/%E4%BD%8D%E7%BD%AE%E5%90%91%E9%87%8F.jpg" alt="image"></p>
-<p>说到位置编码，其实Facebook的CNN序列模型中就有过应用，但在CNN与RNN模型中，位置编码比较粗糙，因为RNN和CNN本就可以捕捉到位置信息，所以位置编码的作用并不突出。但在Transformer中，位置编码是位置信息的唯一来源，是整个模型的核心成分，论文也对其做了更详细的研究和描述。</p>
-<p>一种好的位置编码方案需要满足以下几条要求：</p>
-<p>它能为每个时间步输出一个独一无二的编码；
-不同长度的句子之间，任何两个时间步之间的距离应该保持一致；
-模型应该能毫不费力地泛化到更长的句子。它的值应该是有界的；
-它必须是确定性的;</p>
-<p>这样它才能用来表征item的绝对关系和相对关系。以往的Position Embedding中，基本都是根据任务训练出来的向量。而Google直接给出了一个构造Position Embedding的公式：</p>
-<p>这种编码不是单一的数值，而是包含句子中特定位置信息的[公式]维向量（非常像词向量）。PE是一个矩阵[句子长度，模型隐层维度(BERT base中取768)]，其中矩阵的每一行都是对应词的位置向量，位置向量长度为模型隐层维度，之后会与输入词向量进行相加（直接相加的原因请看下一章）。下面就是PE这个矩阵的计算方法。</p>
-<p>$$\begin{cases}
-PE(pos,2i) = sin(pos/10000^{2i/d_{model}})\
-PE(pos,2i+1) = cos(pos/10000^{2i/d_{model}})
-\end{cases}$$</p>
-<p>其中pos为token在序列中的位置号码，它的取值是0到序列最大长度之间的整数。BERT base最大长度是512，pos取值能一直取到511。当然如果序列真实长度小于最大长度时，后面的位置号没有意义，最终会被mask掉。</p>
-<p>$d_{model}$是位置向量的维度，与整个模型的隐藏状态维度值相同，即嵌入向量的维度，这个维度在bert base模型里设置为768。</p>
-<p>$i$ 是从0到$d_{model}/2-1$之间的整数值，即0，1，2，&hellip;383。</p>
-<p>$2i$ 是指向量维度中偶数维，即第0维，第2维，第4维，直到第766维。</p>
-<p>$2i+1$ 是维度中奇数维，即第1维，第3维，第5维，直到第767维。</p>
-<p>PE(pos,2i)是PE矩阵中第pos行，第2i列的数值，是个标量。这里是在第偶数列上的值，偶数列用正玄函数计算。</p>
-<p>PE(pos,2i+1) 是PE矩阵中第pos行，第2i+1列的数值，是个标量。这里是在第奇数列上的值，奇数列用余玄函数计算。</p>
-<p>由于三角函数是周期函数，随着位置号的增加，相同维度的值有周期性变化的特点。同样对于两个长度相同的句子，它们的位置编码完全一样。</p>
-<p><img src="/Transformer/%E4%BD%8D%E7%BD%AE%E5%90%91%E9%87%8F2.jpg" alt="image"></p>
-<p>为什么要使用sin和cos值呢，因为相对绝对位置，相对位置更重要，而三角函数的性质：
-$$sin(α+β) = sinαcosβ + cosαsinβ$$
-$$cos(α+β) = cosαcosβ - sinαsinβ$$</p>
-<p>因此可以推导出，两个位置向量的点积是一个与他们两个位置差值（即相对位置）有关，而与绝对位置无关。这个性质使得在计算注意力权重的时候(两个向量做点积)，使得相对位置对注意力发生影响，而绝对位置变化不会对注意力有任何影响，这更符合常理。但是这里似乎有个缺陷，就是这个相对位置没有正负之分，比如&quot;华&quot;在&quot;中&quot;的后面，对于&quot;中&quot;字，&ldquo;华&quot;相对位置值应该是1，而&quot;爱&quot;在&quot;中&quot;的前面，相对位置仍然是1，这就没法区分到底是前面的还是后面的。</p>
-<p>Google在论文中说到他们比较过直接训练出来的位置向量和上述公式计算出来的位置向量，效果是接近的，所以可以直接使用，无需再耗费算力训练位置向量，毕竟Attention自身的复杂度也是比较高的。</p>
-<p>注：在bert的代码中采用的是可训练向量方式。</p>
-<h1 id="font-colorroyalblue-size5transformer架构font"><!-- raw HTML omitted -->Transformer架构<!-- raw HTML omitted --></h1>
-<p>Encoder-Decoder</p>
-<p><img src="/Transformer/encoder_decoder.png" alt="image"></p>
-<p>其中Encoder部分应用比较多，例如BERT中使用了Encoder部分进行预训练，行为序列建模也只使用了Encoder部分。</p>
-<h2 id="encoder">Encoder</h2>
-<p>Encoder是将输入重编码的一个过程，输入$X_{Embedding}$[batch size, sequence length, embedding dimention]，输出相同shape的$X_{hidden}$[batch size, sequence length, embedding dimention]</p>
-<p><img src="/Transformer/encoder.jpg" alt="image"></p>
-<p>从Input开始，通过查表进行Embedding，此时输入$X_{Embedding}$[batch size, sequence length, embedding dimention]
-(论文中embedding dimention d_model = 512)</p>
-<p>$X_{Embedding}$流转到Positional Encoding，按照上文的正余弦计算公式，计算sequence中的位置向量矩阵$X_{pos}$，并进行相加(为何直接进行相加，而不是concat，后文会探讨)$X_{Embedding}=X_{Embedding}+X_{pos}$，为了可以相加，pos的shape要于embedding的完全相同，即[batch size, sequence length, embedding dimention]</p>
-<p>此时加入位置信息的$X_{Embedding}$进入了重头戏&ndash;自注意力，将$X_{Embedding}$乘不同的权重矩阵$W_Q,W_K,W_V$进行线性映射产生Q，K，V。Key就是键用来和你要查询的Query做比较，比较得到一个分数（相关性或者相似度）再乘以Value这个值得到最终的结果。多头就是多个上述attention模块（参数不共享），以此增加泛化能力，最后将所有的结果concat，由于权重矩阵$W_Q,W_K,W_V$根据头数进行压缩d_model//num_heads，此时$X_{hidden}$维度仍为[batch size, sequence length, embedding dimention]</p>
-<p>Add &amp; Norm这一步进行了残差连接和Layer Normalization。残差连接就是把输入$X_{Embedding}$和多头自注意力的输出连接起来，即$X_{Embedding}+Attention(Q,K,V)$，此时输出维度为[batch size, sequence length, embedding dimention]。Layer Normalization作用是把神经网络中隐藏层归一为标准正态分布，加速收敛，具体操作是将每一行的每个元素减去这行的均值，再除以这行的标准差，从而得到归一化后的数值。</p>
-<p>上述归一化后的结果[batch size, sequence length, embedding dimention]输入前馈网络，简单的两层线性映射再经过激活函数一下，即$X_{hidden} = Relu(X_{hidden}<em>W_1</em>W_2)$，后再进行一遍上述的Add &amp; Norm操作。</p>
-<h2 id="decoder">Decoder</h2>
-<p>Decoder类似于RNN，是一个item间串行的过程。</p>
-<p>将Encoder 输出的编码信息矩阵C传递到 Decoder 中，Decoder 依次会根据当前翻译过的单词 1~ i 翻译下一个单词 i+1，如下图所示。在使用的过程中，翻译到单词 i+1 的时候需要通过 Mask (掩盖) 操作遮盖住 i+1 之后的单词。注意Mask 操作是在 Self-Attention 的 Softmax 之前使用的，下面用 0 1 2 3 4 5 分别表示 &ldquo;<!-- raw HTML omitted --> I have a cat <!-- raw HTML omitted -->&quot;。</p>
-<p><img src="/Transformer/dncoder.jpg" alt="image"></p>
-<p>上图 Decoder 接收了 Encoder 的编码矩阵 C，然后首先输入一个翻译开始符 &ldquo;<!-- raw HTML omitted -->&quot;，预测第一个单词 &ldquo;I&rdquo;；然后输入翻译开始符 &ldquo;<!-- raw HTML omitted -->&rdquo; 和单词 &ldquo;I&rdquo;，预测单词 &ldquo;have&rdquo;，以此类推。这是 Transformer 使用时候的大致流程，接下来是里面各个部分的细节。</p>
-<p>第一步：是 Decoder 的输入矩阵和 Mask 矩阵，输入矩阵包含 &ldquo;<!-- raw HTML omitted --> I have a cat&rdquo; (0, 1, 2, 3, 4) 五个单词的表示向量，Mask 是一个 5×5 的矩阵。在 Mask 可以发现单词 0 只能使用单词 0 的信息，而单词 1 可以使用单词 0, 1 的信息，即只能使用之前的信息。</p>
-<p><img src="/Transformer/mask.png" alt="image"></p>
-<p>第二步&ndash;Masked Multi-Head Attention：接下来的操作和之前的 Self-Attention 一样，通过输入矩阵X计算得到Q,K,V矩阵。不同的是在$QK^T$后，需要按位乘Mask矩阵，以遮挡每个单词之后的信息，然后才能乘$V$。</p>
-<p><img src="/Transformer/maskedQK.jpg" alt="image"></p>
-<p>第三步&ndash;Multi-Head Attention：第二个多头注意力，主要特点为K，V矩阵来自Encoder的编码矩阵C，而只有Q来自decoder上一步的输出Z，这样做的好处是在 Decoder 的时候，每一位单词都可以利用到 Encoder 所有单词的信息 (这些信息无需 Mask)。</p>
-<p>第四步&ndash;预测：
-Decoder block 最后的部分是利用 Softmax 预测下一个单词，在之前的网络层我们可以得到一个最终的输出 Z，因为 Mask 的存在，使得单词 0 的输出 Z0 只包含单词 0 的信息，输入Z如下：
-<img src="/Transformer/%E9%A2%84%E6%B5%8B1.jpg" alt="image"></p>
-<p>Softmax 根据Z的每一行预测下一个单词：</p>
-<p><img src="/Transformer/%E9%A2%84%E6%B5%8B2.jpg" alt="image"></p>
-<p>要注意的是，这是训练的时候，可以通过mask直接并行输入整个句子，推理时还是要串行训练的。</p>
-<h1 id="font-colorroyalblue-size5transformer与其他序列建模模型的区别font"><!-- raw HTML omitted -->Transformer与其他序列建模模型的区别<!-- raw HTML omitted --></h1>
-<p>Transformer好在哪？是哪些特质让它拥有这些优点？它有没有相对于其他模型的缺点？</p>
-<p>优点</p>
-<ol>
-<li>
-<p>可以直接计算每个词之间的相关性，不需要通过隐藏层传递</p>
-</li>
-<li>
-<p>可以<strong>并行</strong>计算，可以充分利用GPU资源</p>
-</li>
-</ol>
-<p>这里的并行指的不是很多seq形成的batch同时运行，而是模型本身对单个seq输入训练/推理时的并行能力。Encoder部分不用说，因为position embedding的引入，无需再像RNN一样逐个item计算。对于Decoder端，做推理的时候类似RNN, 是很难并行的. 但是训练的时候可以一口气把整个seq输入进去,通过mask做后续遮掩，做到类似encoder部分的并行。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<h1 id="font-colorroyalblue-size5transformer要怎么用font"><!-- raw HTML omitted -->Transformer要怎么用<!-- raw HTML omitted --></h1>
-<p>BST模型是阿里搜索推荐团队2019年发布在arXiv上的文章《Behavior Sequence Transformer for E-commerce Recommendation in Alibaba》。核心为使用Transformer捕捉用户行为序列的序列信息。目前BST已经部署在淘宝推荐的精排阶段，每天为数亿消费者提供推荐服务<!-- raw HTML omitted -->。</p>
-<p>对于用户行为序列(UBS:User Behaviour Sequence)的信息捕捉，已有的UBS的建模方式可以归纳为：</p>
-<p>1.sum/mean pooling，工业实践中的效果还不错
-2.weight pooling，关键点是weight的计算方式。例如经典模型DIN，DIN使用注意力机制来捕捉候选item与用户点击item序列之间的相似性作为weight
-3.RNN类，考虑时序信息，例如阿里妈妈利用GRU捕捉USB序列信息，将DIN升级为DIEN。这是一种非常大的突破，因为在推荐中首次考虑了购买序列的前后时序，即“未来”的信息，例如买了手机的用户，下一刻可能会购买耳机、保护膜。</p>
-<p>随着Transformer在很多NLP任务中的表现超过RNN，相比RNN也有可并行的独特优势，利用Transformer代替RNN来捕捉时序信息是个很自然的想法，BST就应运而生了。其中的核心创新点就是使用Transformer来建模输入特征中的时序特征。</p>
-<p>结构如下：
-<img src="/Transformer/BST%E7%BB%93%E6%9E%84.png" alt="image"></p>
-<p>BST符合CTR中典型的 MLP+Embedding 结构，核心在图中右半部分，即使用 Transformer Layer 建模 User Behavior Sequence。</p>
-<p>Transformer的原理已经讲述过了，这里使用的就是encoder部分将行为矩阵映射为另一个矩阵，需要补充的是，论文中使用的行为长度为20，即截断取用户最近的N个行为，若用户少于N个行为则直接padding补零向量，DIEN中最长使用50长度。embedding size中在4～64之间。</p>
-<h1 id="font-colorroyalblue-size5transformer其他思考font"><!-- raw HTML omitted -->Transformer其他思考<!-- raw HTML omitted --></h1>
-<p>为什么输入向量可以直接相加
-<a href="https://www.zhihu.com/question/374835153">https://www.zhihu.com/question/374835153</a></p>
-<p>多头注意力中，并无法每个头都平均准确得关注不同的点，只有几个头是重要的，可以进行剪枝
-<a href="https://www.zhihu.com/question/341222779">https://www.zhihu.com/question/341222779</a></p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<blockquote>
-</blockquote>
+<p>通过在底层共享网络，能够起到互相补充学习的作用，上层的任务之间相关性越高，对于模型的学习也会越充分，但是，如果上层的任务之间的相关性很差，这种情况对于最终的效果却是起到了抑制的作用，即上面提到的负迁移现象，这也是多任务学习难以训练的一个原因。在很多的图像相关的任务中，就存在这样的结构，以人脸检测任务为例，在人脸检测任务中包括了三个方面的目标，分别为face classification，bounding box regression和facial landmark localization，这三个任务可以共享底层的CNN网络，以MTCNN[4]模型为例，其中的O-Net的网络结构如下图所示：</p>
+<p><img src="/MultiTaskLearning/onet.jpeg" alt="image"></p>
+<p>最终的损失函数为：</p>
+<p>$$min\Sigma^N_(i-1)\Sigma_(j\in{det,box,landmark})\alpha_j\beta^j_iL_i^j$$</p>
+<p>其中，$\alpha_j$和$\beta_i^j$是两个超参中是根据经验值确定的，$L_i^j$表示的是第$j$个任务的损失函数。</p>
 
     </div>
     <div class="article-footer">
@@ -481,6 +379,11 @@ Decoder block 最后的部分是利用 Softmax 预测下一个单词，在之前
                 <a href="https://biofrostyy.github.io/2022/09/%E4%B9%A6%E5%8D%95/" title="⭐♥Book List♥⭐"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            <li class="next">
+                <a href="https://biofrostyy.github.io/2023/08/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/"
+                    title="因果推断"><span>Newer&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
             <li class="toggle-toc">

@@ -39,7 +39,7 @@
 <meta itemprop="name" content="1小时读懂《深度学习推荐系统》">
 <meta itemprop="description" content="推荐系统的终极优化目标应包括两个维度：一个维度是用户体验的优化，另一个维度是满足公司的商业利益。对一个健康的商业模式来说，这两个维度应该是和"><meta itemprop="datePublished" content="2021-07-31T15:11:57+08:00" />
 <meta itemprop="dateModified" content="2021-07-31T15:11:57+08:00" />
-<meta itemprop="wordCount" content="18051">
+<meta itemprop="wordCount" content="18370">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="1小时读懂《深度学习推荐系统》"/>
 <meta name="twitter:description" content="推荐系统的终极优化目标应包括两个维度：一个维度是用户体验的优化，另一个维度是满足公司的商业利益。对一个健康的商业模式来说，这两个维度应该是和"/>
@@ -183,6 +183,7 @@ function tagCloud(where, min, max) {
     <div class="widget-body">
         <ul class="category-list">
             <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E5%88%B7%E9%A2%98/" class="category-list-link">刷题</a><span class="category-list-count">4</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/" class="category-list-link">因果推断</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0/" class="category-list-link">多任务学习</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E5%A4%9A%E6%A8%A1%E5%9E%8B%E8%9E%8D%E5%90%88/" class="category-list-link">多模型融合</a><span class="category-list-count">1</span></li>
             <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/" class="category-list-link">模块沉淀</a><span class="category-list-count">4</span></li>
@@ -207,6 +208,16 @@ function tagCloud(where, min, max) {
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget-body">
         <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2023/08/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/" class="title">因果推断</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2023-08-19 17:47:31 &#43;0800 CST" itemprop="datePublished">2023-08-19</time>
+                    </p>
+                </div>
+            </li>
             <li>
                 <div class="item-inner">
                     <p class="item-title">
@@ -244,16 +255,6 @@ function tagCloud(where, min, max) {
                     </p>
                     <p class="item-date">
                         <time datetime="2022-06-20 12:23:31 &#43;0800 CST" itemprop="datePublished">2022-06-20</time>
-                    </p>
-                </div>
-            </li>
-            <li>
-                <div class="item-inner">
-                    <p class="item-title">
-                        <a href="https://biofrostyy.github.io/2022/06/automl-nnl%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/" class="title">AutoML--NNL经验分享</a>
-                    </p>
-                    <p class="item-date">
-                        <time datetime="2022-06-15 20:23:31 &#43;0800 CST" itemprop="datePublished">2022-06-15</time>
                     </p>
                 </div>
             </li>
@@ -299,7 +300,7 @@ function tagCloud(where, min, max) {
   <a class="article-category-link" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> “读书笔记&#34; </a>
 </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 18051 words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 18370 words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 37 minutes </span>
       </div>
     </div>
@@ -660,6 +661,14 @@ function tagCloud(where, min, max) {
 </tbody>
 </table>
 <p>\未完待续。。。:)</p>
+<p>异常值指通常明显地不同于数据集中其他数据。有些异常值由于自然本身存在特殊情况，一些异常值由于统计失误，无论如何异常点的存在都会扭曲数据集的数据分布，提高数据的不连贯性或使观测产生错误。
+为了使训练模型在进行测试时有更好的泛用性，识别并处理异常点非常重要，识别异常值的方法有简单统计分析、3δ原则、z-score及箱型图等。
+识别后处理这些异常值的理想方法就是找出引起这些异常值的原因。 处理它们的方法将取决于它们发生的原因，异常值的原因可以分为两大类：人为错误和自然错误。
+根据不同原因：
+1.删除含有异常值的记录
+2.将异常值视为缺失值，交给缺失值处理方法来处理
+3.用平均值来修正
+4.对于自然异常值且判断可以为模型提供正向训练信息的异常值可以不处理</p>
 
     </div>
     <div class="article-footer">
