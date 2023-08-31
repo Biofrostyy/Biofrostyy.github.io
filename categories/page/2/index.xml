@@ -6,10 +6,19 @@
     <description>Recent content in Categories on My Everyday</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Sat, 19 Aug 2023 17:47:31 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 29 Aug 2023 10:55:31 +0800</lastBuildDate>
     
         <atom:link href="https://biofrostyy.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>数据结构-基础结构</title>
+      <link>https://biofrostyy.github.io/2020/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
+      <pubDate>Thu, 02 Jul 2020 22:01:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2020/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
+      <description>一.问题介绍 在排序数组中查找左右边界，可用于在排序数组中查找某个值出现的位置与次数等$n^2$ 二.刷题沉淀 ①花费最少爬楼梯 class Solution: def minCostClimbingStairs(self, cost: List[int]) -&amp;gt; int: #</description>
+    </item>
     
     <item>
       <title>数据结构-刷题tips</title>
