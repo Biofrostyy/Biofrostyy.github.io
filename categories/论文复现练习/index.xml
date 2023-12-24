@@ -17,7 +17,7 @@
       <pubDate>Sun, 03 Dec 2023 12:23:31 +0800</pubDate>
       
       <guid>https://biofrostyy.github.io/2023/12/%E6%B5%85%E8%B0%88ab%E6%B5%8B%E8%AF%95/</guid>
-      <description>传统AB测试 AB实验本质是通过流量分流的形式进行策略实验，实验组和对照桶保证同质的前提下，实施不同策略来验证策略带来的影响。常见的流量切分方</description>
+      <description>传统AB测试 AB测试来源于假设检验，我们现在有两个随机均匀的样本组A、B，对其中一个组A做出某种改动，实验结束后分析两组用户行为数据，通过显</description>
     </item>
     
     <item>
