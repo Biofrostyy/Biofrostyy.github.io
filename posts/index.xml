@@ -6,10 +6,28 @@
     <description>Recent content in Posts on My Everyday</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Tue, 29 Aug 2023 10:55:31 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 03 Dec 2023 12:23:31 +0800</lastBuildDate>
     
         <atom:link href="https://biofrostyy.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>浅谈AB测试</title>
+      <link>https://biofrostyy.github.io/2023/12/%E6%B5%85%E8%B0%88ab%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Sun, 03 Dec 2023 12:23:31 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2023/12/%E6%B5%85%E8%B0%88ab%E6%B5%8B%E8%AF%95/</guid>
+      <description>传统AB测试 AB实验本质是通过流量分流的形式进行策略实验，实验组和对照桶保证同质的前提下，实施不同策略来验证策略带来的影响。常见的流量切分方</description>
+    </item>
+    
+    <item>
+      <title>飞猪用户出行需求预测</title>
+      <link>https://biofrostyy.github.io/2023/12/%E6%97%85%E8%A1%8Capp%E7%94%A8%E6%88%B7%E5%87%BA%E8%A1%8C%E9%9C%80%E6%B1%82%E9%A2%84%E6%B5%8B/</link>
+      <pubDate>Sun, 03 Dec 2023 12:23:31 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2023/12/%E6%97%85%E8%A1%8Capp%E7%94%A8%E6%88%B7%E5%87%BA%E8%A1%8C%E9%9C%80%E6%B1%82%E9%A2%84%E6%B5%8B/</guid>
+      <description>背景：交通出行业务场景 业务目标：拆分为用户侧和商品侧，利用用户侧用户的基本属性、社交关系和旅行状态，与商品侧做匹配，匹配的主要目的是三个方面</description>
+    </item>
     
     <item>
       <title>乐理科普：音乐中的数学</title>
@@ -171,24 +189,6 @@
       
       <guid>https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-bst/</guid>
       <description>一.算法介绍 实践于阿里19年发布的paper，地址 https://arxiv.org/abs/1905.06874?context=cs.AI 关键字：pytorch, BST, 行为序列建模，推荐模型，Transformer 主要输入特征有I</description>
-    </item>
-    
-    <item>
-      <title>数据结构复习-排序算法</title>
-      <link>https://biofrostyy.github.io/2020/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/</link>
-      <pubDate>Mon, 20 Jul 2020 17:48:57 +0800</pubDate>
-      
-      <guid>https://biofrostyy.github.io/2020/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/</guid>
-      <description>几乎所有的算法书中，排序算法都是在最开始介绍的算法，不仅仅是因为排序算法非常简单，而且因为排序算法非常基础，在后续其他算法或者处理其他问题时</description>
-    </item>
-    
-    <item>
-      <title>数据结构-基础结构</title>
-      <link>https://biofrostyy.github.io/2020/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84/</link>
-      <pubDate>Tue, 07 Jul 2020 19:01:57 +0800</pubDate>
-      
-      <guid>https://biofrostyy.github.io/2020/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%9F%BA%E7%A1%80%E7%BB%93%E6%9E%84/</guid>
-      <description>一.问题介绍 在排序数组中查找左右边界，可用于在排序数组中查找某个值出现的位置与次数等 二.刷题沉淀 ①两个栈实现队列 # 类似于负负得正的思想，ap</description>
     </item>
     
   </channel>
