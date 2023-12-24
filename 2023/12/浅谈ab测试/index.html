@@ -39,7 +39,7 @@
 <meta itemprop="name" content="浅谈AB测试">
 <meta itemprop="description" content="传统AB测试 AB实验本质是通过流量分流的形式进行策略实验，实验组和对照桶保证同质的前提下，实施不同策略来验证策略带来的影响。常见的流量切分方"><meta itemprop="datePublished" content="2023-12-03T12:23:31+08:00" />
 <meta itemprop="dateModified" content="2023-12-03T12:23:31+08:00" />
-<meta itemprop="wordCount" content="2350">
+<meta itemprop="wordCount" content="2357">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="浅谈AB测试"/>
 <meta name="twitter:description" content="传统AB测试 AB实验本质是通过流量分流的形式进行策略实验，实验组和对照桶保证同质的前提下，实施不同策略来验证策略带来的影响。常见的流量切分方"/>
@@ -316,7 +316,7 @@ function tagCloud(where, min, max) {
   <a class="article-category-link" href="/categories/ab%E6%B5%8B%E8%AF%95/"> AB测试 </a>
 </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 2350 words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 2357 words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 5 minutes </span>
       </div>
     </div>
@@ -356,10 +356,12 @@ Interleaving中的实验指标与AB Test指标之间的相关性。每个数据�
 <p>总结
 快速的本质是因为用户可以同时看到A和B时选择A，和只能看到A选择A的，信息量是不同的，所以可以通过1/100的少量用户就可以得到结果。
 为什么不直接使用inter leaving的结果呢，因为从宏观看最终策略是A还是B，用户都只能看到A或B，而不是AB的混合，所以混合测验出的结果只能是参考，最终需要真实的单独策略模拟即AB测试。从统计看interleaving仍会有位置bias问题，比如一种ranking能够推出最好的top3，但是另一种ranking能够推出最好的top10。这两种混排在一起之后，受限于用户浏览深度，第一种看起来会好很多，但单独上线的指标说不定还是第二个好。所以interleaving只用于初筛，最终还是要用过传统ab test做最终验证。</p>
+<!-- raw HTML omitted -->
 <h2 id="二与其他活动有交叉怎么避免交叉">二.与其他活动有交叉，怎么避免交叉</h2>
 <h2 id="三特殊测试场景用户裂变场景怎么避免污染">三.特殊测试场景：用户裂变场景怎么避免污染</h2>
 <p>泛裂变社交是指
 现在普遍常见的泛社交裂变业务模式会使实验桶和对照桶互相影响，对AB增量的计算会产生一定的污染性，导致增量计算有所偏差，那么如何处理这种污染来还原真实的AB增量，需要一个科学的评估方案。</p>
+<h2 id="四低响应场景">四.低响应场景</h2>
 
     </div>
     <div class="article-footer">
