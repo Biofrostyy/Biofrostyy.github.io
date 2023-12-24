@@ -39,7 +39,7 @@
 <meta itemprop="name" content="浅谈AB测试">
 <meta itemprop="description" content="传统AB测试 AB测试来源于假设检验，我们现在有两个随机均匀的样本组A、B，对其中一个组A做出某种改动，实验结束后分析两组用户行为数据，通过显"><meta itemprop="datePublished" content="2023-12-03T12:23:31+08:00" />
 <meta itemprop="dateModified" content="2023-12-03T12:23:31+08:00" />
-<meta itemprop="wordCount" content="7365">
+<meta itemprop="wordCount" content="7367">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="浅谈AB测试"/>
 <meta name="twitter:description" content="传统AB测试 AB测试来源于假设检验，我们现在有两个随机均匀的样本组A、B，对其中一个组A做出某种改动，实验结束后分析两组用户行为数据，通过显"/>
@@ -316,7 +316,7 @@ function tagCloud(where, min, max) {
   <a class="article-category-link" href="/categories/ab%E6%B5%8B%E8%AF%95/"> AB测试 </a>
 </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 7365 words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 7367 words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 15 minutes </span>
       </div>
     </div>
@@ -363,7 +363,7 @@ Z为正态分布的分位数函数；
 <p>从上述两个公式可以知道，在其他条件不变的情况下，如果数据本身的波动性较小，或实验两组数值差异越大，所需要的样本量就越小。从直观上看，就是本身越平稳时产生的较大变化越明显，那么需要的样本量证明越小。</p>
 <h4 id="32-生产场景中的确认指标">3.2 生产场景中的确认指标</h4>
 <p>由于在AB测试中，比率型指标更常用，我们以比率型指标为例，在实际生产场景中，要确定这个最小样本量，我们只需要确认这四个指标：</p>
-<p>1-β：Statistical power</p>
+<p>$1-β$：Statistical power</p>
 <p>α：Significance level</p>
 <p>$p_1$：Baseline rate</p>
 <p>$\Delta$：Minimum detectable effect</p>
@@ -425,7 +425,7 @@ Z为正态分布的分位数函数；
 第二阶段是对缩小的算法集合进行传统的AB Test，以测量它们对用户行为的长期影响。</p>
 <h3 id="interleaving介绍">interleaving介绍</h3>
 <p>在Interleaving测试中，不分AB组，而是只有一组订阅用户，这些订阅用户会接受到通过混合算法A和B的排名生成的交替排名。这就使得用户同时可以在一行里同时看到算法A和B的推荐结果（用户无法区分一个item是由算法A推荐的还是算法B推荐的）。进而可以通过点击或计算观看时长等指标来衡量到底是算法A好还是算法B好。
-<img src="/AB%E6%B5%8B%E8%AF%95/interleaving2.png" alt="image">
+<img src="/AB%E6%B5%8B%E8%AF%95/interleaving6.png" alt="image">
 当然，在用Interleaving方法进行测试的时候，必须要考虑位置偏差的存在，避免来自算法A的视频总排在第一位。因此需要以相等的概率让算法A和算法B交替领先。这类似于在野球场打球时，两个队长先通过扔硬币的方式决定谁先选人，然后在交替选队员的过程。
 底是算法A好还是算法B好。
 <img src="/AB%E6%B5%8B%E8%AF%95/interleaving_rank.png" alt="image"></p>
