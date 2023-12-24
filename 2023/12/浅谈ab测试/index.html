@@ -39,7 +39,7 @@
 <meta itemprop="name" content="浅谈AB测试">
 <meta itemprop="description" content="传统AB测试 AB实验本质是通过流量分流的形式进行策略实验，实验组和对照桶保证同质的前提下，实施不同策略来验证策略带来的影响。常见的流量切分方"><meta itemprop="datePublished" content="2023-12-03T12:23:31+08:00" />
 <meta itemprop="dateModified" content="2023-12-03T12:23:31+08:00" />
-<meta itemprop="wordCount" content="5030">
+<meta itemprop="wordCount" content="5324">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="浅谈AB测试"/>
 <meta name="twitter:description" content="传统AB测试 AB实验本质是通过流量分流的形式进行策略实验，实验组和对照桶保证同质的前提下，实施不同策略来验证策略带来的影响。常见的流量切分方"/>
@@ -316,7 +316,7 @@ function tagCloud(where, min, max) {
   <a class="article-category-link" href="/categories/ab%E6%B5%8B%E8%AF%95/"> AB测试 </a>
 </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 5030 words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 5324 words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 11 minutes </span>
       </div>
     </div>
@@ -329,19 +329,23 @@ function tagCloud(where, min, max) {
 <h2 id="二样本量选取">二.样本量选取</h2>
 <p>从直观上看，当样本数量很少的时候，实验容易被新的样本点带偏，造成了实验结果不稳定，难以得出确信的结论。相反的，样本数量变多，实验则有了更多的“证据”，实验的“可靠性”也就越强。
 但是在生产上，因为流量有限且试错成本高，所以样本量并不是越多越好。那怎样在保证实验结果有意义的可靠性下选取最少的样本呢？
-AB实验实际上是在做一个Z检验，即检验实验组与对照组服从分布的均值是否相等。</p>
+AB实验实际上是在做一个假设检验，即检验实验组与对照组服从分布的均值/比率是否相等。一般在推荐系统中，我们主要指标为点击率、购买率等，即适用于两样本比例假设检验。</p>
 <h3 id="统计学最小样本量公式">统计学最小样本量公式</h3>
+<p>Z检验：</p>
 <p>$n=\cfrac{\sigma^2}{\Delta^2}(Z_{\alpha/2}+Z_\beta)^2$</p>
 <p>其中$n$是每组所需样本量，因为A/B测试一般至少2组，所以实验所需样本量为2n；
 α和β分别称为第一类错误概率和第二类错误概率，一般分别取0.05和0.2；
 Z为正态分布的分位数函数；
 Δ为两组数值的差异，如点击率1%到1.5%，那么Δ就是0.5%；
 σ为标准差，是数值波动性的衡量，σ越大表示数值波动越厉害。</p>
-<p>从这个公式可以知道，在其他条件不变的情况下，如果数据本身的波动性较小，或实验两组数值差异越大，所需要的样本量就越小。从直观上看，就是本身越平稳时产生的较大变化越明显，那么需要的样本量证明越小。</p>
+<p>两样本比例假设检验：</p>
+<p>$n=\cfrac{[Z_{a/2}·\sqrt{2·\cfrac{p_1+p_2}{2}·(1-\cfrac{p_1+p_2}{2})}+Z_{\beta}·\sqrt{p_1·(1-p_1)+p_2·(1-p_2)} ] ^2}{|p_1-p_2|^2}$</p>
+<p>上面式子中$p_1$我们称为基础值，是实验关注的关键指标现在的数值（对照组）；$p_2$我们称为目标值，是希望通过实验将其改善至的水平；第一类错误和第二类错误上边已经提到，暂不多做说明，通常设定α为0.05，β为0.2。</p>
+<p>从上述两个公式可以知道，在其他条件不变的情况下，如果数据本身的波动性较小，或实验两组数值差异越大，所需要的样本量就越小。从直观上看，就是本身越平稳时产生的较大变化越明显，那么需要的样本量证明越小。</p>
 <p>根据上述公式，在实际生产场景中，要确定这个最小样本量，我们只需要确认这四个指标：</p>
 <p>1-β：Statistical power</p>
 <p>α：Significance level</p>
-<p>Baseline rate</p>
+<p>$p_1$：Baseline rate</p>
 <p>$\Delta$：Minimum detectable effect</p>
 <h3 id="ab测试的本质h0到底正不正确">AB测试的本质：H0到底正不正确？</h3>
 <p>首先，A/B测试包含两个假设：</p>
