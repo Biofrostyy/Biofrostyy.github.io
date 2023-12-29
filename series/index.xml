@@ -11,12 +11,12 @@
     
     
     <item>
-      <title>浅谈AB测试</title>
+      <title>从数据科学家视角深入AB测试</title>
       <link>https://biofrostyy.github.io/2023/12/%E6%B5%85%E8%B0%88ab%E6%B5%8B%E8%AF%95/</link>
       <pubDate>Sun, 03 Dec 2023 12:23:31 +0800</pubDate>
       
       <guid>https://biofrostyy.github.io/2023/12/%E6%B5%85%E8%B0%88ab%E6%B5%8B%E8%AF%95/</guid>
-      <description>传统AB测试 AB测试来源于假设检验，我们现在有两个随机均匀的样本组A、B，对其中一个组A做出某种改动，实验结束后分析两组用户行为数据，通过显</description>
+      <description>AB测试听起来原理很简单，控制变量法看看用户对于一个策略的实施是否有明显效果。但是在当今互联网大规模地构建一个正确可靠的A/B测试平台仍然是</description>
     </item>
     
     <item>
