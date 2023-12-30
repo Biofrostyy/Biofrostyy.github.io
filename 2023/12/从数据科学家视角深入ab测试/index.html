@@ -39,7 +39,7 @@
 <meta itemprop="name" content="从数据科学家视角深入理解AB测试">
 <meta itemprop="description" content="AB测试听起来原理很简单，控制变量法看看用户对于一个策略的实施是否有明显效果。 但是在当今互联网大规模地构建一个正确可靠的A/B测试平台仍然是"><meta itemprop="datePublished" content="2023-12-30T12:23:31+08:00" />
 <meta itemprop="dateModified" content="2023-12-30T12:23:31+08:00" />
-<meta itemprop="wordCount" content="20121">
+<meta itemprop="wordCount" content="20665">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="从数据科学家视角深入理解AB测试"/>
 <meta name="twitter:description" content="AB测试听起来原理很简单，控制变量法看看用户对于一个策略的实施是否有明显效果。 但是在当今互联网大规模地构建一个正确可靠的A/B测试平台仍然是"/>
@@ -316,8 +316,8 @@ function tagCloud(where, min, max) {
   <a class="article-category-link" href="/categories/ab%E6%B5%8B%E8%AF%95/"> AB测试 </a>
 </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 20121 words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 41 minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 20665 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 42 minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -328,6 +328,114 @@ function tagCloud(where, min, max) {
 <p>@[toc]</p>
 <p>[TOC]</p>
 <p><!-- raw HTML omitted -->目录<!-- raw HTML omitted --></p>
+<ul>
+<li><a href="#%E4%B8%80ab%E6%B5%8B%E8%AF%95%E5%8F%8A%E5%85%B6%E7%BB%9F%E8%AE%A1%E5%8E%9F%E7%90%86">一.AB测试及其统计原理</a>
+<ul>
+<li><a href="#11-%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C">1.1 假设检验</a></li>
+<li><a href="#12-ab%E7%BB%93%E6%9E%9C%E6%9C%89%E6%84%8F%E4%B9%89%E9%9C%80%E8%A6%81%E6%BB%A1%E8%B6%B3%E7%9A%84%E4%B8%89%E4%B8%AA%E5%9F%BA%E6%9C%AC%E8%A6%81%E7%B4%A0">1.2 AB结果有意义需要满足的三个基本要素</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E4%B8%9A%E7%95%8Cab%E6%B5%8B%E8%AF%95%E7%9A%84%E4%B8%80%E8%88%AC%E6%AD%A5%E9%AA%A4">二.业界AB测试的一般步骤</a>
+<ul>
+<li><a href="#21-%E5%88%86%E6%B5%81">2.1 分流</a>
+<ul>
+<li><a href="#211-%E5%9F%BA%E4%BA%8E%E5%B1%82%E5%9F%9F%E5%B5%8C%E5%A5%97%E7%9A%84%E9%87%8D%E5%8F%A0%E5%88%86%E6%B5%81%E6%A1%86%E6%9E%B6">2.1.1 基于层、域嵌套的重叠分流框架</a></li>
+<li><a href="#212-%E5%9F%BA%E4%BA%8E%E5%86%B2%E7%AA%81%E6%A3%80%E6%B5%8B%E7%9A%84%E5%88%86%E6%B5%81%E6%A1%86%E6%9E%B6">2.1.2 基于冲突检测的分流框架</a></li>
+</ul>
+</li>
+<li><a href="#22-%E5%AE%9E%E9%AA%8C%E8%AE%BE%E8%AE%A1">2.2 实验设计</a>
+<ul>
+<li><a href="#221-%E6%98%8E%E7%A1%AE%E6%94%B9%E5%8A%A8%E7%82%B9">2.2.1 明确改动点</a></li>
+<li><a href="#222-%E6%8C%87%E6%A0%87%E7%B1%BB%E5%9E%8B%E4%B8%8E%E5%8A%A0%E5%B7%A5%E9%80%BB%E8%BE%91">2.2.2 指标类型与加工逻辑</a>
+<ul>
+<li><a href="#2221-%E6%8C%87%E6%A0%87%E4%B8%9A%E5%8A%A1%E7%B1%BB%E5%9E%8B">2.2.2.1 指标业务类型</a></li>
+<li><a href="#2222-%E6%8C%87%E6%A0%87%E7%BB%9F%E8%AE%A1%E7%B1%BB%E5%9E%8B">2.2.2.2 指标统计类型</a></li>
+</ul>
+</li>
+<li><a href="#223-%E5%AE%9E%E9%AA%8C%E5%88%86%E7%BB%84%E6%96%B9%E5%BC%8F">2.2.3 实验分组方式</a></li>
+<li><a href="#224-%E5%88%86%E6%B5%81%E5%8D%95%E5%85%83">2.2.4 分流单元</a></li>
+<li><a href="#225-%E6%A0%B7%E6%9C%AC%E9%87%8F%E9%A2%84%E4%BC%B0">2.2.5 样本量预估</a>
+<ul>
+<li><a href="#2251-%E6%A0%B7%E6%9C%AC%E9%87%8F%E9%A2%84%E4%BC%B0%E5%85%AC%E5%BC%8F">2.2.5.1 样本量预估公式</a></li>
+<li><a href="#2252-%E7%94%9F%E4%BA%A7%E5%9C%BA%E6%99%AF%E4%B8%AD%E7%9A%84%E7%A1%AE%E8%AE%A4%E6%8C%87%E6%A0%87">2.2.5.2 生产场景中的确认指标</a>
+<ul>
+<li><a href="#22521-ab%E6%B5%8B%E8%AF%95%E7%9A%84%E6%9C%AC%E8%B4%A8h0%E5%88%B0%E5%BA%95%E6%AD%A3%E4%B8%8D%E6%AD%A3%E7%A1%AE">2.2.5.2.1 AB测试的本质:H0到底正不正确？</a></li>
+<li><a href="#22522-baseline-rate">2.2.5.2.2 Baseline rate</a></li>
+<li><a href="#22523--minimum-detectable-effect">2.2.5.2.3  Minimum Detectable Effect</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#226-%E5%A2%9E%E5%8A%A0p%E5%80%BC%E6%98%BE%E8%91%97%E9%80%9F%E5%BA%A6">2.2.6 增加p值显著速度</a>
+<ul>
+<li><a href="#2261-%E9%99%8D%E6%96%B9%E5%B7%AEvariance-reduction">2.2.6.1 降方差（Variance Reduction）</a>
+<ul>
+<li><a href="#22611-cuped%E9%99%8D%E6%96%B9%E5%B7%AE">2.2.6.1.1 CUPED降方差</a></li>
+<li><a href="#22612-stratified-sampling">2.2.6.1.2 Stratified Sampling</a></li>
+<li><a href="#22613-post-stratification">2.2.6.1.3 Post Stratification</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#23-%E7%BB%9F%E8%AE%A1%E5%BC%95%E6%93%8E">2.3 统计引擎</a>
+<ul>
+<li><a href="#231-%E6%95%B0%E6%8D%AE%E8%AF%8A%E6%96%AD">2.3.1 数据诊断</a></li>
+<li><a href="#232-%E9%80%89%E6%8B%A9%E6%95%88%E5%BA%94%E4%BC%B0%E8%AE%A1%E6%96%B9%E6%B3%95">2.3.2 选择效应估计方法</a>
+<ul>
+<li><a href="#2321-%E5%B7%AE%E5%80%BC%E6%B3%95">2.3.2.1 差值法</a></li>
+<li><a href="#2322-did%E5%8F%8C%E9%87%8D%E5%B7%AE%E5%88%86">2.3.2.2 DID双重差分</a>
+<ul>
+<li><a href="#23221-did%E5%8F%8C%E9%87%8D%E5%B7%AE%E5%88%86%E4%BB%8B%E7%BB%8D">2.3.2.2.1 DID双重差分介绍</a></li>
+<li><a href="#23221-did%E5%8F%8C%E9%87%8D%E5%B7%AE%E5%88%86%E9%9C%80%E8%A6%81%E6%BB%A1%E8%B6%B3%E7%9A%84%E5%81%87%E8%AE%BE">2.3.2.2.1 DID双重差分需要满足的假设</a></li>
+<li><a href="#232211-%E7%BA%BF%E6%80%A7%E5%85%B3%E7%B3%BB%E5%81%87%E8%AE%BE">2.3.2.2.1.1 线性关系假设</a></li>
+<li><a href="#232212-%E4%B8%AA%E4%BD%93%E5%A4%84%E7%90%86%E7%A8%B3%E5%AE%9A%E6%80%A7%E5%81%87%E8%AE%BE">2.3.2.2.1.2 个体处理稳定性假设</a></li>
+<li><a href="#232213-%E5%B9%B3%E8%A1%8C%E8%B6%8B%E5%8A%BF%E5%81%87%E8%AE%BE">2.3.2.2.1.3 平行趋势假设</a></li>
+<li><a href="#2322131-%E5%AF%B9%E6%A8%A1%E5%9E%8B%E5%A4%84%E7%90%86">2.3.2.2.1.3.1 对模型处理：</a></li>
+<li><a href="#23221311-%E7%BB%8F%E5%85%B8did%E6%A8%A1%E5%9E%8B">2.3.2.2.1.3.1.1 经典DID模型</a></li>
+<li><a href="#23221312-%E5%BC%82%E6%97%B6did">2.3.2.2.1.3.1.2 异时DID</a></li>
+<li><a href="#23221313-%E5%B9%BF%E4%B9%89did">2.3.2.2.1.3.1.3 广义DID</a></li>
+<li><a href="#23221314%E5%BC%82%E8%B4%A8%E6%80%A7did">2.3.2.2.1.3.1.4.异质性DID</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#23221315-%E4%B8%89%E9%87%8D%E5%B7%AE%E5%88%86%E6%B3%95">2.3.2.2.1.3.1.5 三重差分法</a>
+<ul>
+<li><a href="#2322132-%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86">2.3.2.2.1.3.2 对数据处理</a></li>
+<li><a href="#23221321-%E5%80%BE%E5%90%91%E5%BE%97%E5%88%86%E5%8C%B9%E9%85%8D">2.3.2.2.1.3.2.1 倾向得分匹配</a></li>
+<li><a href="#23221322-%E5%90%88%E6%88%90%E6%8E%A7%E5%88%B6%E6%B3%95">2.3.2.2.1.3.2.2 合成控制法</a></li>
+</ul>
+</li>
+<li><a href="#234-%E6%96%B9%E5%B7%AE%E8%AE%A1%E7%AE%97">2.3.4 方差计算</a>
+<ul>
+<li><a href="#2341-%E6%96%B9%E5%B7%AE%E9%94%99%E8%AF%AF%E5%AF%BC%E8%87%B4%E7%BB%9F%E8%AE%A1%E9%99%B7%E9%98%B1">2.3.4.1 方差错误导致统计陷阱</a></li>
+<li><a href="#2342-%E6%AD%A3%E7%A1%AE%E8%AE%A1%E7%AE%97%E6%96%B9%E5%B7%AE%E7%9A%84%E6%96%B9%E6%B3%95">2.3.4.2 正确计算方差的方法</a></li>
+</ul>
+</li>
+<li><a href="#235-p_value%E6%98%BE%E8%91%97%E6%80%A7%E6%A3%80%E9%AA%8C">2.3.5 p_value显著性检验</a>
+<ul>
+<li><a href="#2351-p_value%E6%A3%80%E9%AA%8C%E9%99%B7%E9%98%B1">2.3.5.1 p_value检验陷阱</a></li>
+</ul>
+</li>
+<li><a href="#2352-p_value%E6%A3%80%E9%AA%8C%E6%96%B9%E5%BC%8F">2.3.5.2 p_value检验方式</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89ab%E6%B5%8B%E8%AF%95%E7%9A%84%E4%B8%80%E8%88%AC%E4%BA%BA%E5%91%98%E5%88%86%E5%B7%A5">三.AB测试的一般人员分工</a></li>
+<li><a href="#%E5%9B%9Baa%E6%B5%8B%E8%AF%95">四.AA测试</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%94%E7%94%9F%E4%BA%A7%E4%B8%8A%E5%A4%9A%E7%A7%8D%E5%A4%9A%E6%A0%B7%E7%9A%84ab%E6%B5%8B%E8%AF%95">五.生产上多种多样的AB测试</a>
+<ul>
+<li><a href="#51-%E9%9A%8F%E6%9C%BA%E8%BD%AE%E8%BD%AC%E5%AE%9E%E9%AA%8C">5.1 随机轮转实验</a></li>
+<li><a href="#52-%E6%9B%B4%E9%AB%98%E6%95%88%E7%9A%84ab%E6%B5%8B%E8%AF%95--interleaving">5.2 更高效的AB测试&ndash;interleaving</a></li>
+<li><a href="#53-%E7%94%A8%E6%88%B7%E8%A3%82%E5%8F%98%E5%9C%BA%E6%99%AF%E6%80%8E%E4%B9%88%E9%81%BF%E5%85%8D%E6%B1%A1%E6%9F%93">5.3 用户裂变场景怎么避免污染</a></li>
+<li><a href="#54-%E4%BD%8E%E5%93%8D%E5%BA%94%E5%9C%BA%E6%99%AF">5.4 低响应场景</a></li>
+</ul>
+</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->Table of contents generated with markdown-toc<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <h1 id="一ab测试及其统计原理">一.AB测试及其统计原理</h1>
