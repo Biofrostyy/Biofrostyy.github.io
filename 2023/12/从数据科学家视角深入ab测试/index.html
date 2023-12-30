@@ -39,7 +39,7 @@
 <meta itemprop="name" content="从数据科学家视角深入理解AB测试">
 <meta itemprop="description" content="AB测试听起来原理很简单，控制变量法看看用户对于一个策略的实施是否有明显效果。 但是在当今互联网大规模地构建一个正确可靠的A/B测试平台仍然是"><meta itemprop="datePublished" content="2023-12-30T12:23:31+08:00" />
 <meta itemprop="dateModified" content="2023-12-30T12:23:31+08:00" />
-<meta itemprop="wordCount" content="20636">
+<meta itemprop="wordCount" content="20678">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="从数据科学家视角深入理解AB测试"/>
 <meta name="twitter:description" content="AB测试听起来原理很简单，控制变量法看看用户对于一个策略的实施是否有明显效果。 但是在当今互联网大规模地构建一个正确可靠的A/B测试平台仍然是"/>
@@ -316,7 +316,7 @@ function tagCloud(where, min, max) {
   <a class="article-category-link" href="/categories/ab%E6%B5%8B%E8%AF%95/"> AB测试 </a>
 </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 20636 words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 20678 words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 42 minutes </span>
       </div>
     </div>
@@ -440,10 +440,10 @@ function tagCloud(where, min, max) {
 <p>先想一个例子，我们做了一次AB测试，获得实验组A组转化率8%，和对照组B组转化率7%，此时8%&gt;7%，但是我们能直接说A组有效果吗？不能，因为有可能是因为正常的波动导致的，无统计学意义（不显著）。</p>
 <p>那该怎么证明其有统计学意义呢？答案是假设检验，假设检验基于一个非常朴素的想法：如果一件事发生的概率小于$\alpha$(一般取0.05)，那么它就不会发生。如果发生了，那肯定是前提假设有问题。所以假设检验实际上是一个先做原假设，再推翻的过程。</p>
 <p>故A/B测试的假设检验包含两个假设：</p>
-<p>原假设（Null hypothesis, 也叫$H0$）：我们希望通过实验结果推翻的假设。在上述例子里，原假设可以表述为“A和B无明显区别，即A的算法无提升”。
-备择假设（Alternative hypothesis, 也叫$H1$）：我们希望通过实验结果验证的假设。在上述例子里，可以表述为“A与B有明显区别，即A的算法有明显提升（单侧）”。</p>
+<p>原假设（Null hypothesis, 也叫$H0$）：我们希望通过实验结果推翻的假设。在上述例子里，原假设可以表述为“A和B无明显区别，即A的算法无提升”。</p>
+<p>备择假设（Alternative hypothesis, 也叫$H1$）：我们希望通过实验结果验证的假设。在上述例子里，可以表述为“A与B有明显区别，即A的算法有明显提升（单侧）”。</p>
 <p>我们要计算的概率则是在“A和B无明显区别，即A的算法无提升”的假设下，A组呈现8%转化率的概率。统计学中我们想计算一个事件的概率首先需要知道其分布。幸运的是我们随机抽样的行为符合中心极限定理：即对于独立并同样分布的随机变量，即使原始变量本身不是正态分布，标准化样本均值的抽样分布也趋向于标准正态分布，用人话说就是无论原始变量如何分布，对其进行n次抽样，每次抽样抽取m个样本，只要n和m足够大，这n次抽样出的n个样本均值就趋向于正态分布，且均值与原始变量均值趋于相同。</p>
-<p>分布清楚了，回到上述例子，B组的转化率为7%，基于原假设（A组与B组无明显差异），我们认为A组应该符合一个均值为7%的正态分布。为了方便计算，将其规则化为为均值为0的、方差为1的标准正态分布，计算规则化后的数值标准正态分布进行比较，如果落在下图空白部分，即大于1.65或小于-1.65，那么认为此事件发生概率小于5%。</p>
+<p>回到上述例子，B组的转化率为7%，基于原假设（A组与B组无明显差异），我们认为A组应该符合一个均值为7%的正态分布。为了方便计算，将其规则化为为均值为0的、方差为1的标准正态分布，计算规则化后的数值标准正态分布进行比较，如果落在下图空白部分，即大于1.65或小于-1.65，那么认为此事件发生概率小于5%。</p>
 <p><img src="/AB%E6%B5%8B%E8%AF%95/z-score02.png" alt="image"></p>
 <p>如果概率概率小于5%的事件让我一次就观测到了，这不符合常理，那么原假设并不正确，我们得到了有统计学意义的结果：A组的策略确实让转化率得到了提升，可以持续应用于实践。</p>
 <p><img src="/AB%E6%B5%8B%E8%AF%95/Z-score.jpeg" alt="image"></p>
@@ -820,8 +820,10 @@ Interleaving中的实验指标与AB Test指标之间的相关性。每个数据�
 <!-- raw HTML omitted -->
 <h2 id="53-用户裂变场景怎么避免污染">5.3 用户裂变场景怎么避免污染</h2>
 <p>泛裂变社交是指通过社交工具在用户自有的圈子里进行一次或多次的传播，在很短时间内形成用户介绍用户的模式，从而在短时间内实现大量的用户增长及销售额增加。 裂变营销是把个人当成传播的媒介，把原本要给广告商的费用花在单个用户的身上，从而推动用户来帮忙传播。</p>
-<p>现在普遍常见的泛社交裂变业务模式会使实验桶和对照桶互相影响，对AB增量的计算会产生一定的污染性，导致增量计算有所偏差，那么如何处理这种污染来还原真实的AB增量，需要一个科学的评估方案。</p>
+<p>理想情况下，AB实验中，实验组是能够参与策略玩法的用户群，对照组是不能参与策略玩法的用户群。但是现在普遍常见的泛社交裂变业务模式会使实验桶和对照桶互相影响，对AB增量的计算会产生一定的污染性，导致增量计算有所偏差，那么如何处理这种污染来还原真实的AB增量，需要一个科学的评估方案。</p>
+<!-- raw HTML omitted -->
 <h2 id="54-低响应场景">5.4 低响应场景</h2>
+<!-- raw HTML omitted -->
 
     </div>
     <div class="article-footer">
