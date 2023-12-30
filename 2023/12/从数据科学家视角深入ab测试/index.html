@@ -39,7 +39,7 @@
 <meta itemprop="name" content="从数据科学家视角深入理解AB测试">
 <meta itemprop="description" content="AB测试听起来原理很简单，控制变量法看看用户对于一个策略的实施是否有明显效果。 但是在当今互联网大规模地构建一个正确可靠的A/B测试平台仍然是"><meta itemprop="datePublished" content="2023-12-30T12:23:31+08:00" />
 <meta itemprop="dateModified" content="2023-12-30T12:23:31+08:00" />
-<meta itemprop="wordCount" content="20667">
+<meta itemprop="wordCount" content="20120">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="从数据科学家视角深入理解AB测试"/>
 <meta name="twitter:description" content="AB测试听起来原理很简单，控制变量法看看用户对于一个策略的实施是否有明显效果。 但是在当今互联网大规模地构建一个正确可靠的A/B测试平台仍然是"/>
@@ -316,8 +316,8 @@ function tagCloud(where, min, max) {
   <a class="article-category-link" href="/categories/ab%E6%B5%8B%E8%AF%95/"> AB测试 </a>
 </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 20667 words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 42 minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 20120 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 41 minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -327,63 +327,8 @@ function tagCloud(where, min, max) {
 <p>本文主要站在互联网数据科学家角度，尽量做到沉淀经验和统计细节兼备。致力于涵盖所有AB测试相关模块，三万字读懂工业界AB测试的应用。</p>
 <p>@[toc]</p>
 <p><!-- raw HTML omitted -->目录<!-- raw HTML omitted --></p>
-<p>一.AB测试及其统计原理
-1.1 假设检验
-1.2 AB结果有意义需要满足的三个基本要素
-二.业界AB测试的一般步骤
-2.1 分流
-2.1.1 基于层、域嵌套的重叠分流框架
-2.1.2 基于冲突检测的分流框架
-2.2 实验设计
-2.2.1 明确改动点
-2.2.2 指标类型与加工逻辑
-2.2.2.1 指标业务类型
-2.2.2.2 指标统计类型
-2.2.3 实验分组方式
-2.2.4 分流单元
-2.2.5 样本量预估
-2.2.5.1 样本量预估公式
-2.2.5.2 生产场景中的确认指标
-2.2.5.2.1 AB测试的本质:H0到底正不正确？
-2.2.5.2.2 Baseline rate
-2.2.5.2.3  Minimum Detectable Effect
-2.2.6 增加p值显著速度
-2.2.6.1 降方差（Variance Reduction）
-2.2.6.1.1 CUPED降方差
-2.2.6.1.2 Stratified Sampling
-2.2.6.1.3 Post Stratification
-2.3 统计引擎
-2.3.1 数据诊断
-2.3.2 选择效应估计方法
-2.3.2.1 差值法
-2.3.2.2 DID双重差分
-2.3.2.2.1 DID双重差分介绍
-2.3.2.2.1 DID双重差分需要满足的假设
-2.3.2.2.1.1 线性关系假设
-2.3.2.2.1.2 个体处理稳定性假设
-2.3.2.2.1.3 平行趋势假设（Parallel Trend Assumption）
-2.3.2.2.1.3.1 对模型处理
-2.3.2.2.1.3.1.1 经典DID模型
-2.3.2.2.1.3.1.2 异时DID
-2.3.2.2.1.3.1.3 广义DID
-2.3.2.2.1.3.1.4.异质性DID
-2.3.2.2.1.3.1.5 三重差分法
-2.3.2.2.1.3.2 对数据处理
-2.3.2.2.1.3.2.1 倾向得分匹配
-2.3.2.2.1.3.2.2 合成控制法
-2.3.4 方差计算
-2.3.4.1 方差错误导致统计陷阱
-2.3.4.2 正确计算方差的方法
-2.3.5 p_value显著性检验
-2.3.5.1 p_value检验陷阱
-2.3.5.2 p_value检验方式</p>
-<p>三.AB测试的一般人员分工
-四.AA测试
-五.生产上多种多样的AB测试
-5.1 随机轮转实验
-5.2 更高效的AB测试&ndash;interleaving
-5.3 用户裂变场景怎么避免污染
-5.4 低响应场景</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
 <h1 id="一ab测试及其统计原理">一.AB测试及其统计原理</h1>
 <p>在这一章我会根据工程实践中的AB实践流程及理论基础进行详细介绍。</p>
 <p>AB测试，又叫随机对照试验，来源于假设检验，我们现在有两个随机均匀的样本组A、B，对其中一个组A做出某种改动，实验结束后分析两组用户行为数据，通过显著性检验，判断这个改动对于我们所关注的核心指标是否有显著的影响。</p>
