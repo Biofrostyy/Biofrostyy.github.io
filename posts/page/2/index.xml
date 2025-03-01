@@ -6,10 +6,28 @@
     <description>Recent content in Posts on My Everyday</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Thu, 22 Feb 2024 19:50:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 25 Feb 2025 22:01:57 +0800</lastBuildDate>
     
         <atom:link href="https://biofrostyy.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>python 实现规则集分类并融合压缩</title>
+      <link>https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E8%A7%84%E5%88%99%E9%9B%86%E5%88%86%E7%B1%BB%E5%B9%B6%E8%9E%8D%E5%90%88%E5%8E%8B%E7%BC%A9/</link>
+      <pubDate>Sun, 16 May 2021 22:01:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E8%A7%84%E5%88%99%E9%9B%86%E5%88%86%E7%B1%BB%E5%B9%B6%E8%9E%8D%E5%90%88%E5%8E%8B%E7%BC%A9/</guid>
+      <description>一.问题介绍 工作中遇到一个问题，一个列表中，存在多个以&amp;quot;-&amp;ldquo;连接的范围string，希望可以把规则集压缩，即融合的范围</description>
+    </item>
+    
+    <item>
+      <title>阿里BST CTR预测模型复现练习</title>
+      <link>https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-bst/</link>
+      <pubDate>Sun, 16 May 2021 22:01:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-bst/</guid>
+      <description>一.算法介绍 实践于阿里19年发布的paper，地址 https://arxiv.org/abs/1905.06874?context=cs.AI 关键字：pytorch, BST, 行为序列建模，推荐模型，Transformer 主要输入特征有I</description>
+    </item>
     
     <item>
       <title>数据结构复习-排序算法</title>
@@ -36,15 +54,6 @@
       
       <guid>https://biofrostyy.github.io/2020/07/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</guid>
       <description>一.问题介绍 在排序数组中查找左右边界，可用于在排序数组中查找某个值出现的位置与次数等$n^2$ 二.刷题沉淀 ①花费最少爬楼梯 class Solution: def minCostClimbingStairs(self, cost: List[int]) -&amp;gt; int: #</description>
-    </item>
-    
-    <item>
-      <title>数据结构-刷题tips</title>
-      <link>https://biofrostyy.github.io/2020/06/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%88%B7%E9%A2%98tips/</link>
-      <pubDate>Fri, 26 Jun 2020 22:01:57 +0800</pubDate>
-      
-      <guid>https://biofrostyy.github.io/2020/06/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%88%B7%E9%A2%98tips/</guid>
-      <description>一.问题介绍 在排序数组中查找左右边界，可用于在排序数组中查找某个值出现的位置与次数等 二.刷题沉淀 ①ListNode题 # 可以使用一个空起始点来</description>
     </item>
     
   </channel>

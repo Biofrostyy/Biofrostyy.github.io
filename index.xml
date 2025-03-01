@@ -6,10 +6,28 @@
     <description>Recent content on My Everyday</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Thu, 22 Feb 2024 19:50:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 25 Feb 2025 22:01:57 +0800</lastBuildDate>
     
         <atom:link href="https://biofrostyy.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AI Search 第一期：搜索市场及用户需求匹配</title>
+      <link>https://biofrostyy.github.io/2025/02/graphrag/</link>
+      <pubDate>Tue, 25 Feb 2025 22:01:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2025/02/graphrag/</guid>
+      <description>好久不见，AI大模型的发展让我之前的传统营销推荐工作产生了翻天覆地的变化。AI营销、AI推荐等概念层出不穷。接下来我将经常出一些工作上涉及到</description>
+    </item>
+    
+    <item>
+      <title>AI搜索在实时营销中的应用探索</title>
+      <link>https://biofrostyy.github.io/2025/02/ai%E6%90%9C%E7%B4%A2/</link>
+      <pubDate>Tue, 25 Feb 2025 22:01:57 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2025/02/ai%E6%90%9C%E7%B4%A2/</guid>
+      <description>AI搜索在实时营销中的应用探索 好久不见！随着 AI 大模型的迅猛发展，传统的营销推荐工作正经历着前所未有的变革。如今，AI 营销、AI 推荐等概念层出</description>
+    </item>
     
     <item>
       <title>⭐♥Book List♥⭐</title>
@@ -171,24 +189,6 @@
       
       <guid>https://biofrostyy.github.io/2021/05/%E8%AF%BB%E5%90%8E%E6%84%9F-%E6%B6%88%E5%A4%B1%E7%9A%84%E7%AC%AC13%E7%BA%A7%E5%8F%B0%E9%98%B6/</guid>
       <description>评前碎碎念 翻译的好坏总是能左右我对一本书的兴趣，仿佛我试图入坑克苏鲁神话被译本晦涩仿佛机翻的语言劝退的那天，一直以来我对译本总是抱着怀疑的态</description>
-    </item>
-    
-    <item>
-      <title>python 实现规则集分类并融合压缩</title>
-      <link>https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E8%A7%84%E5%88%99%E9%9B%86%E5%88%86%E7%B1%BB%E5%B9%B6%E8%9E%8D%E5%90%88%E5%8E%8B%E7%BC%A9/</link>
-      <pubDate>Sun, 16 May 2021 22:01:57 +0800</pubDate>
-      
-      <guid>https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-%E8%A7%84%E5%88%99%E9%9B%86%E5%88%86%E7%B1%BB%E5%B9%B6%E8%9E%8D%E5%90%88%E5%8E%8B%E7%BC%A9/</guid>
-      <description>一.问题介绍 工作中遇到一个问题，一个列表中，存在多个以&amp;quot;-&amp;ldquo;连接的范围string，希望可以把规则集压缩，即融合的范围</description>
-    </item>
-    
-    <item>
-      <title>阿里BST CTR预测模型复现练习</title>
-      <link>https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-bst/</link>
-      <pubDate>Sun, 16 May 2021 22:01:57 +0800</pubDate>
-      
-      <guid>https://biofrostyy.github.io/2021/05/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80-bst/</guid>
-      <description>一.算法介绍 实践于阿里19年发布的paper，地址 https://arxiv.org/abs/1905.06874?context=cs.AI 关键字：pytorch, BST, 行为序列建模，推荐模型，Transformer 主要输入特征有I</description>
     </item>
     
   </channel>

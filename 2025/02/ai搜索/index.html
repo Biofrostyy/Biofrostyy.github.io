@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+        AI搜索在实时营销中的应用探索 - My Everyday
+      </title>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    
+    <meta name="theme-color" content="#000000" />
+    
+    <meta http-equiv="window-target" content="_top" />
+    
+    
+    <meta name="description" content="AI搜索在实时营销中的应用探索 好久不见！随着 AI 大模型的迅猛发展，传统的营销推荐工作正经历着前所未有的变革。如今，AI 营销、AI 推荐等概念层出" />
+    <meta name="generator" content="Hugo 0.92.2 with theme pure" />
+    <title>AI搜索在实时营销中的应用探索 - My Everyday</title>
+    
+    
+    <link rel="stylesheet" href="https://biofrostyy.github.io/css/style.min.e64d754037c0ee0ec4e20ab1d6f07740ace61729bc03850559b8caa21ae4a597.css">
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
+    <meta property="og:title" content="AI搜索在实时营销中的应用探索" />
+<meta property="og:description" content="AI搜索在实时营销中的应用探索 好久不见！随着 AI 大模型的迅猛发展，传统的营销推荐工作正经历着前所未有的变革。如今，AI 营销、AI 推荐等概念层出" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://biofrostyy.github.io/2025/02/ai%E6%90%9C%E7%B4%A2/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-02-25T22:01:57+08:00" />
+<meta property="article:modified_time" content="2025-02-25T22:01:57+08:00" />
+
+<meta itemprop="name" content="AI搜索在实时营销中的应用探索">
+<meta itemprop="description" content="AI搜索在实时营销中的应用探索 好久不见！随着 AI 大模型的迅猛发展，传统的营销推荐工作正经历着前所未有的变革。如今，AI 营销、AI 推荐等概念层出"><meta itemprop="datePublished" content="2025-02-25T22:01:57+08:00" />
+<meta itemprop="dateModified" content="2025-02-25T22:01:57+08:00" />
+<meta itemprop="wordCount" content="5065">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="AI搜索在实时营销中的应用探索"/>
+<meta name="twitter:description" content="AI搜索在实时营销中的应用探索 好久不见！随着 AI 大模型的迅猛发展，传统的营销推荐工作正经历着前所未有的变革。如今，AI 营销、AI 推荐等概念层出"/>
+
+    <!--[if lte IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+      <![endif]-->
+
+    <!--[if lt IE 9]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  
+  
+
+  <body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage"><header class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <div class="slimContent">
+      <div class="navbar-header">
+        <div class="profile-block text-center">
+          <a id="avatar" href="https://github.com/Biofrostyy" target="_blank">
+            <img class="img-circle img-rotate" src="https://biofrostyy.github.io/avatar.png" width="200" height="200">
+          </a>
+          <h2 id="name" class="hidden-xs hidden-sm">Ruiying</h2>
+          <h3 id="title" class="hidden-xs hidden-sm hidden-md">2021届新晋打工人/ UCD优秀校友/ 大数据挖掘民工/ 物理爱好者/ 悬疑推理爱好者/ 科幻小说资深读者/ 泳姿收集者/ 密室逃脱爱好者/ 资深铲屎/ 电竞网瘾少女/ 网球1.5选手/ 钢琴拥有者/ 羽毛球装备党</h3>
+          <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i>Shenzhen, China</small>
+        </div><div class="search" id="search-form-wrap">
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i
+                        class="icon icon-search"></i></button>
+            </span>
+        </div>
+        <div class="ins-search">
+            <div class="ins-search-mask"></div>
+            <div class="ins-search-container">
+                <div class="ins-input-wrapper">
+                    <input type="text" class="ins-search-input" placeholder="Type something..."
+                        x-webkit-speech />
+                    <button type="button" class="close ins-close ins-selectable" data-dismiss="modal"
+                        aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="ins-section-wrapper">
+                    <div class="ins-section-container"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+        <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+        <ul class="nav navbar-nav main-nav">
+            <li class="menu-item menu-item-home">
+                <a href="/">
+                    <i class="icon icon-home-fill"></i>
+                  <span class="menu-title">Home</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-archives">
+                <a href="/posts/">
+                    <i class="icon icon-archives-fill"></i>
+                  <span class="menu-title">Archives</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-categories">
+                <a href="/categories/">
+                    <i class="icon icon-folder"></i>
+                  <span class="menu-title">Categories</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-tags">
+                <a href="/tags/">
+                    <i class="icon icon-tags"></i>
+                  <span class="menu-title">Tags</span>
+                </a>
+            </li>
+            <li class="menu-item menu-item-about">
+                <a href="/about/">
+                    <i class="icon icon-cup-fill"></i>
+                  <span class="menu-title">About</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content"><p>寄托呆瓜博主作为打工人对技术的热情&作为宇宙快乐少年对于世界的好奇 ;)</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div id="tag-cloud-list" class="widget-body">
+            
+            
+            <a href="https://biofrostyy.github.io/tags/%E7%BD%91%E7%90%83/" class="tag-list-link" rel="1">网球<span
+               class="tag-list-count">1</span></a>
+            
+    </div>
+<script>
+document.onreadystatechange = () => {
+  if (document.readyState === 'complete') {
+    tagCloud('#tag-cloud-list a',  8 ,  20 );
+  }
+};
+
+function tagCloud(where, min, max) {
+  let iMax = 0;
+  let iMin = 0;
+  $(where).each(function() {
+    let weight = Number($(this).attr("rel"));
+    if(iMax < weight) iMax = weight;
+    if(iMin > weight || iMin == 0) iMin = weight;
+  });
+  let step = (max - min)/(iMax - iMin);
+  $(where).each(function() {
+    let weight = $(this).attr("rel") - iMin;
+    $(this).css({"font-size": min + (weight * step) + 'px'});
+  });
+};
+</script>
+</div>
+
+      <div class="widget">
+    <h3 class="widget-title"> Categories</h3>
+    <div class="widget-body">
+        <ul class="category-list">
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/ab%E6%B5%8B%E8%AF%95/" class="category-list-link">ab测试</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E5%88%B7%E9%A2%98/" class="category-list-link">刷题</a><span class="category-list-count">3</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/" class="category-list-link">因果推断</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E5%A4%9A%E4%BB%BB%E5%8A%A1%E5%AD%A6%E4%B9%A0/" class="category-list-link">多任务学习</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E5%A4%9A%E6%A8%A1%E5%9E%8B%E8%9E%8D%E5%90%88/" class="category-list-link">多模型融合</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E5%A4%A7%E5%B8%88%E8%AF%BE/" class="category-list-link">大师课</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/" class="category-list-link">大模型</a><span class="category-list-count">2</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/" class="category-list-link">推荐系统</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E6%A8%A1%E5%9D%97%E6%B2%89%E6%B7%80/" class="category-list-link">模块沉淀</a><span class="category-list-count">4</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E6%A8%A1%E5%9E%8B%E5%BA%94%E7%94%A8/" class="category-list-link">模型应用</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E7%9F%A5%E8%AF%86%E7%BD%91%E7%BB%9C/" class="category-list-link">知识网络</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E7%BB%84%E4%BB%B6%E6%B2%89%E6%B7%80/" class="category-list-link">组件沉淀</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E8%AE%BA%E6%96%87%E5%A4%8D%E7%8E%B0%E7%BB%83%E4%B9%A0/" class="category-list-link">论文复现练习</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="category-list-link">读书笔记</a><span class="category-list-count">5</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E9%92%A2%E7%90%B4/" class="category-list-link">钢琴</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E9%9F%B3%E4%B9%90%E5%8E%9F%E7%90%86/" class="category-list-link">音乐原理</a><span class="category-list-count">1</span></li>
+            <li class="category-list-item"><a href="https://biofrostyy.github.io/categories/%E9%A2%84%E6%B5%8B/" class="category-list-link">预测</a><span class="category-list-count">1</span></li>
+        </ul>
+    </div>
+</div>
+      <div class="widget">
+    <h3 class="widget-title"> Tags</h3>
+    <div class="widget-body">
+        <ul class="tag-list">
+            
+            
+            <li class="tag-list-item"><a href="https://biofrostyy.github.io/tags/%E7%BD%91%E7%90%83/" class="tag-list-link">网球</a><span
+                    class="tag-list-count">1</span></li>
+            
+        </ul>
+
+    </div>
+</div>
+      
+<div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+        <ul class="recent-post-list list-unstyled no-thumbnail">
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2025/02/graphrag/" class="title">AI Search 第一期：搜索市场及用户需求匹配</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2025-02-25 22:01:57 &#43;0800 CST" itemprop="datePublished">2025-02-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2025/02/ai%E6%90%9C%E7%B4%A2/" class="title">AI搜索在实时营销中的应用探索</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2025-02-25 22:01:57 &#43;0800 CST" itemprop="datePublished">2025-02-25</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2024/02/%E4%B9%A6%E5%8D%95/" class="title">⭐♥Book List♥⭐</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2024-02-22 19:50:00 &#43;0800 CST" itemprop="datePublished">2024-02-22</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2023/12/%E4%BB%8E%E6%95%B0%E6%8D%AE%E7%A7%91%E5%AD%A6%E5%AE%B6%E8%A7%86%E8%A7%92%E6%B7%B1%E5%85%A5ab%E6%B5%8B%E8%AF%95/" class="title">从数据科学家视角深入理解AB测试</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2023-12-30 12:23:31 &#43;0800 CST" itemprop="datePublished">2023-12-30</time>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="item-inner">
+                    <p class="item-title">
+                        <a href="https://biofrostyy.github.io/2023/12/%E6%97%85%E8%A1%8Capp%E7%94%A8%E6%88%B7%E5%87%BA%E8%A1%8C%E9%9C%80%E6%B1%82%E9%A2%84%E6%B5%8B/" class="title">飞猪用户出行需求预测</a>
+                    </p>
+                    <p class="item-date">
+                        <time datetime="2023-12-03 12:23:31 &#43;0800 CST" itemprop="datePublished">2023-12-03</time>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+  </div>
+</aside>
+
+    
+    
+<aside class="sidebar sidebar-toc collapse" id="collapseToc" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    <h4 class="toc-title">Catalogue</h4>
+    <nav id="toc" class="js-toc toc">
+
+    </nav>
+  </div>
+</aside>
+<main class="main" role="main"><div class="content">
+  <article id="-" class="article article-type-" itemscope
+    itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      <h1 itemprop="name">
+  <a
+    class="article-title"
+    href="/2025/02/ai%E6%90%9C%E7%B4%A2/"
+    >AI搜索在实时营销中的应用探索</a
+  >
+</h1>
+
+      <div class="article-meta">
+        
+<span class="article-date">
+  <i class="icon icon-calendar-check"></i>&nbsp;
+<a href="https://biofrostyy.github.io/2025/02/ai%E6%90%9C%E7%B4%A2/" class="article-date">
+  <time datetime="2025-02-25 22:01:57 &#43;0800 CST" itemprop="datePublished">2025-02-25</time>
+</a>
+</span>
+<span class="article-category">
+  <i class="icon icon-folder"></i>&nbsp;
+  <a class="article-category-link" href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/"> “大模型&#34; </a>
+</span>
+
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 5065 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 11 minutes </span>
+      </div>
+    </div>
+    <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
+      <!-- raw HTML omitted -->
+<hr>
+<h1 id="ai搜索在实时营销中的应用探索">AI搜索在实时营销中的应用探索</h1>
+<p>好久不见！随着 AI 大模型的迅猛发展，传统的营销推荐工作正经历着前所未有的变革。如今，AI 营销、AI 推荐等概念层出不穷。今后，我会定期分享工作中涉及的大模型应用场景及相关科普知识，欢迎大家持续关注！</p>
+<p>本文的第一期聚焦于 <strong>AI 搜索</strong>，结合工作中的实际营销需求，探讨如何捕捉网络热点事件（如“黑神话悟空”的爆红、巴黎奥运会、以及春节、情人节等阶段性热点），并利用RAG实现信息提取与内容总结。</p>
+<hr>
+<h2 id="一需求解析捕捉热点与多平台搜索">一、需求解析：捕捉热点与多平台搜索</h2>
+<p>在电商营销中，热点事件往往能带来显著的流量增长。节假日热点由于具有确定性，可以精准瞄准；而如“黑神话悟空”这类网络孵化出的爆款热点，则存在短周期内迅速蹿红的特点。如何高效捕捉这类热点呢？</p>
+<p>主要需求可以拆解为两部分：</p>
+<ol>
+<li>
+<p><strong>多平台搜索</strong><br>
+由于热点不仅存在于传统的网页中，更大量涌现于抖音、小红书、知乎等社交与内容平台，因此需要构建一个覆盖广泛的数据采集系统，实现跨平台信息抓取。</p>
+</li>
+<li>
+<p><strong>答案总结与信息提取</strong><br>
+如果仅仅返回网页列表或博文内容，后续的图片、文件格式转换及进一步的信息抽取工作将大大增加成本。理想的搜索工具应当具备自动摘要和关键信息提取能力，直接为我们提供结构化的信息输出。</p>
+</li>
+</ol>
+<p>幸运的是，当前的 AI 搜索工具已经能够完美满足这一需求，通过多平台数据融合与智能摘要，实现营销情报的高效整合。</p>
+<hr>
+<h2 id="二ai搜索">二、AI搜索</h2>
+<h3 id="1-传统搜索的局限性">1. 传统搜索的局限性</h3>
+<p>传统搜索引擎（如百度、谷歌）主要分为 <strong>狭义搜索市场</strong> 和 <strong>广义搜索市场</strong>：</p>
+<ul>
+<li>
+<p><strong>狭义搜索市场</strong>：<br>
+以传统搜索引擎为代表，主要通过主页或浏览器地址栏提供搜索服务，核心在于返回网址列表。得益于深厚的技术积累与品牌优势，传统搜索在算法、数据处理和用户基础方面形成了较高的壁垒。然而，随着内容分散到各大社交平台，传统搜索在优质内容获取和用户吸引力上逐渐面临挑战。</p>
+</li>
+<li>
+<p><strong>广义搜索市场</strong>：<br>
+除了传统搜索引擎外，还包括抖音、头条、小红书等平台内的搜索功能，以及对大模型内部知识的检索。广义搜索不仅涵盖短视频、中视频、图文等多种内容形式，还可以通过智能推荐和自然语言理解，更好地满足用户多样化、深层次的需求。</p>
+</li>
+</ul>
+<h3 id="2-用户需求的升级">2. 用户需求的升级</h3>
+<p>用户的真实需求远超过简单的链接列表，他们期望能够：</p>
+<ul>
+<li>
+<p><strong>多平台获取内容</strong>：<br>
+例如，寻找《三体》的美剧下载链接或李想演讲的视频，这类内容往往分布在各大自有内容平台上。</p>
+</li>
+<li>
+<p><strong>获得具体问题的直接答案</strong>：<br>
+传统搜索仅提供摘要（snippets），而用户更渴望由 AI 智能整合的高质量回答，如“端午假期如何请假”这种复杂问题。</p>
+</li>
+<li>
+<p><strong>搜集主题相关的数据与资料</strong>：<br>
+真正使用搜索获取资料的用户愿意为精准的信息付费，这正是 AI 搜索相比传统搜索具有十倍优势的地方。</p>
+</li>
+</ul>
+<hr>
+<h3 id="3-ai-搜索的核心技术与优势">3. AI 搜索的核心技术与优势</h3>
+<p>上面说了，AI搜索主要满足的是用户复杂的、多平台的搜索需求。</p>
+<p>AI 搜索的本质在于其核心的AI技术，而不仅仅是搜索功能本身。AI 搜索的决胜点在于如何利用AI技术来提升搜索体验，而不是简单地改进现有的搜索功能。这类似于“AI+”与“+AI”的区别，前者强调AI技术的核心地位，后者则强调AI技术作为辅助工具。</p>
+<p>AI 搜索不仅仅是基于大型语言模型（LLM）的简单问答系统，而是通过结合LLM和其他工具构建的复杂架构。例如，Comfy UI 和 Dify 等工具通过构建工作流（Workflow）来实现更复杂的搜索功能。这些工具的本质是在构建一个能够处理多种任务的AI架构。</p>
+<p>为了在竞争激烈的市场中脱颖而出，AI 搜索必须寻找新的应用场景和垂直领域。例如，在学术、医疗和法律等领域，AI 搜索可以通过提供更精准和专业的内容来满足用户的需求。这些新场景的搜索不仅具有战略意义，还能为AI搜索带来更多的商业机会。</p>
+<p>AI Native 的概念强调产品在AI能力的支持下才能成功。随着技术的发展，传统的搜索功能已经达到了瓶颈，AI Native 的产品通过充分利用AI技术，能够提供全新的用户体验和功能。</p>
+<h3 id="4-ai搜索使用接口">4. AI搜索使用接口</h3>
+<p>市面上有联网搜索能力的接口有很多。接下来进行测评。</p>
+<h3 id="5-ai搜索落地中rag的使用">5. AI搜索落地中RAG的使用</h3>
+<p>直接通过现有接口很明显无法直接获得我们需要的专业化的消息。最重要的一点是通用的服务无法帮我们判断热点是否能带来电商热点，例如明星的离婚八卦对电商的影响就微乎其微。很遗憾在多次改变话术尝试后都无法得到符合预期的结果。</p>
+<p>RAG（检索增强生成）技术在AI搜索中的核心思想是将信息检索与大语言模型（LLM）的生成能力相结合，从而使搜索系统不仅能查找到相关文档，还能生成上下文连贯、信息丰富的回答。为了适配我们的电商垂直场景，我们需要将我们现有的电商场景、客户信息、产品信息及品牌信息等辅助AI做出判断，哪些热点可以带来哪些产品的增长，同时目标客户是哪些。</p>
+<p>由于本场景中用户、历史活动、客群特征中明显存在多对多的关系。故使用 GraphRAG进行知识库构建。</p>
+<p>接下来我会详细介绍GraphRAG在营销中的应用。</p>
+<h2 id="三graphrag">三、GraphRAG</h2>
+<p>=================</p>
+<p>从RAG到Graph RAG：</p>
+<p>在人工智能领域，检索增强生成（Retrieval-Augmented Generation, RAG）已成为连接大语言模型（LLM）与外部知识库的核心技术。传统RAG通过检索相关文档片段，为生成模型提供上下文支持，显著提升了生成内容的准确性和可靠性。然而，传统RAG仍面临两大瓶颈：</p>
+<p>知识孤岛问题：文本片段间的语义关联未被充分利用，导致检索结果碎片化；
+动态知识更新困难：静态文档库难以适应实时知识的变化。</p>
+<p>Graph RAG应运而生，其核心思想是将图结构（Graph）与RAG结合，利用知识图谱（Knowledge Graph）和图神经网络（Graph Neural Networks, GNN）实现更高效的知识检索与生成。</p>
+<h3 id="1-graph-rag的图基础图结构与知识图谱">1. Graph RAG的图基础：图结构与知识图谱</h3>
+<p>图神经网络（GNN）是一类用于处理图结构数据的深度学习模型。图由节点（Vertices）和边（Edges）构成，能够直观地表示实体及其关系。常见的 GNN 模型包括图卷积网络（GCN）、图注意力网络（GAT）、图同构网络（GIN）等。以图卷积网络为例，其核心计算公式为：</p>
+<p>$$
+H^{(l+1)} = \sigma\left(\tilde{D}^{-\frac{1}{2}} \tilde{A} \tilde{D}^{-\frac{1}{2}} H^{(l)} W^{(l)}\right)
+$$</p>
+<p>该公式描述了节点信息在图中的传播过程，通过层叠多层网络，可以捕捉到更深层次的结构信息。</p>
+<p>此外，图注意力网络（GAT）通过自适应地为每个节点邻域分配不同的权重，解决了传统 GCN 在处理异质图时权重固定的问题。</p>
+<h3 id="2-大模型接口与-graphrag-的结合">2. 大模型接口与 GraphRAG 的结合</h3>
+<p>在实际应用中，许多企业和研究机构已经部署了成熟的大模型接口，如 ChatGPT、GPT-4、百度文心等。这些模型在通用文本生成、对话系统、搜索问答等方面具有较高性能，但在面对特定领域或知识密集型任务时，仍可能存在信息不足或回答不准确的问题。</p>
+<p>GraphRAG 技术可以作为“调整器”对大模型接口进行增强，基本思路如下：</p>
+<p>· 预处理与知识扩充：通过外部知识库对大模型输出的基础答案进行补充，利用图检索模块获取更多上下文信息。
+· 动态知识融合：在生成过程中将检索到的图结构信息与大模型生成的中间表示融合，确保生成内容与实际背景知识匹配。
+· 后处理校正：利用 GraphRAG 模块对大模型输出结果进行校正，增强答案的准确性与一致性。
+这种方法既保留了大模型接口强大的语言理解与生成能力，又利用图结构信息弥补了大模型在知识存储上的局限，从而实现更为精准的知识问答和文本生成。</p>
+<h3 id="3-知识库构建方法">3. 知识库构建方法</h3>
+<p>知识库（Knowledge Base）的构建是 GraphRAG 系统中最为基础也是关键的环节。一个高质量的知识库不仅能够保证图结构信息的准确性，还能为后续的图检索和文本生成提供坚实的支撑。下面详细介绍知识库构建的全流程和关键技术。</p>
+<h4 id="31-数据采集与预处理">3.1 数据采集与预处理</h4>
+<p>构建知识库的第一步是数据采集。数据来源可以多样化，主要包括以下几类：</p>
+<ul>
+<li><strong>结构化数据</strong>：如数据库、知识图谱（例如 Freebase、DBpedia）等。</li>
+<li><strong>半结构化数据</strong>：如维基百科、行业报告、技术文档等。</li>
+<li><strong>非结构化数据</strong>：如新闻、博客、社交媒体文本等。</li>
+</ul>
+<p>在数据采集后，需要对数据进行预处理，主要任务包括数据清洗、格式转换和噪声过滤。例如，对文本数据可以使用自然语言处理（NLP）技术去除无用信息、进行分词和句法分析。</p>
+<h4 id="32-实体抽取">3.2 实体抽取</h4>
+<p>实体抽取是指从原始数据中识别出具有实际意义的词汇或短语，如人名、地名、机构名称、专业术语等。常见的方法有：</p>
+<ul>
+<li><strong>命名实体识别（NER）</strong>：利用基于深度学习或规则的方法，从文本中标注出实体。</li>
+<li><strong>关键词提取</strong>：采用 TF-IDF、TextRank 等算法筛选文本中的重要词汇。</li>
+<li><strong>领域定制方法</strong>：在特定领域中，根据行业知识构建定制化的实体抽取规则。</li>
+</ul>
+<p>例如，在医疗领域，需要抽取药品名称、疾病症状、医疗机构等实体，而在金融领域，则关注公司名称、股票代码、经济指标等。</p>
+<h4 id="33-关系抽取">3.3 关系抽取</h4>
+<p>关系抽取是指在实体抽取的基础上，识别实体之间存在的语义关联。常见的关系包括：</p>
+<ul>
+<li><strong>隶属关系</strong>：例如，“华为”隶属于“通信行业”。</li>
+<li><strong>因果关系</strong>：例如，“吸烟”与“肺癌”之间存在因果关系。</li>
+<li><strong>并列关系</strong>：例如，“苹果”和“三星”在智能手机领域处于竞争状态。</li>
+</ul>
+<p>关系抽取可以采用监督学习、半监督学习或无监督学习的方法，结合依存句法分析、模板匹配和深度学习模型来实现。构造关系时，需要注意关系的多样性和上下文依赖性。</p>
+<h4 id="34-知识图谱构建">3.4 知识图谱构建</h4>
+<p>在完成实体和关系的抽取后，下一步就是构建知识图谱。知识图谱是一种以图结构呈现知识的方法，其中：</p>
+<ul>
+<li><strong>节点（V）</strong>：代表抽取出的各类实体。</li>
+<li><strong>边（E）</strong>：表示实体之间的语义关系。</li>
+</ul>
+<p>在图构建过程中，需要对不同数据源的信息进行融合，保证节点唯一性，并进行噪声数据过滤。图谱构建的一个简单公式可以表示为：</p>
+<p>$$
+G = (V, E)
+$$</p>
+<p>其中，V 为节点集合，E 为边集合。为保证图谱的准确性，通常需要进行多轮人工审核和自动校正。</p>
+<h4 id="35-节点向量化与图编码">3.5 节点向量化与图编码</h4>
+<p>构建好的知识图谱需要进一步转换为便于模型处理的向量表示。这一过程称为节点向量化或图编码。利用图神经网络（GNN）可以将图中的节点表示转换为低维嵌入向量，使得后续检索和融合更高效。</p>
+<p>以图卷积网络（GCN）为例，其节点表示更新公式为：</p>
+<p>$$
+H^{(l+1)} = \sigma\Bigl(\tilde{D}^{-\frac{1}{2}}, \tilde{A}, \tilde{D}^{-\frac{1}{2}}, H^{(l)}, W^{(l)}\Bigr)
+$$</p>
+<p>其中：</p>
+<ul>
+<li>$\tilde{A} = A + I$ 表示加自环后的邻接矩阵；</li>
+<li>$\tilde{D}$ 为对应的度矩阵；</li>
+<li>$H^{(l)}$ 表示第 $l$ 层的节点表示；</li>
+<li>$W^{(l)}$ 为第 $l$ 层的权重矩阵；</li>
+<li>$\sigma$ 为激活函数（如 ReLU）。</li>
+</ul>
+<p>经过多层 GNN 处理后，图中每个节点都被编码为一个向量，既包含了实体本身的信息，又融合了其邻域结构。</p>
+<h4 id="36-知识库更新与维护">3.6 知识库更新与维护</h4>
+<p>知识库并非一成不变，尤其在信息不断更新的领域中，如何保持知识库的时效性和准确性十分关键。常见的更新方法包括：</p>
+<ul>
+<li><strong>增量更新</strong>：利用新采集的数据进行实时补充。</li>
+<li><strong>定期校验</strong>：通过人工审核和自动化工具检测知识库中的错误信息，并进行修正。</li>
+<li><strong>跨域融合</strong>：整合来自不同领域或来源的知识，保证知识库的全面性和多样性。</li>
+</ul>
+<p>在实际系统中，知识库更新机制可以设计为自动化工作流，结合数据清洗、实体识别和图更新算法，实现动态调整和迭代升级。</p>
+<h3 id="4-基于大模型接口的-graphrag-应用架构">4. 基于大模型接口的 GraphRAG 应用架构</h3>
+<p>在实际应用中，GraphRAG 模型通常作为现有大模型接口的“增强模块”部署，通过对生成结果进行调整，提升系统整体的知识调用和回答准确性。以下介绍一种典型的系统架构。</p>
+<h4 id="41-系统整体架构概述">4.1 系统整体架构概述</h4>
+<p>整个系统主要包含以下模块：</p>
+<ul>
+<li>
+<p><strong>大模型接口</strong>：现有大模型（如 GPT-4、文心一言等）提供基础生成能力。</p>
+</li>
+<li>
+<p><strong>知识库与图谱模块</strong>：构建并维护一个高质量的知识图谱，为后续图编码和检索提供数据支持。</p>
+</li>
+<li>
+<p><strong>图编码与检索模块</strong>：利用图神经网络对知识图谱进行编码；根据用户查询从图中检索相关节点，计算注意力权重。</p>
+</li>
+<li>
+<p><strong>融合与生成模块</strong>：将大模型生成的中间表示与图检索结果融合，通过交叉注意力等技术生成最终答案。</p>
+</li>
+<li>
+<p><strong>后处理与反馈模块</strong>：对生成结果进行校正、格式化，并结合用户反馈不断迭代优化。</p>
+</li>
+</ul>
+<h4 id="42-大模型接口调整策略">4.2 大模型接口调整策略</h4>
+<p>针对大模型输出中可能存在的知识缺失或信息错误，GraphRAG 模块采取如下调整策略：</p>
+<ul>
+<li>
+<p><strong>检索补充</strong>：对于输入查询 $q$，利用图检索模块获得相关节点集合 ${g_i}_{i=1}^k$，然后将这些图上下文与大模型生成的初步答案进行对比和补充。</p>
+</li>
+<li>
+<p><strong>动态融合</strong>：在生成过程中，通过交叉注意力机制将图上下文信息动态注入大模型的解码器中。交叉注意力公式如下：</p>
+<p>$$
+\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{Q K^T}{\sqrt{d_k}}\right) V
+$$</p>
+</li>
+<li>
+<p><strong>后置校正</strong>：利用图检索得到的实体及关系信息，对大模型的生成结果进行事实校验，确保输出内容与知识库中数据一致。</p>
+</li>
+</ul>
+<h4 id="43-具体应用流程">4.3 具体应用流程</h4>
+<p>以开放域问答系统为例，整个应用流程如下：</p>
+<ol>
+<li>
+<p><strong>用户查询输入</strong>：用户通过接口输入查询 $q$。</p>
+</li>
+<li>
+<p><strong>大模型初步生成</strong>：大模型接口先给出一个初步答案，同时返回内部隐藏状态（如中间特征）。</p>
+</li>
+<li>
+<p><strong>图检索</strong>：根据查询 $q$ 和大模型隐藏状态，从知识库图谱中检索相关节点，计算注意力权重：</p>
+<p>$$
+\alpha_i = \frac{\exp\left(q^T h_i\right)}{\sum_{j \in V} \exp\left(q^T h_j\right)}
+$$</p>
+</li>
+<li>
+<p><strong>信息融合</strong>：将大模型生成的表示与检索到的图上下文 ${g_i}$ 融合，生成联合表示 $c$：</p>
+<p>$$
+c = \mathrm{Concat}\left(q, \sum_{i=1}^k \alpha_i g_i\right)
+$$</p>
+</li>
+<li>
+<p><strong>生成校正</strong>：基于联合表示，重新生成答案或对初步答案进行校正输出。</p>
+</li>
+<li>
+<p><strong>后处理与反馈</strong>：对答案进行格式化、事实核查，并记录用户反馈用于系统迭代更新。</p>
+</li>
+</ol>
+
+    </div>
+    <div class="article-footer">
+<blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    <li class="post-copyright-link hidden-xs">
+      <strong>Permalink: </strong>
+      <a href="https://biofrostyy.github.io/2025/02/ai%E6%90%9C%E7%B4%A2/" title="AI搜索在实时营销中的应用探索" target="_blank" rel="external">https://biofrostyy.github.io/2025/02/ai%E6%90%9C%E7%B4%A2/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>License: </strong>
+        <a href="ruiyingxu1209@gmail.com" target="_blank" rel="external">CC BY 4.0 CN</a>
+    </li>
+  </ul>
+</blockquote>
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/Biofrostyy" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="https://biofrostyy.github.io/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/Biofrostyy" target="_blank"><span class="text-dark">Ruiying</span><small class="ml-1x">2021届新晋打工人/ UCD优秀校友/ 大数据挖掘民工/ 物理爱好者/ 悬疑推理爱好者/ 科幻小说资深读者/ 泳姿收集者/ 密室逃脱爱好者/ 资深铲屎/ 电竞网瘾少女/ 网球1.5选手/ 钢琴拥有者/ 羽毛球装备党</small></a></h3>
+        <div></div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+    </div>
+  </article>
+</div><nav class="bar bar-footer clearfix" data-stick-bottom>
+    <div class="bar-inner">
+        <ul class="pager pull-left">
+            <li class="prev">
+                <a href="https://biofrostyy.github.io/2024/02/%E4%B9%A6%E5%8D%95/" title="⭐♥Book List♥⭐"><i
+                        class="icon icon-angle-left"
+                        aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
+            </li>
+            <li class="next">
+                <a href="https://biofrostyy.github.io/2025/02/graphrag/"
+                    title="AI Search 第一期：搜索市场及用户需求匹配"><span>Newer&nbsp;&nbsp;</span><i
+                        class="icon icon-angle-right" aria-hidden="true"></i></a>
+            </li>
+            
+            <li class="toggle-toc">
+                <a class="toggle-btn collapsed" data-toggle="collapse" href="#collapseToc" aria-expanded="false"
+                    title="Catalogue" role="button">
+                    <span>[&nbsp;</span><span>Catalogue</span>
+                    <i class="text-collapsed icon icon-anchor"></i>
+                    <i class="text-in icon icon-close"></i>
+                    <span>]</span>
+                </a>
+            </li>
+        </ul>
+        <div class="bar-right">
+            <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter"
+                data-mobile-sites="weibo,qq,qzone"></div>
+        </div>
+    </div>
+</nav>
+
+
+</main><footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+<ul class="social-links">
+    <li><a href="https://biofrostyy.github.io/index.xml" target="_blank" title="rss" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-rss"></i></a></li>
+    <li><a href="http://weibo.com/5722803494" target="_blank" title="weibo" data-toggle=tooltip data-placement=top >
+            <i class="icon icon-weibo"></i></a></li>
+</ul>
+  <div class="copyright">
+    &copy;2021  -
+    2025
+    <div class="publishby">
+        Theme by <a href="https://github.com/xiaoheiAh" target="_blank"> xiaoheiAh </a>base on<a href="https://github.com/xiaoheiAh/hugo-theme-pure" target="_blank"> pure</a>.
+    </div>
+    
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_SVG"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+            showMathMenu: false, //disables context menu
+            tex2jax: {
+            inlineMath: [ ['$','$'], ['\\(','\\)'] ]
+           }
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+<script>
+    window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/highlight.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/python.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/highlight.js/9.15.10/languages/javascript.min.js" defer></script><script>
+    hljs.configure({
+        tabReplace: '    ', 
+        classPrefix: ''     
+        
+    })
+    hljs.initHighlightingOnLoad();
+</script>
+<script src="https://biofrostyy.github.io/js/application.min.a94ab19cb63a95c8d7fbd7b85cab3ddeea8c369bdf75b9cab6708787ead123af.js"></script>
+<script src="https://biofrostyy.github.io/js/plugin.min.19c5bcb2fb0789ab4f2b7834e5ceb5e92635645605bab902c1024b25f1502364.js"></script>
+
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            ROOT_URL: 'https:\/\/biofrostyy.github.io\/',
+            CONTENT_URL: 'https:\/\/biofrostyy.github.io\/\/searchindex.json ',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script type="text/javascript" src="https://biofrostyy.github.io/js/insight.min.4a2d52de4bfff73e0c688404fe3d17c9a3ae12d9888e1e1ac9c690e4890de2ded50fe55f2b819c2ba55435a76f396f3ea6805765f0b0af5635cdf74ea459eab0.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script>
+<script>
+    tocbot.init({
+        
+        tocSelector: '.js-toc',
+        
+        contentSelector: '.js-toc-content',
+        
+        headingSelector: 'h1, h2, h3',
+        
+        hasInnerContainers: true,
+    });
+</script>
+
+
+  </body>
+</html>
