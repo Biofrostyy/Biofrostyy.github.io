@@ -39,7 +39,7 @@
 <meta itemprop="name" content="AI搜索在实时营销中的应用探索">
 <meta itemprop="description" content="AI搜索在实时营销中的应用探索 好久不见！随着 AI 大模型的迅猛发展，传统的营销推荐工作正经历着前所未有的变革。如今，AI 营销、AI 推荐等概念层出"><meta itemprop="datePublished" content="2025-02-25T22:01:57+08:00" />
 <meta itemprop="dateModified" content="2025-02-25T22:01:57+08:00" />
-<meta itemprop="wordCount" content="5065">
+<meta itemprop="wordCount" content="5196">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="AI搜索在实时营销中的应用探索"/>
 <meta name="twitter:description" content="AI搜索在实时营销中的应用探索 好久不见！随着 AI 大模型的迅猛发展，传统的营销推荐工作正经历着前所未有的变革。如今，AI 营销、AI 推荐等概念层出"/>
@@ -316,7 +316,7 @@ function tagCloud(where, min, max) {
   <a class="article-category-link" href="/categories/%E5%A4%A7%E6%A8%A1%E5%9E%8B/"> “大模型&#34; </a>
 </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 5065 words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 5196 words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 11 minutes </span>
       </div>
     </div>
@@ -379,9 +379,10 @@ function tagCloud(where, min, max) {
 <p>为了在竞争激烈的市场中脱颖而出，AI 搜索必须寻找新的应用场景和垂直领域。例如，在学术、医疗和法律等领域，AI 搜索可以通过提供更精准和专业的内容来满足用户的需求。这些新场景的搜索不仅具有战略意义，还能为AI搜索带来更多的商业机会。</p>
 <p>AI Native 的概念强调产品在AI能力的支持下才能成功。随着技术的发展，传统的搜索功能已经达到了瓶颈，AI Native 的产品通过充分利用AI技术，能够提供全新的用户体验和功能。</p>
 <h3 id="4-ai搜索使用接口">4. AI搜索使用接口</h3>
-<p>市面上有联网搜索能力的接口有很多。接下来进行测评。</p>
+<p>市面上有联网搜索能力的接口有很多。我这边在对热点新闻的挖掘中，实际上试用了豆包、chatgpt、deepseek。
+想要了解其他的测评，推荐一下这个公众号，写得很详细。</p>
 <h3 id="5-ai搜索落地中rag的使用">5. AI搜索落地中RAG的使用</h3>
-<p>直接通过现有接口很明显无法直接获得我们需要的专业化的消息。最重要的一点是通用的服务无法帮我们判断热点是否能带来电商热点，例如明星的离婚八卦对电商的影响就微乎其微。很遗憾在多次改变话术尝试后都无法得到符合预期的结果。</p>
+<p>直接通过现有接口很明显无法直接获得我们需要的专业化的消息。最重要的一点是通用的服务无法帮我们判断热点是否能为我们的产品带来电商热点，例如明星的离婚八卦对电商的影响就微乎其微。再进一步能为我们哪些产品带来销量增长。再再进一步我们能针对性的对哪些用户进行营销，即哪些是潜在用户。这就需要我们相应提供给大模型我们的产品信息以及用户信息。这些信息就通过RAG进行输入。</p>
 <p>RAG（检索增强生成）技术在AI搜索中的核心思想是将信息检索与大语言模型（LLM）的生成能力相结合，从而使搜索系统不仅能查找到相关文档，还能生成上下文连贯、信息丰富的回答。为了适配我们的电商垂直场景，我们需要将我们现有的电商场景、客户信息、产品信息及品牌信息等辅助AI做出判断，哪些热点可以带来哪些产品的增长，同时目标客户是哪些。</p>
 <p>由于本场景中用户、历史活动、客群特征中明显存在多对多的关系。故使用 GraphRAG进行知识库构建。</p>
 <p>接下来我会详细介绍GraphRAG在营销中的应用。</p>
