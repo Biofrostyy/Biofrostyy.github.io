@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <title>
-        深度学习推荐系统 - My Everyday
+        模型蒸馏 - My Everyday
       </title>
         <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -20,29 +20,29 @@
     <meta http-equiv="window-target" content="_top" />
     
     
-    <meta name="description" content="推荐系统的终极优化目标应包括两个维度：一个维度是用户体验的优化，另一个维度是满足公司的商业利益。对一个健康的商业模式来说，这两个维度应该是和" />
+    <meta name="description" content="背景 模型蒸馏（Model Distillation）这一理论最早由​​Geoffrey Hinton​​团队在​​2015年​​的论文《Dist" />
     <meta name="generator" content="Hugo 0.92.2 with theme pure" />
-    <title>深度学习推荐系统 - My Everyday</title>
+    <title>模型蒸馏 - My Everyday</title>
     
     
     <link rel="stylesheet" href="https://biofrostyy.github.io/css/style.min.e64d754037c0ee0ec4e20ab1d6f07740ace61729bc03850559b8caa21ae4a597.css">
     
     <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.15.10/styles/github.min.css" async>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css" async>
-    <meta property="og:title" content="深度学习推荐系统" />
-<meta property="og:description" content="推荐系统的终极优化目标应包括两个维度：一个维度是用户体验的优化，另一个维度是满足公司的商业利益。对一个健康的商业模式来说，这两个维度应该是和" />
+    <meta property="og:title" content="模型蒸馏" />
+<meta property="og:description" content="背景 模型蒸馏（Model Distillation）这一理论最早由​​Geoffrey Hinton​​团队在​​2015年​​的论文《Dist" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://biofrostyy.github.io/2021/07/%E6%8E%A8%E8%8D%90%E9%A1%B9%E7%9B%AE/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-07-31T15:11:57+08:00" />
-<meta property="article:modified_time" content="2021-07-31T15:11:57+08:00" />
+<meta property="og:url" content="https://biofrostyy.github.io/2024/08/%E6%A8%A1%E5%9E%8B%E8%92%B8%E9%A6%8F/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-08-19T17:47:31+08:00" />
+<meta property="article:modified_time" content="2024-08-19T17:47:31+08:00" />
 
-<meta itemprop="name" content="深度学习推荐系统">
-<meta itemprop="description" content="推荐系统的终极优化目标应包括两个维度：一个维度是用户体验的优化，另一个维度是满足公司的商业利益。对一个健康的商业模式来说，这两个维度应该是和"><meta itemprop="datePublished" content="2021-07-31T15:11:57+08:00" />
-<meta itemprop="dateModified" content="2021-07-31T15:11:57+08:00" />
-<meta itemprop="wordCount" content="564">
+<meta itemprop="name" content="模型蒸馏">
+<meta itemprop="description" content="背景 模型蒸馏（Model Distillation）这一理论最早由​​Geoffrey Hinton​​团队在​​2015年​​的论文《Dist"><meta itemprop="datePublished" content="2024-08-19T17:47:31+08:00" />
+<meta itemprop="dateModified" content="2024-08-19T17:47:31+08:00" />
+<meta itemprop="wordCount" content="674">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="深度学习推荐系统"/>
-<meta name="twitter:description" content="推荐系统的终极优化目标应包括两个维度：一个维度是用户体验的优化，另一个维度是满足公司的商业利益。对一个健康的商业模式来说，这两个维度应该是和"/>
+<meta name="twitter:title" content="模型蒸馏"/>
+<meta name="twitter:description" content="背景 模型蒸馏（Model Distillation）这一理论最早由​​Geoffrey Hinton​​团队在​​2015年​​的论文《Dist"/>
 
     <!--[if lte IE 9]>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -298,8 +298,8 @@ function tagCloud(where, min, max) {
       <h1 itemprop="name">
   <a
     class="article-title"
-    href="/2021/07/%E6%8E%A8%E8%8D%90%E9%A1%B9%E7%9B%AE/"
-    >深度学习推荐系统</a
+    href="/2024/08/%E6%A8%A1%E5%9E%8B%E8%92%B8%E9%A6%8F/"
+    >模型蒸馏</a
   >
 </h1>
 
@@ -307,34 +307,31 @@ function tagCloud(where, min, max) {
         
 <span class="article-date">
   <i class="icon icon-calendar-check"></i>&nbsp;
-<a href="https://biofrostyy.github.io/2021/07/%E6%8E%A8%E8%8D%90%E9%A1%B9%E7%9B%AE/" class="article-date">
-  <time datetime="2021-07-31 15:11:57 &#43;0800 CST" itemprop="datePublished">2021-07-31</time>
+<a href="https://biofrostyy.github.io/2024/08/%E6%A8%A1%E5%9E%8B%E8%92%B8%E9%A6%8F/" class="article-date">
+  <time datetime="2024-08-19 17:47:31 &#43;0800 CST" itemprop="datePublished">2024-08-19</time>
 </a>
 </span>
 <span class="article-category">
   <i class="icon icon-folder"></i>&nbsp;
-  <a class="article-category-link" href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"> “读书笔记&#34; </a>
+  <a class="article-category-link" href="/categories/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/"> 因果推断 </a>
 </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 564 words</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 674 words</span>
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 2 minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
-      <!-- raw HTML omitted -->
-<p>推荐系统的终极优化目标应包括两个维度：一个维度是用户体验的优化，另一个维度是满足公司的商业利益。对一个健康的商业模式来说，这两个维度应该是和谐统一的。例如YouTube的用户体验和公司利益（时长越长广告曝光越多）在“观看时长”这一点上达成了一致。</p>
-<p>下图是推荐系统的技术架构示意图。其中数据部分为融合了数据离线批处理、实时流处理的数据流框架；算法和模型部分则为集训练(training)、评估(evaluation)、部署(deployment)、线上推断(online inference)为一体的模型框架。</p>
-<p><img src="/Rec_deep/structure.jpg" alt="image"></p>
-<h1 id="推荐系统的进化之路">推荐系统的进化之路</h1>
-<p>幸运的是，我们开始做这项工作时，作为用户画像组，我们有着丰富的用户画像。</p>
-<p>我们使用线上的实时特征包括拖寄物、上下文、流向等。</p>
-<p>第二版，我们增加了redis的历史购买。</p>
-<p>再后来，因为画像数据太多，我们分析了之后，对用户画像（交叉）进行了客群分析，使用新客群作为分类特征。</p>
-<p>再后来，增加了再次购买率特征，使点击率增加了1%</p>
-<p>再后来，为了解决长尾，我们将高频与长尾分开，max(高频)低于0.5时，进入长尾规则判断，类似冷启动阶段，使用基于矩阵分解的协同过滤。</p>
-<p>再后来，加入组合推荐，apriori分析，概率模型</p>
-<p>再后来，缺失走兜底规则过多，包装服务过多</p>
-<p>再后来，准时保（流向/拖寄物符合）推荐过多，调整准时保位置，降低判断位置</p>
+      <h1 id="font-colorroyalblue-size5背景font"><!-- raw HTML omitted -->背景<!-- raw HTML omitted --></h1>
+<p>模型蒸馏（Model Distillation）这一理论最早由​​Geoffrey Hinton​​团队在​​2015年​​的论文《Distilling the Knowledge in a Neural Network》中正式提出，其核心思想是通过“教师-学生”框架将复杂大模型（教师模型）的知识迁移到轻量小模型（学生模型）中，以平衡性能与效率。</p>
+<h2 id="模型蒸馏的发展与应用概况">模型蒸馏的发展与应用概况​​</h2>
+<p>​### ​理论提出与早期应用（2015年）​​
+Hinton团队首次引入“软标签”（Soft Targets）和“温度参数”（Temperature）的概念，通过软化教师模型的输出概率分布，使学生模型学习更丰富的类别间关系信息。
+早期应用集中在计算机视觉（如ImageNet分类）和自然语言处理（如BERT压缩），例如DistilBERT通过蒸馏将BERT的参数量减少40%，推理速度提升60%。</p>
+<p>​### ​大模型时代的广泛采用（2020年后）​​
+随着GPT-3、PaLM等千亿参数大模型的涌现，蒸馏技术成为解决计算成本高、部署难的关键工具。例如：
+​​DeepSeek​​通过蒸馏将70B参数模型压缩为32B版本，推理延迟从850ms降至150ms，显存占用从320GB减少至8GB，适用于边缘设备。
+​​Qwen系列​​（如Qwen-3）采用蒸馏技术训练小参数模型，继承大模型的多语言和多任务能力</p>
+<p>从上面这些介绍来看，模型蒸馏最开始被提出是用来做大模型到轻量小模型的知识迁移的，但当我们理解了蒸馏的原理之后我们不难发现，蒸馏可以用与几乎所有模型，其本质就是性能强但效率低的大型模型到牺牲部分性能但大幅提升效率的小型模型的迁移。</p>
 
     </div>
     <div class="article-footer">
@@ -342,7 +339,7 @@ function tagCloud(where, min, max) {
   <ul class="post-copyright list-unstyled">
     <li class="post-copyright-link hidden-xs">
       <strong>Permalink: </strong>
-      <a href="https://biofrostyy.github.io/2021/07/%E6%8E%A8%E8%8D%90%E9%A1%B9%E7%9B%AE/" title="深度学习推荐系统" target="_blank" rel="external">https://biofrostyy.github.io/2021/07/%E6%8E%A8%E8%8D%90%E9%A1%B9%E7%9B%AE/</a>
+      <a href="https://biofrostyy.github.io/2024/08/%E6%A8%A1%E5%9E%8B%E8%92%B8%E9%A6%8F/" title="模型蒸馏" target="_blank" rel="external">https://biofrostyy.github.io/2024/08/%E6%A8%A1%E5%9E%8B%E8%92%B8%E9%A6%8F/</a>
     </li>
     <li class="post-copyright-license">
       <strong>License: </strong>
@@ -373,13 +370,13 @@ function tagCloud(where, min, max) {
     <div class="bar-inner">
         <ul class="pager pull-left">
             <li class="prev">
-                <a href="https://biofrostyy.github.io/2021/06/10%E5%88%86%E9%92%9F%E8%AF%BB%E5%AE%8C%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/" title="十分钟读完数学之美"><i
+                <a href="https://biofrostyy.github.io/2024/02/%E4%B9%A6%E5%8D%95/" title="⭐♥Book List♥⭐"><i
                         class="icon icon-angle-left"
                         aria-hidden="true"></i><span>&nbsp;&nbsp;Older</span></a>
             </li>
             <li class="next">
-                <a href="https://biofrostyy.github.io/2021/07/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"
-                    title="1小时读懂《深度学习推荐系统》"><span>Newer&nbsp;&nbsp;</span><i
+                <a href="https://biofrostyy.github.io/2025/02/ai%E6%90%9C%E7%B4%A2/"
+                    title="AI搜索在实时营销中的应用探索"><span>Newer&nbsp;&nbsp;</span><i
                         class="icon icon-angle-right" aria-hidden="true"></i></a>
             </li>
             
