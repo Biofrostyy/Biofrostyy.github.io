@@ -6,10 +6,19 @@
     <description>Recent content in 因果推断 on My Everyday</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>CC BY 4.0 CN</copyright>
-    <lastBuildDate>Sat, 19 Aug 2023 17:47:31 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 01 Aug 2025 17:47:31 +0800</lastBuildDate>
     
         <atom:link href="https://biofrostyy.github.io/categories/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>机器学习/数据挖掘校招知识点整理</title>
+      <link>https://biofrostyy.github.io/2025/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A0%A1%E6%8B%9B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/</link>
+      <pubDate>Fri, 01 Aug 2025 17:47:31 +0800</pubDate>
+      
+      <guid>https://biofrostyy.github.io/2025/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A0%A1%E6%8B%9B%E7%9F%A5%E8%AF%86%E7%82%B9%E6%95%B4%E7%90%86/</guid>
+      <description>背景 hello hello，想必大家都是从小红书因为这一篇来到我的主页的，我就置顶了，这是我2021年校招的时候和同学一起总结的知识点，也算是帮助了很</description>
+    </item>
     
     <item>
       <title>AI Search 第一期：搜索市场及用户需求匹配</title>
@@ -180,15 +189,6 @@
       
       <guid>https://biofrostyy.github.io/2021/07/%E6%8E%A8%E8%8D%90%E9%A1%B9%E7%9B%AE/</guid>
       <description>推荐系统的终极优化目标应包括两个维度：一个维度是用户体验的优化，另一个维度是满足公司的商业利益。对一个健康的商业模式来说，这两个维度应该是和</description>
-    </item>
-    
-    <item>
-      <title>十分钟读完数学之美</title>
-      <link>https://biofrostyy.github.io/2021/06/10%E5%88%86%E9%92%9F%E8%AF%BB%E5%AE%8C%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/</link>
-      <pubDate>Thu, 10 Jun 2021 21:21:34 +0800</pubDate>
-      
-      <guid>https://biofrostyy.github.io/2021/06/10%E5%88%86%E9%92%9F%E8%AF%BB%E5%AE%8C%E6%95%B0%E5%AD%A6%E4%B9%8B%E7%BE%8E/</guid>
-      <description>本书基本上算是我自然语言处理方向的启蒙读物，虽然之后研究生读了机器学习，没有选择自然语言处理，但是无论是在学习中还是工作中，都还是会接触一些</description>
     </item>
     
   </channel>
