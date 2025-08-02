@@ -39,7 +39,7 @@
 <meta itemprop="name" content="机器学习/数据挖掘校招知识点整理">
 <meta itemprop="description" content="背景 hello hello，想必大家都是从小红书因为这一篇来到我的主页的，我就置顶了，这是我2021年校招的时候和同学一起总结的知识点，也算是帮助了很"><meta itemprop="datePublished" content="2025-08-01T17:47:31+08:00" />
 <meta itemprop="dateModified" content="2025-08-01T17:47:31+08:00" />
-<meta itemprop="wordCount" content="114">
+<meta itemprop="wordCount" content="1215">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="机器学习/数据挖掘校招知识点整理"/>
 <meta name="twitter:description" content="背景 hello hello，想必大家都是从小红书因为这一篇来到我的主页的，我就置顶了，这是我2021年校招的时候和同学一起总结的知识点，也算是帮助了很"/>
@@ -316,8 +316,8 @@ function tagCloud(where, min, max) {
   <a class="article-category-link" href="/categories/%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD/"> 因果推断 </a>
 </span>
 
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 114 words</span>
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 1 minutes </span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">Word Count: 1215 words</span>
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">Read Time: 3 minutes </span>
       </div>
     </div>
     <div class="article-entry marked-body js-toc-content" itemprop="articleBody">
@@ -325,7 +325,237 @@ function tagCloud(where, min, max) {
 <p>hello hello，想必大家都是从小红书因为这一篇来到我的主页的，我就置顶了，这是我2021年校招的时候和同学一起总结的知识点，也算是帮助了很多线上线下的同学，非常荣幸！</p>
 <p><a href="https://github.com/Biofrostyy/Biofrostyy.github.io/blob/master/REVIEW%20DOCUMENT%20-%20Google%20Docs.pdf">https://github.com/Biofrostyy/Biofrostyy.github.io/blob/master/REVIEW%20DOCUMENT%20-%20Google%20Docs.pdf</a></p>
 <p><a href="https://github.com/Biofrostyy/Biofrostyy.github.io/blob/master/REVIEW%20DOCUMENT%20-%20Google%20Docs.pdf" title="https://github.com/Biofrostyy/Biofrostyy.github.io/blob/master/REVIEW%20DOCUMENT%20-%20Google%20Docs.pdf">REVIEW DOCUMENT - Google Docs.pdf</a></p>
-<p>另一篇推荐算法的发展总结图在git中，大家自取～</p>
+<p>共127页 每一块都有知识点及针对性的笔面试模拟题，文档较大建议直接下载</p>
+<h3 id="目录整理">目录整理</h3>
+<h4 id="1-数据准备">1. 数据准备</h4>
+<ul>
+<li><strong>缺失值处理</strong>
+<ul>
+<li>缺失机制：MCAR、MAR、NNAR</li>
+<li>处理方法：
+<ul>
+<li>删除：简单删除法、权重法</li>
+<li>填补：均值填充、特殊值填充、同类均值插补、K近邻、回归、多重插补等</li>
+</ul>
+</li>
+<li>各种插补方法的比较（优点、缺点、适用环境）</li>
+</ul>
+</li>
+<li><strong>异常值处理</strong>
+<ul>
+<li>判断方法：简单统计分析、3σ原则、箱型图分析</li>
+<li>处理方法：删除、视为缺失值、平均值修正、不处理</li>
+</ul>
+</li>
+<li><strong>样本不平衡问题</strong>
+<ul>
+<li>影响：过拟合、评估指标不理想</li>
+<li>解决方法：
+<ul>
+<li>数据层面：欠采样、过采样、SMOTE算法</li>
+<li>算法层面：转化为异常值识别、调整分类算法、加权惩罚等</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-机器学习模型">2. 机器学习模型</h4>
+<ul>
+<li><strong>线性回归</strong>
+<ul>
+<li>基本概念与损失函数</li>
+<li>正则化：L1（Lasso）、L2（Ridge）</li>
+<li>优缺点</li>
+</ul>
+</li>
+<li><strong>逻辑回归</strong>
+<ul>
+<li>Sigmoid函数与概率建模</li>
+<li>损失函数：极大似然估计、交叉熵</li>
+<li>多分类问题：Softmax函数</li>
+<li>正则化与过拟合</li>
+<li>优缺点</li>
+</ul>
+</li>
+<li><strong>决策树</strong>
+<ul>
+<li>ID3：信息增益</li>
+<li>C4.5：信息增益比</li>
+<li>CART：基尼系数、回归树</li>
+<li>剪枝策略</li>
+</ul>
+</li>
+<li><strong>集成学习</strong>
+<ul>
+<li>Bagging：随机森林</li>
+<li>Boosting：AdaBoost、GBDT、XGBoost、LightGBM</li>
+<li>优缺点对比</li>
+</ul>
+</li>
+<li><strong>聚类分析</strong>
+<ul>
+<li>K-means：算法流程、K值选择、优缺点</li>
+<li>EM算法与GMM</li>
+<li>层次聚类：分裂法、凝聚法</li>
+</ul>
+</li>
+<li><strong>朴素贝叶斯</strong>
+<ul>
+<li>基本思想与公式</li>
+<li>拉普拉斯平滑</li>
+<li>优缺点</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-模型评估">3. 模型评估</h4>
+<ul>
+<li><strong>交叉验证</strong>
+<ul>
+<li>LOOCV（留一法）</li>
+<li>K折交叉验证</li>
+</ul>
+</li>
+<li><strong>混淆矩阵</strong>
+<ul>
+<li>TP、FP、FN、TN</li>
+<li>准确率、精确率、召回率、F1值</li>
+</ul>
+</li>
+<li><strong>ROC曲线与AUC</strong>
+<ul>
+<li>TPR与FPR</li>
+<li>多分类问题的ROC</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-统计基础">4. 统计基础</h4>
+<ul>
+<li><strong>概率分布</strong>
+<ul>
+<li>正态分布、卡方分布、t分布、F分布</li>
+<li>二项分布、泊松分布、指数分布、几何分布、超几何分布</li>
+</ul>
+</li>
+<li><strong>假设检验</strong>
+<ul>
+<li>单总体检验、双总体检验</li>
+<li>类型I错误与类型II错误</li>
+</ul>
+</li>
+<li><strong>置信区间与假设检验</strong>
+<ul>
+<li>类型 I 错误与类型 II 错误</li>
+<li>效应量与样本量的关系</li>
+</ul>
+</li>
+<li><strong>概率论</strong>
+<ul>
+<li>朴素贝叶斯法
+<ul>
+<li>公式与应用示例</li>
+<li>拉普拉斯平滑</li>
+<li>优缺点</li>
+</ul>
+</li>
+<li>常见概率问题
+<ul>
+<li>汽车颜色识别问题</li>
+<li>小偷失窃概率问题</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-业务分析">5. 业务分析</h4>
+<ul>
+<li><strong>A/B 测试</strong></li>
+<li><strong>CRISP-DM 模型</strong>
+<ul>
+<li>Business Understanding</li>
+<li>Data Understanding</li>
+<li>Data Preparation</li>
+<li>Modelling</li>
+<li>Business Validation</li>
+<li>Deployment</li>
+</ul>
+</li>
+<li><strong>数据化管理</strong>
+<ul>
+<li>管理层次</li>
+<li>业务逻辑</li>
+</ul>
+</li>
+<li><strong>AARRR 模型</strong>
+<ul>
+<li>Acquisition（获取用户）</li>
+<li>Activation（提高活跃度）</li>
+<li>Retention（提高留存率）</li>
+<li>Revenue（获取收入）</li>
+<li>Refer（自传播）</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-电商分析">6. 电商分析</h4>
+<ul>
+<li><strong>分析方向</strong>
+<ul>
+<li>流量分析（PV、UV、跳出率）</li>
+<li>用户分析（行为漏斗、复购率、留存率）</li>
+<li>商品分析（类目、转化率）</li>
+</ul>
+</li>
+<li><strong>RFM 用户价值模型</strong></li>
+<li><strong>案例分析</strong>
+<ul>
+<li>GMV 下滑分析</li>
+<li>用户流失分析</li>
+</ul>
+</li>
+</ul>
+<h4 id="7-大数据技术">7. 大数据技术</h4>
+<ul>
+<li><strong>Linux 基础操作</strong></li>
+<li><strong>Hive</strong>
+<ul>
+<li>基本概念与数据类型</li>
+<li>内部表与外部表</li>
+<li>数据导入导出</li>
+<li>Hive 优化</li>
+</ul>
+</li>
+<li><strong>Spark</strong>
+<ul>
+<li>特点与优势（与 Hadoop 对比）</li>
+<li>运行架构</li>
+</ul>
+</li>
+</ul>
+<h4 id="8-商业案例分析">8. 商业案例分析</h4>
+<ul>
+<li><strong>费米估算</strong>
+<ul>
+<li>加油站数量估算</li>
+<li>星巴克营业额估算</li>
+</ul>
+</li>
+<li><strong>产品改版效果评估</strong></li>
+<li><strong>恶意刷单检测</strong></li>
+<li><strong>社交电商分析</strong>
+<ul>
+<li>拼多多、小红书等平台特点</li>
+<li>微信生态对电商的影响</li>
+</ul>
+</li>
+<li><strong>指标体系搭建</strong>
+<ul>
+<li>关键指标选取</li>
+<li>AARRR 模型应用</li>
+<li>功能模块指标监控</li>
+</ul>
+</li>
+</ul>
+<p>还有一部分小伙伴是荐算法的发展总结图的帖子过来的，大家自取～
+<img src="/recommend.png" alt="image"></p>
 
     </div>
     <div class="article-footer">
